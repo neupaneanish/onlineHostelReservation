@@ -50,11 +50,7 @@ return [
             'driver' => 'session',
             'provider' => 'admins',
         ],
-<<<<<<< HEAD
-        'adnin-api' => [
-=======
         'admin-api' => [
->>>>>>> 8ecbce1f82c5323dfbbcb0d5029ebde07e799a46
             'driver' => 'token',
             'provider' => 'admins',
         ],

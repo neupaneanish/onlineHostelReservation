@@ -44,11 +44,11 @@
                     <ul class="navbar-nav mr-auto">
 
                         <li class="nav-item">
-                            <a class="nav-link" href="">{{ __('Hostel Management') }}</a>
+                            <a class="nav-link" href="/admin/hostel">{{ __('Hostel Management') }}</a>
                         </li>   
 
                         <li class="nav-item">
-                            <a class="nav-link" href="">{{ __('User Management') }}</a>
+                            <a class="nav-link" href="/admin/hostel/list">{{ __('User Management') }}</a>
                         </li>  
 
                     </ul>

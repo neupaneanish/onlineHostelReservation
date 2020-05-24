@@ -16,29 +16,23 @@
         <div class="add-hostel">
             <form class="needs-validation" novalidate>
                 <div class="form-row">
-                  <div class="col-md-4 mb-3">
-                    <label for="validationCustom01">First name</label>
-                    <input type="text" class="form-control" id="validationCustom01" placeholder="First name" value="Mark" required>
+                  <div class="col-md-12 mb-3">
+                    <label for="validationCustom01">Organization Name:</label>
+                    <input type="text" class="form-control" id="validationCustom01" placeholder="Organization Name" required>
                     <div class="valid-feedback">
                       Looks good!
                     </div>
                   </div>
-                  <div class="col-md-4 mb-3">
-                    <label for="validationCustom02">Last name</label>
-                    <input type="text" class="form-control" id="validationCustom02" placeholder="Last name" value="Otto" required>
-                    <div class="valid-feedback">
-                      Looks good!
-                    </div>
-                  </div>
-                  <div class="col-md-4 mb-3">
-                    <label for="validationCustomUsername">Username</label>
+                 
+                  <div class="col-md-12 mb-3">
+                    <label for="validationCustomUsername">Organization Email:</label>
                     <div class="input-group">
                       <div class="input-group-prepend">
                         <span class="input-group-text" id="inputGroupPrepend">@</span>
                       </div>
-                      <input type="text" class="form-control" id="validationCustomUsername" placeholder="Username" aria-describedby="inputGroupPrepend" required>
+                      <input type="text" class="form-control" id="validationCustomUsername" placeholder="email@email.com" aria-describedby="inputGroupPrepend" required>
                       <div class="invalid-feedback">
-                        Please choose a username.
+                        Please insert Email.
                       </div>
                     </div>
                   </div>
@@ -52,21 +46,21 @@
                     </div>
                   </div>
                   <div class="col-md-3 mb-3">
-                    <label for="validationCustom04">State</label>
-                    <input type="text" class="form-control" id="validationCustom04" placeholder="State" required>
+                    <label for="validationCustom04">Municipality:</label>
+                    <input type="text" class="form-control" id="validationCustom04" placeholder="Municipality" required>
                     <div class="invalid-feedback">
-                      Please provide a valid state.
+                      Please provide a valid Municipality.
                     </div>
                   </div>
                   <div class="col-md-3 mb-3">
-                    <label for="validationCustom05">Zip</label>
-                    <input type="text" class="form-control" id="validationCustom05" placeholder="Zip" required>
+                    <label for="validationCustom05">Ward:</label>
+                    <input type="text" class="form-control" id="validationCustom05" placeholder="Ward" required>
                     <div class="invalid-feedback">
-                      Please provide a valid zip.
+                      Please provide a ward.
                     </div>
                   </div>
                 </div>
-                <div class="form-group">
+                <!-- <div class="form-group">
                   <div class="form-check">
                     <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
                     <label class="form-check-label" for="invalidCheck">
@@ -76,7 +70,7 @@
                       You must agree before submitting.
                     </div>
                   </div>
-                </div>
+                </div> -->
                 <button class="btn btn-primary" type="submit">Submit form</button>
               </form>
               
