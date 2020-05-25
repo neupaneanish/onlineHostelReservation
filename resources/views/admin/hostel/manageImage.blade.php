@@ -7,14 +7,14 @@
             <h3>Quick Navigation</h3>
             <p>Hostel Management</p>
             <li><a href="">Add Hostel</a></li>
-            <li class = "active"><a href="">Hostels List</a></li>
-            <li><a href="">Manage Images</a></li>
+            <li><a href="">Hostels List</a></li>
+            <li class = "active"><a href="">Manage Images</a></li>
         </div>
     </div>
 
     <div class="col-sm-6 col-md-8 col-lg-9 left-section-container">
       <div class="add-hostel">
-        <h3>Hostel List</h3>
+        <h3>Manage Images</h3>
         <div class="list-hostel">
             <table class="table table-hover">
                 <thead>
@@ -33,8 +33,8 @@
                     <td>Otto</td>
                     <td>@mdo</td>
                     <td>
-                      <a class = "btn btn-primary" href = "#">Edit</a>
-                      <a class = "btn btn-danger" href = "#">Delete</a>
+                      <a class = "btn btn-primary" href = "#">Add Image</a>
+                      <a class = "btn btn-danger" href = "#">Edit Image</a>
 
                     </td>
                   </tr>

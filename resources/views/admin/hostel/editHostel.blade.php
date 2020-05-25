@@ -6,16 +6,15 @@
         <div class="quick-navigation">
             <h3>Quick Navigation</h3>
             <p>Hostel Management</p>
-            <li class = "active"><a href="">Add Hostel</a></li>
-            <li><a href="">Hostels List</a></li>
+            <li><a href="">Add Hostel</a></li>
+            <li class = "active"><a href="">Hostels List</a></li>
             <li><a href="">Manage Images</a></li>
         </div>
-      
 
     </div>
     <div class="col-sm-12 col-md-8 col-lg-9 left-section-container">
         <div class="add-hostel">
-          <h3>Add Hostel</h3>
+          <h3>Edit Hostel Information</h3>
             <form method="POST" action="/admin/hostel" class="needs-validation" novalidate>
             @csrf    
             <div class="form-row">
