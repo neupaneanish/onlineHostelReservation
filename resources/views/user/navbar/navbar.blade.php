@@ -36,7 +36,7 @@
     padding:0px;
 }
 .navigation {
-  padding: 24px 40px 24px 40px;;
+  padding: 24px 0px 24px 40px;
   box-shadow: 2px 4px 6px 2px rgba(0,0,0,.1), 0 12px 11px 2px rgba(0,0,0,.1);
 }
 
@@ -48,10 +48,25 @@
   z-index: 10;
   background-color: white;
 }
-.navigation li:nth-child(1){
+.user-account{
+  display:flex;
+  flex-direction: column;
+  width:150px;
+}
+
+.user-account img{
+  width:20%;
+  margin:auto;
+}
+
+.user-account a{
+  text-align: center;
+}
+
+.navigation li:first-child{
   list-style:none;
   text-transform: capitalize;
-
+  margin-top:-8px;
 }
 .navigation li:nth-child(1) a{
   color:#222222;
@@ -176,16 +191,27 @@ nav ul {
   height:100%;
   width:100%;
 }
-
 .seperator{
   width:40%;
 }
+.front-end-user-container{
+  height:20px;
+  width:25px;
+}
 
+.front-end-user-container img{
+  width:100%;
+  height:100%;
+}
+
+.dropdown-toggle{
+  white-space: normal;
+}
 
 @media (max-width: 1200px) {
   .non-responsive{
   width:100%;
-  padding: 0px 0px 0px 110px;
+  padding: 0px 0px 0px 90px;
 }
 .seperator{
   width:35%;
@@ -207,6 +233,31 @@ nav ul {
 
 }
 
+@media (max-width:992px){
+  .navigation{
+    padding: 24px 0px 24px 20px;
+  }
+
+  .navigation li:first-child{
+  margin-top:2px;
+  z-index:12;
+}
+
+.navigation li:first-child a{
+  padding-right: 12px;
+  padding-left: 4px;
+}
+
+.frontend-logo-container{
+  margin-left:-4px;
+  height:50px;
+  width:80px;
+  z-index:11;
+  box-shadow: unset;
+  transition: unset;
+}
+}
+
     </style>
 </head>
 <body>
@@ -217,7 +268,10 @@ nav ul {
         <div class="container navigation-bar">
             <nav class="navigation">
             {{-- <h2>@</h2> --}}
-            <li class="nav-item dropdown">
+            <li class="nav-item dropdown user-account">
+           
+                <img height="20px" width="25px" src="{{asset('images/account.svg')}}" alt="" srcset="">
+           
               <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                   {{ Auth::user()->name }} <span class="caret"></span>
               </a>

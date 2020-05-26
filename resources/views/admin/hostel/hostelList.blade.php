@@ -6,9 +6,9 @@
     <div class="quick-navigation">
             <h3>Quick Navigation</h3>
             <p>Hostel Management</p>
-            <li><a href="/admin/hostel/create">Add Hostel</a></li>
-            <li class = "active"><a href="/admin/hostel">Hostels List</a></li>
-            <li><a href="/admin/hostel/manageImage">Manage Images</a></li>
+            <a href="/admin/hostel/create"><li>Add Hostel</li></a>
+            <a href="/admin/hostel"><li class = "active">Hostels List</li></a>
+            <a href="/admin/hostel/manageImage"><li>Manage Images</li></a>
         </div>
     </div>
 
@@ -49,6 +49,7 @@
                     </td>
                     <td>
                       <a class = "btn btn-primary ml-2 mb-1" href = "/admin/hostel/edit/{{$hostel->id}}">Edit</a>
+                      <a class = "btn btn-danger" href = "#">More Details</a>
                       <a class = "btn btn-danger" href = "#">Delete</a>
 
                     </td>

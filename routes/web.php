@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('layouts.fcm');
+    return view('welcome');
 });
 Auth::routes();
 Route::group(['prefix'=>'/user','middleware'=>'auth'],function() {

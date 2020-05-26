@@ -6,7 +6,7 @@
         <div class="quick-navigation">
             <h3>Quick Navigation</h3>
             <p>Users Management</p>
-            <li class = "active"><a href="/admin/user">View Users</a></li>
+            <a href="/admin/user"><li class = "active">View Users</li></a>
     
         </div>
     </div>

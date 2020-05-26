@@ -128,6 +128,16 @@
             font-size:18px;
             color:#4d4848;
         }
+
+        .quick-navigation a{
+            color:#4d4848;
+            font-size:14px;
+           font-weight:600;
+        }
+        .quick-navigation a:hover{
+            text-decoration:none;
+            color:white;
+        }
         .quick-navigation li {
             display:flex;
             justify-content: center;
@@ -137,7 +147,7 @@
             text-decoration:none;
             background:#dce2f7;
             margin-bottom:8px;
-            transition:500ms;
+            transition:350ms;
         }
 
         .quick-navigation li:hover {
@@ -273,6 +283,44 @@
     }
     
     /* admin editiamges css ends  */
+
+    /* admin userdetails css starts  */
+
+
+    .user-details-image-container{
+        height:350px;
+        width:100%;
+        postion:relative;
+    }
+    .user-details-image-container img{
+        height:100%;
+        width:100%;
+        postion:absolute;
+    }
+
+    .info-container {
+        display:flex;
+    }
+
+    .info-container p:first-child{
+        font-size:16px;
+        font-weight:700;
+    }
+    
+    .info-container p:nth-child(2){
+        font-size:16px;
+    }
+    .info-container p{
+        padding-left:16px;
+        padding-right:32px;
+    }
+    .user-details-heading{
+        padding:16px;
+        padding-top:4px;
+    }
+
+
+    /* admin userdetails css ends  */
 
     </style>
     <meta charset="utf-8">

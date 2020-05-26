@@ -6,9 +6,9 @@
         <div class="quick-navigation">
             <h3>Quick Navigation</h3>
             <p>Hostel Management</p>
-            <li><a href="">Add Hostel</a></li>
-            <li><a href="">Hostels List</a></li>
-            <li class = "active"><a href="">Manage Images</a></li>
+            <a href=""><li>Add Hostel</li></a>
+            <a href=""><li>Hostels List</li></a>
+            <a href=""><li class = "active">Manage Images</li></a>
         </div>
     </div>
 
