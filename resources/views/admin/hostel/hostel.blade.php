@@ -6,9 +6,9 @@
         <div class="quick-navigation">
             <h3>Quick Navigation</h3>
             <p>Hostel Management</p>
-            <li class = "active"><a href="">Add Hostel</a></li>
-            <li><a href="">Hostels List</a></li>
-            <li><a href="">Manage Images</a></li>
+            <li class = "active"><a href="/admin/hostel/create">Add Hostel</a></li>
+            <li><a href="/admin/hostel">Hostels List</a></li>
+            <li><a href="/admin/hostel/manageImage">Manage Images</a></li>
         </div>
       
 
@@ -16,7 +16,7 @@
     <div class="col-sm-12 col-md-8 col-lg-9 left-section-container">
         <div class="add-hostel">
           <h3>Add Hostel</h3>
-            <form method="POST" action="/admin/hostel" class="needs-validation" novalidate>
+            <form method="POST" action="/admin/hostel/create" class="needs-validation" novalidate>
             @csrf    
             <div class="form-row">
                   <div class="col-md-12 mb-3">
@@ -50,7 +50,7 @@
                   </div>
                   <div class="col-md-3 mb-3">
                     <label for="validationCustom04">Municipality:</label>
-                    <input type="text" class="form-control" name="Municipality" id="validationCustom04" placeholder="Municipality" required>
+                    <input type="text" class="form-control" name="municipality" id="validationCustom04" placeholder="Municipality" required>
                     <div class="invalid-feedback">
                       Please provide a valid Municipality.
                     </div>
@@ -91,10 +91,7 @@
                 <div class="col-md-6 mb-3">
                     <label for="validationCustomPhone">Phone:</label>
                     <div class="input-group">
-                      <!-- <div class="input-group-prepend">
-                        <span class="input-group-text" id="inputGroupPrepend">@</span>
-                      </div> -->
-                      <input type="text" class="form-control" name="phone" id="validationCustomPhone" aria-describedby="inputGroupPrepend" required>
+                      <input type="number" class="form-control" name="phone" id="validationCustomPhone" aria-describedby="inputGroupPrepend" required>
                       <div class="invalid-feedback">
                         Please insert Phone.
                       </div>
@@ -104,10 +101,7 @@
                   <div class="col-md-6 mb-3">
                     <label for="validationCustomContact">Contact:</label>
                     <div class="input-group">
-                      <!-- <div class="input-group-prepend">
-                        <span class="input-group-text" id="inputGroupPrepend">@</span>
-                      </div> -->
-                      <input type="text" class="form-control" name="contact" id="validationCustomContact" aria-describedby="inputGroupPrepend" required>
+                      <input type="number" class="form-control" name="contact" id="validationCustomContact" aria-describedby="inputGroupPrepend" required>
                       <div class="invalid-feedback">
                         Please insert Contact.
                       </div>

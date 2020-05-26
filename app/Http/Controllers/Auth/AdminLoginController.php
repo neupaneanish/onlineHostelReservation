@@ -28,7 +28,7 @@ class AdminLoginController extends Controller
         // return redirect('/admin');
         // ->intended(route('admin'));
       } 
-      return redirect()->back()->withInput($request->only('email', 'remember'));
+      return redirect('/admin/login')->with('status','Credentials not Match')->with('email',$request->email);
     }
     public function logout()
     {

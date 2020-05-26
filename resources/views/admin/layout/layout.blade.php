@@ -318,7 +318,7 @@
                         </li>   
 
                         <li class="nav-item">
-                            <a class="nav-link" href="/admin/hostel/list">{{ __('User Management') }}</a>
+                            <a class="nav-link" href="/admin/user">{{ __('User Management') }}</a>
                         </li>  
 
                     </ul>

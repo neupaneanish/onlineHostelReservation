@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>hostel.com</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -67,7 +67,7 @@
 <body>
     <div id="app">
         <div class="logo-image">
-            <a class="navbar-brand" href="{{ url('/') }}">
+            <a class="navbar-brand">
             <img src="{{asset('images/logo.png')}}" alt="" srcset="">
             </a>
         </div>

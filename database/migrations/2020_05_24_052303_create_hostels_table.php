@@ -19,7 +19,7 @@ class CreateHostelsTable extends Migration
             $table->string('city');
             $table->string('municipality');
             $table->string('ward_no'); 
-            $table->string('address');
+            // $table->string('address');
             $table->string('phone');
             $table->string('contact');
             $table->integer('type');

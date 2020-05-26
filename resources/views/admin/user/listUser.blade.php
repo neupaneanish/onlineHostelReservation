@@ -6,7 +6,7 @@
         <div class="quick-navigation">
             <h3>Quick Navigation</h3>
             <p>Users Management</p>
-            <li class = "active"><a href="">View Users</a></li>
+            <li class = "active"><a href="/admin/user">View Users</a></li>
     
         </div>
     </div>
@@ -18,20 +18,19 @@
             <table class="table table-hover">
                 <thead>
                   <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
+                    <th scope="col">S/N</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Address</th>
                     <th scope="col">Action</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
                     <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
+                    <td>hello</td>
+                    <td>hello</td>
                     <td>
+                    <a class = "btn btn-primary" href = "#">View More</a>
                       <a class = "btn btn-danger" href = "#">Delete</a>
                     </td>
                   </tr>

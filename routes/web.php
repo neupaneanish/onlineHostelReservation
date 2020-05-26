@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('layouts.fcm');
 });
 Auth::routes();
 Route::group(['prefix'=>'/user','middleware'=>'auth'],function() {
@@ -27,11 +27,21 @@ Route::POST('/admin/login','Auth\AdminLoginController@login');
 
 Route::group(['prefix'=>'/admin'],function() {
 
-Route::get('/','AdminController@index')->name('admin');
+Route::get('/','Admin\AdminController@list')->name('admin');
 Route::get('/logout','Auth\AdminLoginController@logout');
 Route::get('/register','Auth\AdminRegisterController@showRegisterForm');
 Route::post('/register','Auth\AdminRegisterController@register');
-Route::get('/hostel','AdminController@hostel'); 
+Route::get('/hostel/create','Admin\AdminController@hostelAdd'); 
+Route::POST('/hostel/create','Admin\AdminController@create');
+Route::get('/hostel','Admin\AdminController@list');
+Route::get('/hostel/edit/{id}','Admin\AdminController@editForm');
+Route::get('/hostel/manageImage','Admin\ImageController@image'); 
+Route::get('/hostel/images/{id}','Admin\ImageController@displayImage'); 
+Route::get('/hostel/addImage/{id}','Admin\ImageController@imageAddForm'); 
+Route::post('/hostel/addImage','Admin\ImageController@imageUpload'); 
+// Route::get('/hostel/display/{id}','Admin\ImageController@displayImage'); 
+
+Route::get('/user','Admin\HostelUserController@index');
 });
 
 
