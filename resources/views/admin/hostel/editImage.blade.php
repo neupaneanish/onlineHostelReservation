@@ -2,7 +2,7 @@
 @section('content')
 <div class="container-fluid">
 <div class="row">
-    <div class="col-sm-6 c0l-md-4 col-lg-3 quick-navigation-parent">
+    <div class="col-sm-12 col-md-4 col-lg-3 quick-navigation-parent">
         <div class="quick-navigation">
             <h3>Quick Navigation</h3>
             <p>Hostel Management</p>
@@ -12,14 +12,14 @@
         </div>
     </div>
 
-    <div class="col-sm-6 col-md-8 col-lg-9 left-section-container">
+    <div class="col-sm-12 col-md-8 col-lg-9 left-section-container">
       <div class="add-hostel">
         <h3>--Name of the Organization</h3>
         <div class="list-hostel">
         <div class="row">
             <div class="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 image-cards">
                 <div class="hostel-image-container">
-                    <img src="{{asset('images/bedroom1.jpg')}}" alt="" srcset="">
+                    <img src="{{asset('images/6.jpg')}}" alt="" srcset="">
                     <div class="image-overlay"></div>
                     <button class = "btn btn-danger">Delete</button>
                 </div>

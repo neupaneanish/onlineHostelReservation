@@ -8,28 +8,17 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>Hostel.com</title>
-<link rel="stylesheet" href="{{asset('css/home.css')}}">
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-    <!-- Popper JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-
-    <!-- Latest compiled JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="{{asset('css/home.css')}}">
 
     <!-- Scripts -->
-    {{-- <script src="{{ asset('js/app.js') }}" defer></script> --}}
+    <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
-    {{-- <link rel="dns-prefetch" href="//fonts.gstatic.com"> --}}
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <style>
       body{
         overflow-x:hidden;
@@ -47,11 +36,9 @@
     padding:0px;
 }
 .navigation {
-  padding: 24px 40px;
+  padding: 24px 40px 24px 40px;;
   box-shadow: 2px 4px 6px 2px rgba(0,0,0,.1), 0 12px 11px 2px rgba(0,0,0,.1);
-
 }
-
 
 .navigation {
   position: relative;
@@ -61,13 +48,23 @@
   z-index: 10;
   background-color: white;
 }
-.navigation h2{
-  margin-left:auto;
+.navigation li:nth-child(1){
+  list-style:none;
+  text-transform: capitalize;
+
+}
+.navigation li:nth-child(1) a{
+  color:#222222;
+  font-size:14px;
+  font-weight:700;
+  padding-top:0px;
+  letter-spacing: 2px;
 }
 .navigation h1 {
   text-transform: uppercase;
   font-size: 16px;
   letter-spacing: 2px;
+  margin-right:auto;
 }
 
 .navigation button {
@@ -79,8 +76,7 @@
   outline: none;
 }
 
-.navigation button,
-.navigation ul {
+.navigation button {
   margin-right: auto;
 }
 
@@ -157,6 +153,46 @@ nav ul {
   top: 100% !important;
 }
 
+.non-responsive{
+  width:100%;
+  padding: 0px 40px 0px 160px;
+}
+
+.frontend-logo-container{
+  height:125px;
+  width:200px;
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50% ,-50%);
+  background:white;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+.frontend-logo-container:hover{
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+.frontend-logo-container img{
+  height:100%;
+  width:100%;
+}
+
+.seperator{
+  width:40%;
+}
+
+
+@media (max-width: 1200px) {
+  .non-responsive{
+  width:100%;
+  padding: 0px 0px 0px 110px;
+}
+.seperator{
+  width:35%;
+}
+ 
+}
+
 @media (min-width: 1024px) {
   nav button,
   .responsive-nav {
@@ -198,7 +234,7 @@ nav ul {
                   </form>
               </div>
           </li>
-                <h1>Navigation Bar</h1>
+                {{-- <h1>Navigation Bar</h1> --}}
                 <button id="navbar-button">
                 <span></span>
                 <span></span>
@@ -207,11 +243,18 @@ nav ul {
                 <ul class = "non-responsive">
                     <li><a href="#">home</a></li>
                     <li><a href="#">hostels</a></li>
+                    <li class="seperator"></li>
+                    <div class="frontend-logo-container">
+                    <img src="{{asset('images/logo.png')}}" alt="" srcset="">
+                    </div>
                     <li><a href="#">my bookings</a></li>
                     <li><a href="#">about us</a></li>
                 </ul>
             </nav>
             <div class="responsive-container">
+              <div class="frontend-logo-container">
+                <img src="{{asset('images/logo.png')}}" alt="" srcset="">
+              </div>
             <ul class="responsive-nav">
                 <li><a href="#">home</a></li>
                 <li><a href="#">hostels</a></li>

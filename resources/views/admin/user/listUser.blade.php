@@ -2,13 +2,12 @@
 @section('content')
 <div class="container-fluid">
 <div class="row">
-    <div class="col-sm-12 c0l-md-4 col-lg-3 quick-navigation-parent">
+    <div class="col-sm-12 col-md-4 col-lg-3 quick-navigation-parent">
         <div class="quick-navigation">
             <h3>Quick Navigation</h3>
-            <p>Hostel Management</p>
-            <li><a href="">Add Hostel</a></li>
-            <li class = "active"><a href="">Hostels List</a></li>
-            <li><a href="">Manage Images</a></li>
+            <p>Users Management</p>
+            <li class = "active"><a href="">View Users</a></li>
+    
         </div>
     </div>
 
@@ -33,9 +32,7 @@
                     <td>Otto</td>
                     <td>@mdo</td>
                     <td>
-                      <a class = "btn btn-primary" href = "#">Edit</a>
                       <a class = "btn btn-danger" href = "#">Delete</a>
-
                     </td>
                   </tr>
               
