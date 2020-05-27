@@ -9,6 +9,8 @@
 
     <title>Hostel.com</title>
     <link rel="stylesheet" href="{{asset('css/home.css')}}">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
+    <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -207,6 +209,23 @@ nav ul {
 .dropdown-toggle{
   white-space: normal;
 }
+
+/* slider css starts  */
+.swiper-container {
+ width: 100%;
+ height: 350px;
+}
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+}
+.swiper-slide img{
+  height:100%;
+  width:100%;
+}
+
+/* slider css ends  */
 
 @media (max-width: 1200px) {
   .non-responsive{

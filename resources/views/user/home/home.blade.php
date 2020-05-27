@@ -2,7 +2,9 @@
 @section('content')
 
 <div class="image-container">
-    <div class="image"></div>
+    <div class="image">
+    <img src="{{asset('images/bedroom1.jpg')}}" alt="" srcset="">
+    </div>
 </div>
 <div class="container search-tab">
 <h3>Check Availability</h3>
@@ -35,12 +37,60 @@
 
 </div>
 </div>
-<div class="container">
-    <div class="row">
+<div class="container-fluid boys-hostel-swiper">
+
+     <!-- Swiper -->
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+          <img src="{{asset('images/6.jpg')}}" alt="" srcset="">
+      </div>
+      <div class="swiper-slide">
+          <img src="{{asset('images/bedroom1.jpg')}}" alt="" srcset="">
+      </div>
+      <div class="swiper-slide">
+          <img src="{{asset('images/6.jpg')}}" alt="" srcset="">
+      </div>
+      <div class="swiper-slide">
+          <img src="{{asset('images/6.jpg')}}" alt="" srcset="">
+      </div>
+      <div class="swiper-slide">
+          <img src="{{asset('images/6.jpg')}}" alt="" srcset="">
+      </div>
+      <div class="swiper-slide">
+          <img src="{{asset('images/6.jpg')}}" alt="" srcset="">
+      </div>
+      <div class="swiper-slide">
+          <img src="{{asset('images/6.jpg')}}" alt="" srcset="">
+      </div>
+      <div class="swiper-slide">
+          <img src="{{asset('images/6.jpg')}}" alt="" srcset="">
+      </div>
+      <div class="swiper-slide">
+          <img src="{{asset('images/6.jpg')}}" alt="" srcset="">
+      </div>
+      <div class="swiper-slide">
+          <img src="{{asset('images/6.jpg')}}" alt="" srcset="">0</div>
+    </div>
+    <!-- Add Pagination -->
+    <div class="swiper-pagination"></div>
+  </div>
+  
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+        slidesPerView: 3,
+        spaceBetween: 30,
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        });
+    </script>
+    {{-- <div class="row">
         <div class="col-12 .col-xs-12 .col-sm-12 .col-md-6 col-lg-4 col-xl-4">
             <div class="card-container">
                 <div class="photo-container">
-                    {{-- <img src="{{asset('images/bedroom1.jpg')}} " alt="" srcset=""> --}}
+                
                 </div>
                 <div class="details-container">
            
@@ -53,7 +103,7 @@
         <div class="col-12 .col-xs-12 .col-sm-12 .col-md-6 col-lg-4 col-xl-4">
             
         </div>
-    </div>
+    </div> --}}
 </div>
 
 @endsection
