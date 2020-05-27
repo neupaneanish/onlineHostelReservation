@@ -287,6 +287,14 @@ nav ul {
         <div class="container navigation-bar">
             <nav class="navigation">
             {{-- <h2>@</h2> --}}
+            @guest
+            <li class="nav-item user-account">
+            <img height="20px" width="25px" src="{{asset('images/account.svg')}}" alt="" srcset="">
+            <a  class="nav-link" href="/login">
+                  Login <span class="caret"></span>
+              </a>
+              </li>
+            @else
             <li class="nav-item dropdown user-account">
            
                 <img height="20px" width="25px" src="{{asset('images/account.svg')}}" alt="" srcset="">
@@ -307,6 +315,7 @@ nav ul {
                   </form>
               </div>
           </li>
+          @endguest
                 {{-- <h1>Navigation Bar</h1> --}}
                 <button id="navbar-button">
                 <span></span>

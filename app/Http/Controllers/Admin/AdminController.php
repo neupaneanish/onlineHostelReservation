@@ -54,6 +54,29 @@ class AdminController extends Controller
             $hostels = Hostel::all();
         }
         return view('',['hostels'=>$hostels]);
-
     } 
+    public function update(Request $request,$id){
+        $hostel = Hostel::findorFail($id);
+
+        $hostel->name = $request->name;
+        $hostel->email = $request->email;
+        $hostel->city = $request->city;
+        $hostel->municipality = $request->municipality;
+        $hostel->ward = $request->ward;
+        $hostel->phone = $request->phone;
+        $hostel->contact = $request->contact;
+        $hostel->type = $request->type;
+        $hostel->totalRoom = $request->room;
+        $hostel->save(); 
+        return redirect('/admin')->with('status','Hostel details has been Updated.');  
+
+    }
+    public function delete($id){
+        Hostel::findorFail($id)->delete();
+        return redirect('/admin')->with('status','Hostel has been deleted.');
+    }
+    public function detail($id){
+        $hostel = Hostel::findorFail($id);
+        return view('admin.hostel.hostelDetails',['hostel'=>$hostel]);
+    }
 }

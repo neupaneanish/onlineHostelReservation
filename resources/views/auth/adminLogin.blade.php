@@ -15,13 +15,17 @@
                             <label for="email" class="col-md-12 col-form-label text-md-left">{{ __('E-Mail Address') }}</label>
 
                             <div class="col-md-12">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ session('email') }}" required autocomplete="email" autofocus>
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
+                                @if(session('status'))
+                                    <strong style="color:red">{{ session('status') }}</strong>
+                                </p>
+                                @endif
                             </div>
                         </div>
 

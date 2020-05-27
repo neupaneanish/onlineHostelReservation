@@ -1,7 +1,8 @@
 <?php
 
+use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,11 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@index')->name('home');
 Auth::routes();
-Route::group(['prefix'=>'/user','middleware'=>'auth'],function() {
+Route::group(['prefix'=>'/user'],function() {
 // Route::get('/admin',)
 
 Route::get('/', 'HomeController@index')->name('home');
@@ -27,21 +26,28 @@ Route::POST('/admin/login','Auth\AdminLoginController@login');
 
 Route::group(['prefix'=>'/admin'],function() {
 
-Route::get('/','Admin\AdminController@list')->name('admin');
-Route::get('/logout','Auth\AdminLoginController@logout');
-Route::get('/register','Auth\AdminRegisterController@showRegisterForm');
-Route::post('/register','Auth\AdminRegisterController@register');
-Route::get('/hostel/create','Admin\AdminController@hostelAdd'); 
-Route::POST('/hostel/create','Admin\AdminController@create');
-Route::get('/hostel','Admin\AdminController@list');
-Route::get('/hostel/edit/{id}','Admin\AdminController@editForm');
-Route::get('/hostel/manageImage','Admin\ImageController@image'); 
-Route::get('/hostel/images/{id}','Admin\ImageController@displayImage'); 
-Route::get('/hostel/addImage/{id}','Admin\ImageController@imageAddForm'); 
-Route::post('/hostel/addImage','Admin\ImageController@imageUpload'); 
+Route::get('/','Admin\AdminController@list')->name('admin');//home page of admin
+Route::get('/logout','Auth\AdminLoginController@logout');//logout
+Route::get('/register','Auth\AdminRegisterController@showRegisterForm');//show register form
+Route::post('/register','Auth\AdminRegisterController@register');//register admin
+Route::get('/hostel/create','Admin\AdminController@hostelAdd'); //hostel's create form
+Route::POST('/hostel/create','Admin\AdminController@create');//add Hostel 
+Route::get('/hostel','Admin\AdminController@list');//list of Hostel
+Route::get('/hostel/edit/{id}','Admin\AdminController@editForm');//show hostle's update form
+Route::post('/hostel/edit/{id}','Admin\AdminController@update');//Hostel information Update
+Route::get('/hostel/manageImage','Admin\ImageController@image'); //manage image of hostel
+Route::get('/hostel/images/{id}','Admin\ImageController@displayImage'); // Show Hostel's images 
+Route::get('/hostel/addImage/{id}','Admin\ImageController@imageAddForm'); //show file insert page
+Route::post('/hostel/addImage','Admin\ImageController@imageUpload'); //Hostel Image Upload
+Route::DELETE('/hostel/delete/{id}','Admin\AdminController@delete');//Hostel Delete
+Route::DELETE('/image/delete/{id}','Admin\ImageController@delete');//hostle Image Delete
+Route::get('/hostel/detail/{id}','Admin\AdminController@detail');//hostel detail page show
 // Route::get('/hostel/display/{id}','Admin\ImageController@displayImage'); 
 
 Route::get('/user','Admin\HostelUserController@index');
+Route::get('/user/{id}','Admin\HostelUserController@userList');
+Route::get('/user/view/{id}','Admin\HostelUserController@userDetail');
+
 });
 
 

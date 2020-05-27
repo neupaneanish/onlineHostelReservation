@@ -6,9 +6,9 @@
         <div class="quick-navigation">
             <h3>Quick Navigation</h3>
             <p>Hostel Management</p>
-            <a href="/admin/hostel/create"><li>Add Hostel</li></a>
-            <a href="/admin/hostel"><li>Hostels List</li></a>
-            <a href="/admin/hostel/manageImage"><li class = "active">Manage Images</li></a>
+            <li><a href="/admin/hostel/create">Add Hostel</a></li>
+            <li><a href="/admin/hostel">Hostels List</a></li>
+            <li class = "active"><a href="/admin/hostel/manageImage">Manage Images</a></li>
         </div>
     </div>
 
@@ -21,11 +21,11 @@
                   <tr>
                   <th scope="col">S/N</th>
                     <th scope="col">Hostel Name</th>
-                    <th scope="col">Hostel Email</th>
+                    <!-- <th scope="col">Hostel Email</th>
                     <th scope="col">Address</th>
                     <th scope="col">Phone</th>
                     <th scope="col">Contact</th>
-                    <th scope="col">Hostel Type</th>
+                    <th scope="col">Hostel Type</th> -->
                     <th scope="col">Action</th>
                   </tr>
                 </thead>
@@ -35,7 +35,7 @@
                     @foreach($hostels as $hostel)
                     <th class="fw-600">{{$loop->iteration}}</th>
                     <td class="fw-600">{{ $hostel->name }}</td>
-                    <td class="fw-600"> {{$hostel->email}} </td>
+                    <!-- <td class="fw-600"> {{$hostel->email}} </td>
                     <td scope="col"> {{$hostel->city}}&nbsp;{{$hostel->municipality}}-{{$hostel->ward}} </td>
                     <td scope="col"> {{$hostel->phone}} </td>
                     <td scope="col"> {{$hostel->contact}} </td>
@@ -46,10 +46,10 @@
                           @else
                           Boys and Girls Hostel
                           @endif
-                    </td>
+                    </td> -->
                     <td class="fw-600">
-                      <a class = "btn btn-primary btn-sm mb-1" href = "/admin/hostel/addImage/{{$hostel->id}}">Add Image</a>
-                      <a class = "btn btn-danger btn-sm" href = "/admin/hostel/images/{{$hostel->id}}">View Image</a>
+                      <a class = "btn btn-primary btn-sm " href = "/admin/hostel/addImage/{{$hostel->id}}">Add Image</a>
+                      <a class = "btn btn-primary btn-sm" href = "/admin/hostel/images/{{$hostel->id}}">View Image</a>
 
                     </td>
                     @endforeach

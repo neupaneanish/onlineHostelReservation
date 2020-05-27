@@ -51,4 +51,13 @@ public function displayImage($id){
 // return $nmae;
 return view('admin.images.viewImage',['images'=>$images,'name'=>$name]);
 }
+public function delete($id){
+    $image = Hostelimage::findorFail($id);
+    $image->delete();
+    $img = explode('::',$image->image);
+    $name = implode('',$img);
+    $path = public_path().'/uploads/'.$name;
+    @unlink($path);
+    return redirect('/admin/hostel/images/'.$image->hostel_id)->with('Status','Hostel image has been Deleted');
+}
 }
