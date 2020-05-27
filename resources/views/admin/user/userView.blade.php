@@ -19,24 +19,22 @@
                 <thead>
                   <tr>
                     <th scope="col">S/N</th>
-                    <th scope="col">Hostel Name</th>
+                    <th scope="col">User Name</th>
                     <th scope="col">Address</th>
                     <th scope="col">Action</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    @if(!empty($users))
-                    @foreach($users as $user)
-                    <th scope="row">{{$loop->iteration}}</th>
-                    <td>{{$user->name}}</td>
-                    <td>{{$user->city}},{{$user->municipality}}-{{$user->ward}}</td>
+
+                    <th scope="row">1</th>
+                    <td>Name of User</td>
+                    <td>Address of User</td>
                     <td>
-                    <a class = "btn btn-primary" href = "/admin/user/{{$user->id}}">View Users</a>
-                      <!-- <a class = "btn btn-danger" href = "#">Delete</a> -->
+                        <a class = "btn btn-primary" href ="/admin/user/view/1">View Details</a>
+                        <a class = "btn btn-danger" href = "#">Delete</a>
                     </td>
-                    @endforeach
-                    @endif
+
                   </tr>
               
                 </tbody>

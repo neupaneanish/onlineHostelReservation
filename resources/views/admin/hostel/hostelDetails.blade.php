@@ -24,38 +24,49 @@
             <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
                 <div class = "user-details-info-container">
                     <div class="info-container">
-                        <p>Full Name :</p>
-                        <p>Nitesh Bahadur Thapa</p>
+                        <p>Hostel Name      :</p>
+                        <p>     {{$hostel->name}}</p>
                     </div>
                     <div class="info-container">
-                        <p>Age :</p>
-                        <p>24</p>
+                        <p> Email Address   :</p>
+                        <p>     {{$hostel->email}}</p>
                     </div>
                     <div class="info-container">
-                        <p>Contacts :</p>
-                        <p>9811111111</p>
+                        <p>City             :</p>
+                        <p>     {{$hostel->city}}</p>
                     </div>
                     <div class="info-container">
-                        <p>Address :</p>
-                        <p>Nawalparasi,Devchuli-17</p>
+                        <p>Address          :</p>
+                        <p>     {{$hostel->municipality}}-{{$hostel->ward}}</p>
                     </div>
                     <div class="info-container">
-                        <p>Email Address :</p>
-                        <p>Niteshthapa7799@gmail.com</p>
+                        <p>Hostel Type      :</p>
+                        <p>
+                            @if($hostel->type== 0 )
+                            Boys Hostel
+                            @elseif($hostel->type== 1 )
+                            Girls Hostel
+                            @else
+                            Boys and Girls Hostel
+                            @endif
+                        </p>
                     </div>
                     <div class="info-container">
-                        <p>Hostel Types :</p>
-                        <p>Boys Hostel</p>
+                        <p>Total no. of Rooms:</p>
+                        <p>{{$hostel->totalRoom}}</p>
+                    </div>
+                <div class="info-container">
+                        <p>Total no of Student :</p>
+                        <p>200</p>
                     </div>
                     <div class="info-container">
-                        <p>Total no. of Rooms :</p>
-                        <p>32</p>
-                    </div>
-                    <div class="info-container">
-                        <p>Account Created</p>
-                        <p>2020/05/26 17:32:32</p>
+                        <p>Account Created      :</p>
+                        <p>{{$hostel->created_at}}</p>
                     </div>
                 </div>
+                
+                <a class = "btn btn-primary ml-2 mr-2 mb-1" href = "/admin/hostel/edit/{{$hostel->id}}">Edit</a>
+                
             </div>
         </div>
     </div>

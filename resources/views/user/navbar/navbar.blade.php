@@ -9,6 +9,8 @@
 
     <title>Hostel.com</title>
     <link rel="stylesheet" href="{{asset('css/home.css')}}">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
+    <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -208,6 +210,23 @@ nav ul {
   white-space: normal;
 }
 
+/* slider css starts  */
+.swiper-container {
+ width: 100%;
+ height: 350px;
+}
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+}
+.swiper-slide img{
+  height:100%;
+  width:100%;
+}
+
+/* slider css ends  */
+
 @media (max-width: 1200px) {
   .non-responsive{
   width:100%;
@@ -268,6 +287,14 @@ nav ul {
         <div class="container navigation-bar">
             <nav class="navigation">
             {{-- <h2>@</h2> --}}
+            @guest
+            <li class="nav-item user-account">
+            <img height="20px" width="25px" src="{{asset('images/account.svg')}}" alt="" srcset="">
+            <a  class="nav-link" href="/login">
+                  Login <span class="caret"></span>
+              </a>
+              </li>
+            @else
             <li class="nav-item dropdown user-account">
            
                 <img height="20px" width="25px" src="{{asset('images/account.svg')}}" alt="" srcset="">
@@ -288,6 +315,7 @@ nav ul {
                   </form>
               </div>
           </li>
+          @endguest
                 {{-- <h1>Navigation Bar</h1> --}}
                 <button id="navbar-button">
                 <span></span>

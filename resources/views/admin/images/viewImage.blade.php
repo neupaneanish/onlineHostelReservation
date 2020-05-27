@@ -13,6 +13,13 @@
     </div>
 
     <div class="col-sm-6 col-md-8 col-lg-9 left-section-container">
+    @if(session('Status'))
+
+<div class="list-hostel">
+  <h3>{{session('Status')}}</h3>
+</div>
+
+@endif
       <div class="add-hostel">
         <h3>--{{$name->name}}</h3>
         <div class="list-hostel">
@@ -23,9 +30,12 @@
             <div class="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 image-cards">
                 <div class="hostel-image-container">
                     <img src="{{asset('/uploads/'.$image->image)}}" alt="" srcset="">
-                    <!-- <img src="{{asset('uploads/$image')}}" alt="" srcset=""> -->
                     <div class="image-overlay"></div>
-                    <button class = "btn btn-danger">Delete</button>
+                    <form action="/admin/image/delete/{{$image->id}}" method="post">
+                        @method('DELETE')
+                        @csrf
+                    <button type="submit" class = "btn btn-danger">Delete</button>
+                    </form>
                 </div>
             </div>
             @endforeach
