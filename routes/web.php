@@ -34,7 +34,7 @@ Route::get('/hostel/create','Admin\AdminController@hostelAdd'); //hostel's creat
 Route::POST('/hostel/create','Admin\AdminController@create');//add Hostel 
 Route::get('/hostel','Admin\AdminController@list');//list of Hostel
 Route::get('/hostel/edit/{id}','Admin\AdminController@editForm');//show hostle's update form
-Route::post('/hostel/edit/{id}','Admin\AdminController@update');//Hostel information Update
+Route::PATCH('/hostel/edit/{id}','Admin\AdminController@update');//Hostel information Update
 Route::get('/hostel/manageImage','Admin\ImageController@image'); //manage image of hostel
 Route::get('/hostel/images/{id}','Admin\ImageController@displayImage'); // Show Hostel's images 
 Route::get('/hostel/addImage/{id}','Admin\ImageController@imageAddForm'); //show file insert page
@@ -45,8 +45,15 @@ Route::get('/hostel/detail/{id}','Admin\AdminController@detail');//hostel detail
 // Route::get('/hostel/display/{id}','Admin\ImageController@displayImage'); 
 
 Route::get('/user','Admin\HostelUserController@index');
-Route::get('/user/{id}','Admin\HostelUserController@userList');
+// Route::get('/user/{id}','Admin\HostelUserController@userView');
 Route::get('/user/view/{id}','Admin\HostelUserController@userDetail');
+Route::DELETE('/user/delete/{id}','Admin\HostelUserController@userDelete');
+Route::get('/hostel/room/{id}','Admin\HostelRoomController@roomAddForm');
+Route::post('/hostel/room/{id}','Admin\HostelRoomController@roomAdd');
+Route::get('/hostel/room/view/{id}','Admin\HostelRoomController@roomShow');
+Route::get('/room/view/detail/{id}','Admin\HostelRoomController@details');
+Route::get('/room/delete/{id}','Admin\HostelRoomController@deleteRoom');
+
 
 });
 

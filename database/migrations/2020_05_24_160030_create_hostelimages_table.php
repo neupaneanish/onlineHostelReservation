@@ -18,6 +18,7 @@ class CreateHostelimagesTable extends Migration
             $table->integer('hostel_id')->unsigned();
             $table->foreign('hostel_id')->references('id')->on('hostels')->onDelete('cascade')->onUpdate('cascade');
             $table->string('image');
+            $table->integer('type');
             $table->timestamps();
         });
     }

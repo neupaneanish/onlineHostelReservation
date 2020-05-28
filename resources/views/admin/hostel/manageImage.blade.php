@@ -30,9 +30,9 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                  @if(!empty($hostels))
+                @if(!empty($hostels))
                     @foreach($hostels as $hostel)
+                  <tr>
                     <th class="fw-600">{{$loop->iteration}}</th>
                     <td class="fw-600">{{ $hostel->name }}</td>
                     <!-- <td class="fw-600"> {{$hostel->email}} </td>
@@ -52,10 +52,10 @@
                       <a class = "btn btn-primary btn-sm" href = "/admin/hostel/images/{{$hostel->id}}">View Image</a>
 
                     </td>
-                    @endforeach
-                    @endif
+                    
                   </tr>
-              
+                  @endforeach
+                    @endif             
                 </tbody>
               </table>
               

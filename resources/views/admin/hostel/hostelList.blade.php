@@ -37,9 +37,10 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                  @if(!empty($hostels))
+                  
+                @if(!empty($hostels))
                     @foreach($hostels as $hostel)
+                    <tr>
                     <th scope="row">{{$loop->iteration}}</th>
                     <td>{{ $hostel->name }}</td>
                     <td> {{$hostel->email}} </td>
@@ -65,9 +66,9 @@
                      </form>
                      </div>
                     </td>
-                    @endforeach
-                    @endif
                   </tr>
+                  @endforeach
+                    @endif
               
                 </tbody>
               </table>

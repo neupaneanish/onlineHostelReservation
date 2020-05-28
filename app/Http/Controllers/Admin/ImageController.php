@@ -26,7 +26,7 @@ class ImageController extends Controller
         // return $request->file('image');
         $this->validate($request, [
             'image' =>'required',
-            'image.*' => 'mimes:jpeg,png,jpg|max:2048'
+            'image.*' => 'mimes:jpeg,png,jpg,svg|max:2048'
     ]);
 
     $images = array();
@@ -37,7 +37,8 @@ class ImageController extends Controller
             $data[] = $name; 
             Hostelimage::create([
                     'hostel_id'=>$request->id,
-                    'image' => $name
+                    'image' => $name,
+                    'type' => 1
                     ]);
             }
             
@@ -58,6 +59,6 @@ public function delete($id){
     $name = implode('',$img);
     $path = public_path().'/uploads/'.$name;
     @unlink($path);
-    return redirect('/admin/hostel/images/'.$image->hostel_id)->with('Status','Hostel image has been Deleted');
+    return redirect('/admin/hostel/images/'.$image->hostel_id)->with('Status','Hostel image has been Deleted.');
 }
 }

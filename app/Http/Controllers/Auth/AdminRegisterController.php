@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Validator;
 class AdminRegisterController extends Controller
 {
     public function __construct(){
-        $this->middleware('guest:admin');
+        $this->middleware('auth:admin');
     }
     public function showRegisterForm()
     {
@@ -22,8 +22,8 @@ class AdminRegisterController extends Controller
     public function register(Request $request){
         $this->validate($request,[
             'name'=>'required','string', 'max:255',
-            'email'=>'required', 'string', 'email', 'max:255', 'unique:users',
-            'password'=>'required', 'string', 'min:8', 'confirmed',
+            'email'=>'required|string|email|max:255|unique:admins',
+            'password'=>'required|string|min:8|confirmed',
 
         ]);
         Admin::create([

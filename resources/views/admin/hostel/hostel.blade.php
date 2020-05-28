@@ -16,12 +16,12 @@
     <div class="col-sm-12 col-md-8 col-lg-9 left-section-container">
         <div class="add-hostel">
           <h3>Add Hostel</h3>
-            <form method="POST" action="/admin/hostel/create" class="needs-validation" novalidate>
+            <form method="POST" action="/admin/hostel/create" class="needs-validation" novalidate enctype="multipart/form-data">
             @csrf    
             <div class="form-row">
                   <div class="col-md-12 mb-3">
                     <label for="validationCustom01">Organization Name:</label>
-                    <input type="text" name ="name" class="form-control" id="validationCustom01" placeholder="Organization Name" required>
+                    <input type="text" name ="name" value="{{old('name')}}" class="form-control" id="validationCustom01" placeholder="Organization Name" required>
                     <div class="invalid-feedback">
                       Insert Organization Name
                     </div>
@@ -33,7 +33,7 @@
                       <!-- <div class="input-group-prepend">
                         <span class="input-group-text" id="inputGroupPrepend">@</span>
                       </div> -->
-                      <input type="text" class="form-control" name="email" id="validationCustomUsername" placeholder="email@email.com" aria-describedby="inputGroupPrepend" required>
+                      <input type="text" class="form-control" value="{{old('email')}}" name="email" id="validationCustomUsername" placeholder="email@email.com" aria-describedby="inputGroupPrepend" required>
                       <div class="invalid-feedback">
                         Please insert Email.
                       </div>
@@ -43,21 +43,21 @@
                 <div class="form-row">
                   <div class="col-md-6 mb-3">
                     <label for="validationCustom03">City</label>
-                    <input type="text" name="city" class="form-control" id="validationCustom03" placeholder="City" required>
+                    <input type="text" name="city" value="{{old('city')}}" class="form-control" id="validationCustom03" placeholder="City" required>
                     <div class="invalid-feedback">
                       Please provide a valid city.
                     </div>
                   </div>
                   <div class="col-md-3 mb-3">
                     <label for="validationCustom04">Municipality:</label>
-                    <input type="text" class="form-control" name="municipality" id="validationCustom04" placeholder="Municipality" required>
+                    <input type="text" class="form-control" name="municipality" value="{{old('municipality')}}" id="validationCustom04" placeholder="Municipality" required>
                     <div class="invalid-feedback">
                       Please provide a valid Municipality.
                     </div>
                   </div>
                   <div class="col-md-3 mb-3">
                     <label for="validationCustom05">Ward:</label>
-                    <input type="text" class="form-control" name="ward" id="validationCustom05" placeholder="Ward" required>
+                    <input type="text" class="form-control" name="ward" value="{{old('ward')}}" id="validationCustom05" placeholder="Ward" required>
                     <div class="invalid-feedback">
                       Please provide a ward.
                     </div>
@@ -80,7 +80,7 @@
                   <div class="col-md-6 mb-3">
                     <label for="validationCustomRoom"> No of Room:</label>
                     <div class="input-group">
-                      <input type="number" class="form-control" name="room" id="validationCustomRoom" aria-describedby="inputGroupPrepend" required>
+                      <input type="number" class="form-control" name="room" value="{{old('room')}}" id="validationCustomRoom" aria-describedby="inputGroupPrepend" required>
                       <div class="invalid-feedback">
                         Please insert Number of Room.
                       </div>
@@ -91,7 +91,7 @@
                 <div class="col-md-6 mb-3">
                     <label for="validationCustomPhone">Phone:</label>
                     <div class="input-group">
-                      <input type="number" class="form-control" name="phone" id="validationCustomPhone" aria-describedby="inputGroupPrepend" required>
+                      <input type="number" class="form-control" name="phone" value="{{old('phone')}}" id="validationCustomPhone" aria-describedby="inputGroupPrepend" required>
                       <div class="invalid-feedback">
                         Please insert Phone.
                       </div>
@@ -101,10 +101,25 @@
                   <div class="col-md-6 mb-3">
                     <label for="validationCustomContact">Contact:</label>
                     <div class="input-group">
-                      <input type="number" class="form-control" name="contact" id="validationCustomContact" aria-describedby="inputGroupPrepend" required>
+                      <input type="number" class="form-control" name="contact" value="{{old('contact')}}" id="validationCustomContact" aria-describedby="inputGroupPrepend" required>
                       <div class="invalid-feedback">
                         Please insert Contact.
                       </div>
+                    </div>
+                  </div>
+                  <div class="col-md-12 mb-3">
+                    <label for="validationCustomDescription">Description:</label>
+                    <div class="input-group">
+                      <textarea class="form-control" rows="5" name="desc" value="{{old('desc')}}" id="validationCustomContact" aria-describedby="inputGroupPrepend" required></textarea>
+                      <div class="invalid-feedback">
+                        Please insert Description.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-12 mb-3">
+                  <label for="image">Hostel Profile:</label>
+                  <div class="input-group">
+                      <input type="file" name="image" class="form-control">
                     </div>
                   </div>
                 </div>

@@ -25,9 +25,9 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    @if(!empty($users))
+                @if(!empty($users))
                     @foreach($users as $user)
+                  <tr>
                     <th scope="row">{{$loop->iteration}}</th>
                     <td>{{$user->name}}</td>
                     <td>{{$user->city}},{{$user->municipality}}-{{$user->ward}}</td>
@@ -35,10 +35,9 @@
                     <a class = "btn btn-primary" href = "/admin/user/{{$user->id}}">View Users</a>
                       <!-- <a class = "btn btn-danger" href = "#">Delete</a> -->
                     </td>
-                    @endforeach
-                    @endif
                   </tr>
-              
+                  @endforeach
+                    @endif              
                 </tbody>
               </table>
               

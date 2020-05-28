@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 use App\users\Hostel;
+use App\users\Room;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\users\Hostelimage;
 
 class AdminController extends Controller
 {
@@ -21,7 +23,19 @@ class AdminController extends Controller
         return view('admin.hostel.hostelList',['hostels'=>$hostels]);
     }
     public function create(Request $request){
-    //    return $request->contact;
+        // return request()->image;
+        $this->validate($request, [
+            'image' => 'nullable|mimes:jpeg,png,jpg,svg|image|max:2048'
+    ]);
+    //    return request()->image;
+    if(empty(request()->image)){
+        $name = null;
+    }
+    $file = request()->image;
+    $name = time().'.'.request()->image->getClientOriginalExtension();
+    // return $name;
+    $file->move(public_path().'/uploads/', $name);
+
         Hostel::create([
             'name' => $request->name,
             'email' => $request->email,
@@ -31,7 +45,18 @@ class AdminController extends Controller
             'phone' => $request->phone,
             'contact' => $request->contact,
             'type' => $request->type,
+            'description'=>$request->desc,
+            'image' => $name,   
             'totalRoom' => $request->room,
+        ]);
+        $hostel = Hostel::where('email',$request->email)->first();
+       $id = explode('::',$hostel->id);
+        $hostelid = implode('',$id);
+        // return $hostelid;
+        Hostelimage::create([
+            'hostel_id'=>$hostelid,
+            'image'=>$name,
+            'type' => 0
         ]);
         return redirect('/admin');
     }
@@ -56,6 +81,9 @@ class AdminController extends Controller
         return view('',['hostels'=>$hostels]);
     } 
     public function update(Request $request,$id){
+        $this->validate($request, [
+            'image' => 'nullable|image|mimes:jpeg,jpg,png,svg|max:2048'
+    ]);
         $hostel = Hostel::findorFail($id);
 
         $hostel->name = $request->name;
@@ -66,14 +94,36 @@ class AdminController extends Controller
         $hostel->phone = $request->phone;
         $hostel->contact = $request->contact;
         $hostel->type = $request->type;
+        $hostel->description = $request->desc;
+        if(!empty(request()->image)){
+            $file = request()->image;
+            $name = time().'.'.request()->image->getClientOriginalExtension();
+            $file->move(public_path().'/uploads/', $name);
+            $hostel->image = $name;
+            Hostelimage::create([
+                'hostel_id'=>$id,
+                'image'=>$name,
+                'type' => 0
+            ]);
+        }
         $hostel->totalRoom = $request->room;
         $hostel->save(); 
+
         return redirect('/admin')->with('status','Hostel details has been Updated.');  
 
     }
     public function delete($id){
         Hostel::findorFail($id)->delete();
-        return redirect('/admin')->with('status','Hostel has been deleted.');
+        Room::where('hostel_id',$id)->delete();
+       $images = Hostelimage::where('hostel_id',$id);
+       foreach($images as $image){
+        $img = explode('::',$image->image);
+        $name = implode('',$img);
+        $path = public_path().'/uploads/'.$name;
+        @unlink($path);
+       }
+       Hostelimage::where('hostel_id',$id)->delete();
+       return redirect('/admin')->with('status','Hostel has been deleted.');
     }
     public function detail($id){
         $hostel = Hostel::findorFail($id);

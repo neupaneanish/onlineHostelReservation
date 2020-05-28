@@ -18,7 +18,11 @@
         <div class="row">
             <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
                 <div class="user-details-image-container">
+                    @if(!empty($hostel->image))
+                <img src="{{asset('/uploads/'.$hostel->image)}}" alt="{{asset('/images/'.'6.jpg')}}" srcset="">
+                @else
                 <img src="{{asset('images/6.jpg')}}" alt="" srcset="">
+                @endif
                 </div>
             </div>
             <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
@@ -60,12 +64,19 @@
                         <p>200</p>
                     </div>
                     <div class="info-container">
+                        <p>Description      :</p>
+                        <p>{{$hostel->description}}</p>
+                    </div>
+                    <div class="info-container">
                         <p>Account Created      :</p>
                         <p>{{$hostel->created_at}}</p>
                     </div>
                 </div>
                 
                 <a class = "btn btn-primary ml-2 mr-2 mb-1" href = "/admin/hostel/edit/{{$hostel->id}}">Edit</a>
+                <a class = "btn btn-primary ml-2 mr-2 mb-1" href = "/admin/hostel/room/{{$hostel->id}}">Add Room</a>
+                <a class = "btn btn-primary ml-2 mr-2 mb-1" href = "/admin/hostel/room/view/{{$hostel->id}}">View Room</a>
+
                 
             </div>
         </div>

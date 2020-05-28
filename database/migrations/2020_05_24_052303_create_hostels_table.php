@@ -16,13 +16,15 @@ class CreateHostelsTable extends Migration
         Schema::create('hostels', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->string('email')->unique();
             $table->string('city');
             $table->string('municipality');
             $table->string('ward_no'); 
-            // $table->string('address');
             $table->string('phone');
             $table->string('contact');
             $table->integer('type');
+            $table->text('description');
+            $table->string('image');
             $table->integer('totalRoom');
             $table->timestamps();
         });

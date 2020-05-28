@@ -19,24 +19,33 @@
                 <thead>
                   <tr>
                     <th scope="col">S/N</th>
-                    <th scope="col">User Name</th>
+                    <th scope="col">Name </th>
                     <th scope="col">Address</th>
                     <th scope="col">Action</th>
                   </tr>
                 </thead>
                 <tbody>
+                  
+                  @if(!empty($users))
+                  @foreach($users as $user)
                   <tr>
-
-                    <th scope="row">1</th>
-                    <td>Name of User</td>
-                    <td>Address of User</td>
+                    <th scope="row">{{$loop->iteration}}</th>
+                    <td>{{$user->name}}</td>
+                    <td>{{$user->Address}}</td>
                     <td>
-                        <a class = "btn btn-primary" href ="/admin/user/view/1">View Details</a>
-                        <a class = "btn btn-danger" href = "#">Delete</a>
+                      <div class="row">
+                        <a class = "btn btn-primary" href ="/admin/user/view/{{$user->id}}">View Details</a>
+                        <form action="/admin/user/delete/{{$user->id}}" method="post">
+                        @method('DELETE')
+                        @csrf
+                        <button type="submit" class = "ml-2 btn btn-danger" >Delete</button>
+                      </form>
+                      </div>
                     </td>
 
                   </tr>
-              
+                  @endforeach
+              @endif
                 </tbody>
               </table>
               

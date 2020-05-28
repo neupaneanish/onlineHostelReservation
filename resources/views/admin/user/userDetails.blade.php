@@ -22,17 +22,18 @@
             </div>
             <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
                 <div class = "user-details-info-container">
+                    
                     <div class="info-container">
                         <p>Full Name :</p>
-                        <p>Nitesh Bahadur Thapa</p>
+                        <p>{{$user->name}}</p>
                     </div>
                     <div class="info-container">
-                        <p>Age :</p>
-                        <p>24</p>
+                        <p>Email :</p>
+                        <p>{{$user->email}}</p>
                     </div>
-                    <div class="info-container">
-                        <p>Contacts :</p>
-                        <p>9811111111</p>
+                    <!-- <div class="info-container">
+                        <p>Address :</p>
+                        <p>{{$user->address}}</p>
                     </div>
                     <div class="info-container">
                         <p>Address :</p>
@@ -41,10 +42,10 @@
                     <div class="info-container">
                         <p>Email Address :</p>
                         <p>Niteshthapa7799@gmail.com</p>
-                    </div>
+                    </div> -->
                     <div class="info-container">
                         <p>Account Created</p>
-                        <p>2020/05/26 17:32:32</p>
+                        <p>{{$user->created_at}}</p>
                     </div>
                 </div>
             </div>
