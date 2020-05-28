@@ -4,8 +4,8 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\users\Hostelimage;
-use App\users\Hostel;
+use App\model\Hostelimage;
+use App\model\Hostel;
 
 class ImageController extends Controller
 {

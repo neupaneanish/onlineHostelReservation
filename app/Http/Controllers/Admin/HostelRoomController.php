@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\users\Room;
-use App\users\Hostel;
+use App\model\Room;
+use App\model\Hostel;
 use Illuminate\Support\Facades\DB;
 
 class HostelRoomController extends Controller

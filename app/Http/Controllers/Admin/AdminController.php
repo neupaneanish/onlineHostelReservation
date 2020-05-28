@@ -1,12 +1,12 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-use App\users\Hostel;
-use App\users\Room;
+use App\model\Hostel;
+use App\model\Room;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
-use App\users\Hostelimage;
+use App\model\Hostelimage;
 
 class AdminController extends Controller
 {
