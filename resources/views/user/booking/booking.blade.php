@@ -4,12 +4,12 @@
 <div class="container">
 <div class="booking-container">
     <div class="row">
-        <div class="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+        <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 booking-cards">
             <div class="booking-image-container">
             <img src="{{asset('images/6.jpg')}}" alt="" srcset="">
             </div>
         </div>
-        <div class="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-8 col-xl-8">
+        <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-8 col-xl-8 booking-cards">
             <div class="booking-text-container">
                 <p>Price Boys Hostel</p>
                 <p>Near Bhagwati Marga, Kathmandu</p>
@@ -66,12 +66,12 @@
                 <p id = "per-room">per room per month</p> 
                 </div>
                  <div class="booking-buttons">
-                    <a href="#"><button class = "view-details">View Details</button></a>
-                    <a href="#"><button class = "book-now">Book Now</button></a>  
+                    <a href="#"><button class = "view-details">View Details</button></a> 
                 </div> 
             </div> 
             </div>
     </div>
+</div>
 </div>
 </div>
 

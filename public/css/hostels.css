@@ -1,10 +1,11 @@
 .hostel-lists{
     margin-top:10%;
+    padding:40px 80px !important;
 }
 .hostel-lists p{
 	margin-top:16px;
 	margin-bottom:32px;
-	font-size:32px;
+	font-size:2em;
     font-weight:700;
 }
 
@@ -30,7 +31,7 @@
     margin:0px 0px;
 }
 .hostel-lists-text-section p:first-child{
- font-size:24px;
+ font-size:1.6em;
  font-weight:700;
  text-transform: capitalize;	
 }
@@ -63,10 +64,10 @@
  .hostel-lists-text-section .book-now{
      margin-top:16px;
      margin-left:8px;
-     padding:4px 24px 4px 24px;
-     font-size:16px;
+     padding:1% 5% 1% 5%;
+     font-size:1em;
      background:#138739;
-     border:1.7px solid #222222 !important;
+     border:1.7px solid #138739 !important;
      font-weight:600;
      color:white;
  }
@@ -77,10 +78,24 @@
 
  .view-details{
     margin-top:16px;
-    padding:4px 24px 4px 24px;
-    font-size:16px;
+    padding:1% 5% 1% 5%;
+    font-size:1em;
     background:#00adef;
-    border:1.7px solid #222222;
+    border:1.7px solid #00adef;
     font-weight:600;
     color:white;
+ }
+
+ @media(max-width:1024px){
+     .hostel-lists{
+         padding:20px 10px !important;
+         margin-top:20%;
+     }
+    .hostel-lists-division{
+        width:100%;
+        height:425px;
+        position:relative;
+        margin:16px 0px;
+        z-index:-1;
+    }
  }

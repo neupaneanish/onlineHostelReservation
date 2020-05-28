@@ -4,7 +4,7 @@
     <p id = "hostel-lists-heading">Hostels Available From Kathmandu</p>
 
   <div class="row hostel-lists-container">
-      <div class="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-3 col-xl-3 hostel-lists-division">
+      <div class="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 hostel-lists-division">
           <a href = "#"><img src="{{asset('images/6.jpg')}}" alt="" srcset=""></a>
           <div class="hostel-lists-text-section">
             <p>prince boys hostel</p>
@@ -16,7 +16,7 @@
             <a href="#"><button class = "book-now">Book Now</button></a>
          </div>
       </div>
-          <div class="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-3 col-xl-3 hostel-lists-division">
+          <div class="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 hostel-lists-division">
           <a href = "#"><img src="{{asset('images/6.jpg')}}" alt="" srcset=""></a>
           <div class="hostel-lists-text-section">
             <p>prince boys hostel</p>
@@ -29,7 +29,7 @@
           
         </div>
       </div>
-          <div class="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-3 col-xl-3 hostel-lists-division">
+          <div class="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 hostel-lists-division">
           <a href = "#"><img src="{{asset('images/6.jpg')}}" alt="" srcset=""></a>
           <div class="hostel-lists-text-section">
             <p>prince boys hostel</p>
@@ -41,7 +41,7 @@
             <a href="#"><button class = "book-now">Book Now</button></a>
         </div>
       </div>
-          <div class="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-3 col-xl-3 hostel-lists-division">
+          <div class="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 hostel-lists-division">
           <a href = "#"><img src="{{asset('images/6.jpg')}}" alt="" srcset=""></a>
           <div class="hostel-lists-text-section">
             <p>prince boys hostel</p>
@@ -53,7 +53,7 @@
             <a href="#"><button class = "book-now">Book Now</button></a>
         </div>
       </div>
-          <div class="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-3 col-xl-3 hostel-lists-division">
+          <div class="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 hostel-lists-division">
           <a href = "#"><img src="{{asset('images/6.jpg')}}" alt="" srcset=""></a>
           <div class="hostel-lists-text-section">
             <p>prince boys hostel</p>
@@ -65,7 +65,7 @@
             <a href="#"><button class = "book-now">Book Now</button></a>
         </div>
       </div>
-          <div class="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-3 col-xl-3 hostel-lists-division">
+          <div class="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 hostel-lists-division">
           <a href = "#"><img src="{{asset('images/6.jpg')}}" alt="" srcset=""></a>
           <div class="hostel-lists-text-section">
             <p>prince boys hostel</p>
@@ -77,7 +77,7 @@
             <a href="#"><button class = "book-now">Book Now</button></a>
         </div>
       </div>
-          <div class="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-3 col-xl-3 hostel-lists-division">
+          <div class="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 hostel-lists-division">
           <a href = "#"><img src="{{asset('images/6.jpg')}}" alt="" srcset=""></a>
           <div class="hostel-lists-text-section">
             <p>prince boys hostel</p>
@@ -89,7 +89,7 @@
             <a href="#"><button class = "book-now">Book Now</button></a>
         </div>
       </div>
-         <div class="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-3 col-xl-3 hostel-lists-division">
+         <div class="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 hostel-lists-division">
           <a href = "#"><img src="{{asset('images/6.jpg')}}" alt="" srcset=""></a>
           <div class="hostel-lists-text-section">
             <p>prince boys hostel</p>
@@ -101,7 +101,7 @@
             <a href="#"><button class = "book-now">Book Now</button></a>
         </div>
       </div>
-          <div class="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-3 col-xl-3 hostel-lists-division">
+          <div class="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 hostel-lists-division">
           <a href = "#"><img src="{{asset('images/6.jpg')}}" alt="" srcset=""></a>
           <div class="hostel-lists-text-section">
             <p>prince boys hostel</p>
@@ -113,7 +113,7 @@
             <a href="#"><button class = "book-now">Book Now</button></a>
         </div>
       </div>
-          <div class="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-3 col-xl-3 hostel-lists-division">
+          <div class="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 hostel-lists-division">
           <a href = "#"><img src="{{asset('images/6.jpg')}}" alt="" srcset=""></a>
           <div class="hostel-lists-text-section">
             <p>prince boys hostel</p>
