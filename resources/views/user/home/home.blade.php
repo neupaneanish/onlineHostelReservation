@@ -166,14 +166,14 @@
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev',
         },
-        autoplay: {
-        speed: 1,
-        disableOnInteraction: false,
-        },
         breakpoints: {
             // when window width is >= 993px
-            993: {
+            1350: {
             slidesPerView: 4,
+            spaceBetween: 30
+            },
+            993: {
+            slidesPerView: 3,
             spaceBetween: 30
             },
             768: {
@@ -328,14 +328,14 @@
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev',
         },
-        autoplay: {
-        speed: 2500,
-        disableOnInteraction: true,
-        },
         breakpoints: {
             // when window width is >= 993px
-            993: {
+            1350: {
             slidesPerView: 4,
+            spaceBetween: 30
+            },
+            993: {
+            slidesPerView: 3,
             spaceBetween: 30
             },
             768: {
