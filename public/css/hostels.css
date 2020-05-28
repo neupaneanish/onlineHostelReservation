@@ -1,0 +1,86 @@
+.hostel-lists{
+    margin-top:10%;
+}
+.hostel-lists p{
+	margin-top:16px;
+	margin-bottom:32px;
+	font-size:32px;
+    font-weight:700;
+}
+
+.hostel-lists-division{
+    width:100%;
+    height:425px;
+    position:relative;
+    margin:16px 0px;
+}
+
+.hostel-lists-division img{
+    height:50%;
+    width:100%;
+}
+
+.hostel-lists-text-section{
+    padding:12px 12px 12px 12px;
+    text-align:start;
+    background:#e9edf0;
+}
+
+.hostel-lists-text-section p{
+    margin:0px 0px;
+}
+.hostel-lists-text-section p:first-child{
+ font-size:24px;
+ font-weight:700;
+ text-transform: capitalize;	
+}
+.hostel-lists-text-section p:nth-child(2){
+    font-size:16px;
+    font-weight:400;
+    text-transform: capitalize;	
+}
+.hostel-lists-text-section p:nth-child(4){
+    font-size: 24px;
+    font-weight:800;
+    color:#ee2e24;
+    text-transform: uppercase;
+}
+.hostel-lists-text-section p:nth-child(5){
+ font-size: 12px;
+ font-weight:400;
+ text-transform: capitalize;	
+ line-height: 8px;
+ }
+ .verified-container{
+     padding:0px 4px 0px 4px;
+     font-size:12px;
+     background:#138739;
+     border:1px solid #138739;
+     font-weight:600;
+     color:white;
+ }
+
+ .hostel-lists-text-section .book-now{
+     margin-top:16px;
+     margin-left:8px;
+     padding:4px 24px 4px 24px;
+     font-size:16px;
+     background:#138739;
+     border:1.7px solid #222222 !important;
+     font-weight:600;
+     color:white;
+ }
+
+ #verified{
+     margin-right:2px;
+ }
+
+ .view-details{
+    margin-top:16px;
+    padding:4px 24px 4px 24px;
+    font-size:16px;
+    background:#00adef;
+    border:1.7px solid #222222;
+    font-weight:600;
+    color:white;
+ }

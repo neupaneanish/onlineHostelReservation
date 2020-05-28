@@ -1,9 +1,7 @@
 .search-tab{
-	top:80%;
-	left:50%;
-	position:absolute;
-	transform:translate(-50%,-50%);
+	position:relative;
 	padding:16px 64px 16px 64px!important;
+	margin-top:-7%;
 }
 
 .search-tab:after{
@@ -16,7 +14,7 @@
     content: "";
     opacity: 0.47;
 	z-index: -1;
-	border-radius:8px;
+	
 }
 
 .search-tab-row{
@@ -32,7 +30,6 @@
 .search-place{
 	padding:16px 16px 16px 16px !important;
 	background:white;
-	border-radius:8px;
 	margin-left:3%;
 }
 
@@ -55,7 +52,7 @@
 	color:white;
 	font-size:16px;
 	font-weight:600;
-	border-radius:8px;
+
 }
 
 .image{
@@ -79,6 +76,99 @@ height:100%;
 	border:1px solid;
 }
 
+/* slider css starts  */
+.hostel-swiper{
+	padding:40px 80px !important;
+
+}
+
+.hostel-swiper p{
+	margin-top:16px;
+	margin-bottom:32px;
+	font-size:32px;
+	font-weight:700;
+}
+   
+  .swiper-container {
+	width: 100%;
+	height: 425px;
+   }
+   
+   .swiper-slide {
+	 text-align: center;
+	 font-size: 18px;
+	 background: #fff;	
+	}
+
+   .swiper-slide img{
+	 height:50%;
+	 width:100%;
+   }
+   .swiper-button-prev {
+	opacity: 1;
+   }
+
+   .swiper-button-next {
+	opacity: 1;
+   }
+
+   .swiper-text-section{
+	   padding:12px 12px 12px 12px;
+	   text-align:start;
+	   background:#e9edf0;
+   }
+   
+   .swiper-text-section p{
+	   margin:0px 0px;
+   }
+   .swiper-text-section p:first-child{
+	font-size:24px;
+	font-weight:700;
+	text-transform: capitalize;	
+   }
+   .swiper-text-section p:nth-child(2){
+	   font-size:16px;
+	   font-weight:400;
+	   text-transform: capitalize;	
+   }
+   .swiper-text-section p:nth-child(4){
+	   font-size: 24px;
+	   font-weight:800;
+	   color:#ee2e24;
+	   text-transform: uppercase;
+   }
+   .swiper-text-section p:nth-child(5){
+	font-size: 12px;
+	font-weight:400;
+	text-transform: capitalize;	
+	line-height: 8px;
+	}
+	.verified-container{
+		padding:0px 4px 0px 4px;
+		font-size:12px;
+		background:#138739;
+		border:1px solid #138739;
+		font-weight:600;
+		color:white;
+	}
+
+	.book-now{
+		margin-top:16px;
+		padding:4px 24px 4px 24px;
+		font-size:16px;
+		background:#138739;
+		border:1px solid #138739;
+		font-weight:600;
+		color:white;
+	}
+
+	#verified{
+		margin-right:2px;
+	}
+
+
+   /* slider css ends  */
+
 
 /* media queries for responsive */
 @media (max-width:993px){
@@ -97,6 +187,9 @@ height:100%;
 	}
 	.search-tab h3 {
 		padding: 8px 8px 8px 8px !important;
+	}
+	.hostel-swiper {
+		padding: 20px 10px !important;
 	}
 }
 
