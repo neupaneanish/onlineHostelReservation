@@ -89,18 +89,18 @@ height:100%;
 	font-weight:700;
 }
    
-  .swiper-container {
+  .hostel-swiper-container {
 	width: 100%;
 	height: 425px;
    }
    
-   .swiper-slide {
+   .hostel-swiper-slide {
 	 text-align: center;
 	 font-size: 18px;
 	 background: #fff;	
 	}
 
-   .swiper-slide img{
+   .hostel-swiper-slide img{
 	 height:50%;
 	 width:100%;
    }
@@ -112,32 +112,32 @@ height:100%;
 	opacity: 1;
    }
 
-   .swiper-text-section{
+   .hostel-swiper-text-section{
 	   padding:12px 12px 12px 12px;
 	   text-align:start;
 	   background:#e9edf0;
    }
    
-   .swiper-text-section p{
+   .hostel-swiper-text-section p{
 	   margin:0px 0px;
    }
-   .swiper-text-section p:first-child{
+   .hostel-swiper-text-section p:first-child{
 	font-size:24px;
 	font-weight:700;
 	text-transform: capitalize;	
    }
-   .swiper-text-section p:nth-child(2){
+   .hostel-swiper-text-section p:nth-child(2){
 	   font-size:16px;
 	   font-weight:400;
 	   text-transform: capitalize;	
    }
-   .swiper-text-section p:nth-child(4){
+   .hostel-swiper-text-section p:nth-child(4){
 	   font-size: 24px;
 	   font-weight:800;
 	   color:#ee2e24;
 	   text-transform: uppercase;
    }
-   .swiper-text-section p:nth-child(5){
+   .hostel-swiper-text-section p:nth-child(5){
 	font-size: 12px;
 	font-weight:400;
 	text-transform: capitalize;	
@@ -166,6 +166,12 @@ height:100%;
 		margin-right:2px;
 	}
 
+	.swiper-button-next.swiper-button-disabled, 
+	.swiper-button-prev.swiper-button-disabled {
+		opacity: 0 !important;
+		cursor: auto;
+		pointer-events: none;
+	}
 
    /* slider css ends  */
 

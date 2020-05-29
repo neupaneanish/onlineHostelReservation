@@ -40,13 +40,13 @@
     <p>Boys Hostels</p>
      <!-- Swiper -->
 
-  <div class="swiper-container">
+  <div class="swiper-container hostel-swiper-container">
     <div class="swiper-wrapper">
       @if(!empty($boys))
       @foreach($boys as $boy)
-      <div class="swiper-slide">
+      <div class="swiper-slide hostel-swiper-slide">
           <a href = "#"><img src="{{asset('/uploads/'.$boy['image'])}}" alt="" srcset=""></a>
-          <div class="swiper-text-section">
+          <div class="hostel-swiper-text-section">
             <p>{{$boy['name']}}</p>
             <p> {{$boy['municipality']}}-{{$boy['ward']}},{{$boy['city']}} </p>
             <button class = "verified-container"> <img id = "verified" style = "width:15px;height:15px;" src="{{asset('images/tick.svg')}}" alt="" srcset=""> MyHostel Verified</button>
@@ -74,7 +74,7 @@
   </div>
   
     <script>
-        var swiper = new Swiper('.swiper-container', {
+        var swiper = new Swiper('.hostel-swiper-container', {
         slidesPerView: 1,
         spaceBetween: 30,
         freeMode: true,
@@ -107,13 +107,13 @@
 <div class="container-fluid hostel-swiper">
     <p>Girls Hostels</p>
      <!-- Swiper -->
-     <div class="swiper-container"></a>
+     <div class="swiper-container hostel-swiper-container1"></a>
         <div class="swiper-wrapper">
           @if(!empty($girls))
           @foreach($girls as $boy)
-          <div class="swiper-slide">
+          <div class="swiper-slide hostel-swiper-slide">
           <a href = "#"><img src="{{asset('/uploads/'.$boy['image'])}}" alt="" srcset=""></a>
-          <div class="swiper-text-section">
+          <div class="hostel-swiper-text-section">
             <p>{{$boy['name']}}</p>
             <p> {{$boy['municipality']}}-{{$boy['ward']}},{{$boy['city']}} </p>
             <button class = "verified-container"> <img id = "verified" style = "width:15px;height:15px;" src="{{asset('images/tick.svg')}}" alt="" srcset=""> MyHostel Verified</button>
@@ -141,7 +141,7 @@
       </div>
   
     <script>
-        var swiper = new Swiper('.swiper-container', {
+        var swiper = new Swiper('.hostel-swiper-container1', {
         slidesPerView: 1,
         spaceBetween: 30,
         freeMode: true,

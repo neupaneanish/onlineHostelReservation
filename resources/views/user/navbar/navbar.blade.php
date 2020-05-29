@@ -8,6 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>Hostel.com</title>
+    <link rel="stylesheet" href="{{asset('css/bookingDetails.css')}}">
     <link rel="stylesheet" href="{{asset('css/booking.css')}}">
     <link rel="stylesheet" href="{{asset('css/hostels.css')}}">
     <link rel="stylesheet" href="{{asset('css/home.css')}}">
