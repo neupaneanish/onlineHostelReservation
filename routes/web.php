@@ -14,12 +14,12 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', 'HomeController@index')->name('home');
+Route::get('/', 'Hostel\HostelController@index')->name('home');
 Auth::routes();
-Route::group(['prefix'=>'/user'],function() {
-// Route::get('/admin',)
-
-Route::get('/', 'HomeController@index')->name('home');
+Route::group(['prefix'=>'/hostel'],function() {
+// Route::get('/', 'HomeController@index')->name('home');
+Route::get('/','Hostel\HostelController@hostel');
+Route::get('/booking','Hostel\HostleController@Booking');
 });
 Route::get('/admin/login','Auth\AdminLoginController@showLoginForm')->name('admin.login');
 Route::POST('/admin/login','Auth\AdminLoginController@login');

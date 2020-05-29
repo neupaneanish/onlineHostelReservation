@@ -39,118 +39,34 @@
 <div class="container-fluid hostel-swiper">
     <p>Boys Hostels</p>
      <!-- Swiper -->
+
   <div class="swiper-container">
     <div class="swiper-wrapper">
+      @if(!empty($boys))
+      @foreach($boys as $boy)
       <div class="swiper-slide">
-          <a href = "#"><img src="{{asset('images/6.jpg')}}" alt="" srcset=""></a>
+          <a href = "#"><img src="{{asset('/uploads/'.$boy['image'])}}" alt="" srcset=""></a>
           <div class="swiper-text-section">
-            <p>prince boys hostel</p>
-            <p>Thamel, Kathmandu</p>
+            <p>{{$boy['name']}}</p>
+            <p> {{$boy['municipality']}}-{{$boy['ward']}},{{$boy['city']}} </p>
             <button class = "verified-container"> <img id = "verified" style = "width:15px;height:15px;" src="{{asset('images/tick.svg')}}" alt="" srcset=""> MyHostel Verified</button>
-            <p>NRP6999</p>
-            <p>per room per month</p>
+            <p>NRP:{{$boy['price']}}</p>
+            <p>@if($boy['room']==0)
+            Single Bed With Attached Bathroom
+              @elseif($boy['room']==1)
+              Single Bed With non-attached Bathroom
+              @elseif($boy['room']==2)
+              shared Bed With Attached Bathroom
+              @else
+              shared Bed With non-attached Bathroom
+              @endif
+             per month</p>
             <a href="#"><button class = "book-now">Book Now</button></a>
         </div>
       </div>
-      <div class="swiper-slide">
-        <a href = "#"><a href = "#"><img src="{{asset('images/bedroom1.jpg')}}" alt="" srcset=""></a>
-        <div class="swiper-text-section">
-            <p>prince boys hostel</p>
-            <p>Thamel, Kathmandu</p>
-            <button class = "verified-container"> <img id = "verified" style = "width:15px;height:15px;" src="{{asset('images/tick.svg')}}" alt="" srcset=""> MyHostel Verified</button>
-            <p>NRP6999</p>
-            <p>per room per month</p>
-            <a href="#"><button class = "book-now">Book Now</button></a>
-        </div>
-      </div>
-      <div class="swiper-slide">
-          <a href = "#"><img src="{{asset('images/6.jpg')}}" alt="" srcset=""></a>
-          <div class="swiper-text-section">
-            <p>prince boys hostel</p>
-            <p>Thamel, Kathmandu</p>
-            <button class = "verified-container"> <img id = "verified" style = "width:15px;height:15px;" src="{{asset('images/tick.svg')}}" alt="" srcset=""> MyHostel Verified</button>
-            <p>NRP6999</p>
-            <p>per room per month</p>
-            <a href="#"><button class = "book-now">Book Now</button></a>
-        </div>
-      </div>
-      <div class="swiper-slide">
-          <a href = "#"><img src="{{asset('images/6.jpg')}}" alt="" srcset=""></a>
-          <div class="swiper-text-section">
-            <p>prince boys hostel</p>
-            <p>Thamel, Kathmandu</p>
-            <button class = "verified-container"> <img id = "verified" style = "width:15px;height:15px;" src="{{asset('images/tick.svg')}}" alt="" srcset=""> MyHostel Verified</button>
-            <p>NRP6999</p>
-            <p>per room per month</p>
-            <a href="#"><button class = "book-now">Book Now</button></a>
-        </div>
-      </div>
-      <div class="swiper-slide">
-          <a href = "#"><img src="{{asset('images/6.jpg')}}" alt="" srcset=""></a>
-          <div class="swiper-text-section">
-            <p>prince boys hostel</p>
-            <p>Thamel, Kathmandu</p>
-            <button class = "verified-container"> <img id = "verified" style = "width:15px;height:15px;" src="{{asset('images/tick.svg')}}" alt="" srcset=""> MyHostel Verified</button>
-            <p>NRP6999</p>
-            <p>per room per month</p>
-            <a href="#"><button class = "book-now">Book Now</button></a>
-        </div>
-      </div>
-      <div class="swiper-slide">
-          <a href = "#"><img src="{{asset('images/6.jpg')}}" alt="" srcset=""></a>
-          <div class="swiper-text-section">
-            <p>prince boys hostel</p>
-            <p>Thamel, Kathmandu</p>
-            <button class = "verified-container"> <img id = "verified" style = "width:15px;height:15px;" src="{{asset('images/tick.svg')}}" alt="" srcset=""> MyHostel Verified</button>
-            <p>NRP6999</p>
-            <p>per room per month</p>
-            <a href="#"><button class = "book-now">Book Now</button></a>
-        </div>
-      </div>
-      <div class="swiper-slide">
-          <a href = "#"><img src="{{asset('images/6.jpg')}}" alt="" srcset=""></a>
-          <div class="swiper-text-section">
-            <p>prince boys hostel</p>
-            <p>Thamel, Kathmandu</p>
-            <button class = "verified-container"> <img id = "verified" style = "width:15px;height:15px;" src="{{asset('images/tick.svg')}}" alt="" srcset=""> MyHostel Verified</button>
-            <p>NRP6999</p>
-            <p>per room per month</p>
-            <a href="#"><button class = "book-now">Book Now</button></a>
-        </div>
-      </div>
-      <div class="swiper-slide">
-          <a href = "#"><img src="{{asset('images/6.jpg')}}" alt="" srcset=""></a>
-          <div class="swiper-text-section">
-            <p>prince boys hostel</p>
-            <p>Thamel, Kathmandu</p>
-            <button class = "verified-container"> <img id = "verified" style = "width:15px;height:15px;" src="{{asset('images/tick.svg')}}" alt="" srcset=""> MyHostel Verified</button>
-            <p>NRP6999</p>
-            <p>per room per month</p>
-            <a href="#"><button class = "book-now">Book Now</button></a>
-        </div>
-      </div>
-      <div class="swiper-slide">
-          <a href = "#"><img src="{{asset('images/6.jpg')}}" alt="" srcset=""></a>
-          <div class="swiper-text-section">
-            <p>prince boys hostel</p>
-            <p>Thamel, Kathmandu</p>
-            <button class = "verified-container"> <img id = "verified" style = "width:15px;height:15px;" src="{{asset('images/tick.svg')}}" alt="" srcset=""> MyHostel Verified</button>
-            <p>NRP6999</p>
-            <p>per room per month</p>
-            <a href="#"><button class = "book-now">Book Now</button></a>
-        </div>
-      </div>
-      <div class="swiper-slide">
-          <a href = "#"><img src="{{asset('images/6.jpg')}}" alt="" srcset=""></a>
-          <div class="swiper-text-section">
-            <p>prince boys hostel</p>
-            <p>Thamel, Kathmandu</p>
-            <button class = "verified-container"> <img id = "verified" style = "width:15px;height:15px;" src="{{asset('images/tick.svg')}}" alt="" srcset=""> MyHostel Verified</button>
-            <p>NRP6999</p>
-            <p>per room per month</p>
-            <a href="#"><button class = "book-now">Book Now</button></a>
-        </div>
-        </div>
+      @endforeach
+      @endif
+    
     </div>
     <!-- Add Arrows -->
     <div class="swiper-button-next swiper-button"></div>
@@ -193,126 +109,31 @@
      <!-- Swiper -->
      <div class="swiper-container"></a>
         <div class="swiper-wrapper">
+          @if(!empty($girls))
+          @foreach($girls as $boy)
           <div class="swiper-slide">
-              <a href = "#"><img src="{{asset('images/6.jpg')}}" alt="" srcset=""></a>
-               <div class="swiper-text-section">
-            <p>princess girls hostel</p>
-            <p>Thamel, Kathmandu</p>
+          <a href = "#"><img src="{{asset('/uploads/'.$boy['image'])}}" alt="" srcset=""></a>
+          <div class="swiper-text-section">
+            <p>{{$boy['name']}}</p>
+            <p> {{$boy['municipality']}}-{{$boy['ward']}},{{$boy['city']}} </p>
             <button class = "verified-container"> <img id = "verified" style = "width:15px;height:15px;" src="{{asset('images/tick.svg')}}" alt="" srcset=""> MyHostel Verified</button>
-            <p>NRP6999</p>
-            <p>per room per month</p>
+            <p>NRP:{{$boy['price']}}</p>
+            <p>@if($boy['room']==0)
+            Single Bed With Attached Bathroom
+              @elseif($boy['room']==1)
+              Single Bed With non-attached Bathroom
+              @elseif($boy['room']==2)
+              shared Bed With Attached Bathroom
+              @else
+              shared Bed With non-attached Bathroom
+              @endif
+             per month</p>
             <a href="#"><button class = "book-now">Book Now</button></a>
         </div>
           </div>
+          @endforeach
+          @endif
 
-          <div class="swiper-slide">
-            <a href = "#"><a href = "#"><img src="{{asset('images/bedroom1.jpg')}}" alt="" srcset=""></a>
-               <div class="swiper-text-section">
-            <p>princess girls hostel</p>
-            <p>Thamel, Kathmandu</p>
-            <button class = "verified-container"> <img id = "verified" style = "width:15px;height:15px;" src="{{asset('images/tick.svg')}}" alt="" srcset=""> MyHostel Verified</button>
-            <p>NRP6999</p>
-            <p>per room per month</p>
-            <a href="#"><button class = "book-now">Book Now</button></a>
-        </div>   
-          </div>
-
-          <div class="swiper-slide">
-              <a href = "#"><img src="{{asset('images/6.jpg')}}" alt="" srcset=""></a>
-               <div class="swiper-text-section">
-            <p>princess girls hostel</p>
-            <p>Thamel, Kathmandu</p>
-            <button class = "verified-container"> <img id = "verified" style = "width:15px;height:15px;" src="{{asset('images/tick.svg')}}" alt="" srcset=""> MyHostel Verified</button>
-            <p>NRP6999</p>
-            <p>per room per month</p>
-            <a href="#"><button class = "book-now">Book Now</button></a>
-        </div> 
-          </div>
-
-          <div class="swiper-slide">
-              <a href = "#"><img src="{{asset('images/6.jpg')}}" alt="" srcset=""></a>
-                 <div class="swiper-text-section">
-                    <p>princess girls hostel</p>
-                    <p>Thamel, Kathmandu</p>
-                    <button class = "verified-container"> <img id = "verified" style = "width:15px;height:15px;" src="{{asset('images/tick.svg')}}" alt="" srcset=""> MyHostel Verified</button>
-                    <p>NRP6999</p>
-                    <p>per room per month</p>
-                    <a href="#"><button class = "book-now">Book Now</button></a>
-              </div>
-          </div>
-
-          <div class="swiper-slide">
-            <a href = "#"><img src="{{asset('images/6.jpg')}}" alt="" srcset=""></a>
-            <div class="swiper-text-section">
-            <p>princess girls hostel</p>
-            <p>Thamel, Kathmandu</p>
-            <button class = "verified-container"> <img id = "verified" style = "width:15px;height:15px;" src="{{asset('images/tick.svg')}}" alt="" srcset=""> MyHostel Verified</button>
-            <p>NRP6999</p>
-            <p>per room per month</p>
-            <a href="#"><button class = "book-now">Book Now</button></a>
-        </div>
-          </div>
-
-          <div class="swiper-slide">
-              <a href = "#"><img src="{{asset('images/6.jpg')}}" alt="" srcset=""></a>
-               <div class="swiper-text-section">
-            <p>princess girls hostel</p>
-            <p>Thamel, Kathmandu</p>
-            <button class = "verified-container"> <img id = "verified" style = "width:15px;height:15px;" src="{{asset('images/tick.svg')}}" alt="" srcset=""> MyHostel Verified</button>
-            <p>NRP6999</p>
-            <p>per room per month</p>
-            <a href="#"><button class = "book-now">Book Now</button></a>
-        </div>
-              
-          </div>
-          <div class="swiper-slide">
-              <a href = "#"><img src="{{asset('images/6.jpg')}}" alt="" srcset=""></a>
-               <div class="swiper-text-section">
-            <p>princess girls hostel</p>
-            <p>Thamel, Kathmandu</p>
-            <button class = "verified-container"> <img id = "verified" style = "width:15px;height:15px;" src="{{asset('images/tick.svg')}}" alt="" srcset=""> MyHostel Verified</button>
-            <p>NRP6999</p>
-            <p>per room per month</p>
-            <a href="#"><button class = "book-now">Book Now</button></a>
-        </div>
-              
-          </div>
-          <div class="swiper-slide">
-              <a href = "#"><img src="{{asset('images/6.jpg')}}" alt="" srcset=""></a>
-               <div class="swiper-text-section">
-            <p>princess girls hostel</p>
-            <p>Thamel, Kathmandu</p>
-            <button class = "verified-container"> <img id = "verified" style = "width:15px;height:15px;" src="{{asset('images/tick.svg')}}" alt="" srcset=""> MyHostel Verified</button>
-            <p>NRP6999</p>
-            <p>per room per month</p>
-            <a href="#"><button class = "book-now">Book Now</button></a>
-        </div>
-              
-          </div>
-          <div class="swiper-slide">
-              <a href = "#"><img src="{{asset('images/6.jpg')}}" alt="" srcset=""></a>
-               <div class="swiper-text-section">
-            <p>princess girls hostel</p>
-            <p>Thamel, Kathmandu</p>
-            <button class = "verified-container"> <img id = "verified" style = "width:15px;height:15px;" src="{{asset('images/tick.svg')}}" alt="" srcset=""> MyHostel Verified</button>
-            <p>NRP6999</p>
-            <p>per room per month</p>
-            <a href="#"><button class = "book-now">Book Now</button></a>
-        </div>
-              
-          </div>
-          <div class="swiper-slide">
-              <a href = "#"><img src="{{asset('images/6.jpg')}}" alt="" srcset=""></a>
-               <div class="swiper-text-section">
-            <p>princess girls hostel</p>
-            <p>Thamel, Kathmandu</p>
-            <button class = "verified-container"> <img id = "verified" style = "width:15px;height:15px;" src="{{asset('images/tick.svg')}}" alt="" srcset=""> MyHostel Verified</button>
-            <p>NRP6999</p>
-            <p>per room per month</p>
-            <a href="#"><button class = "book-now">Book Now</button></a>
-        </div>
-              
-            </div>
         </div>
         <!-- Add Arrows -->
         <div class="swiper-button-next swiper-button"></div>
