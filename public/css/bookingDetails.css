@@ -1,9 +1,17 @@
+.booking-details-main-container{
+    padding:20px 80px 20px 80px!important;
+}
 .booking-details-container{
     margin-top:10%;
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
     padding:40px;
 }
 
+#booking-details-container-heading{
+    font-size:24px;
+    font-weight:700;
+    margin-bottom:16px;
+}
 .booking-details-image-container{
     width:100%;
     height:300px;
@@ -82,6 +90,7 @@ text-transform:capitalize;
     font-weight:600;
     color:white;
 }
+
 .booking-details-buttons .view-details{
     margin-top:16px;
     padding:8px 24px 8px 24px;
@@ -100,7 +109,6 @@ text-transform:capitalize;
  .gallery-thumbs1{
      margin-top:8px;
      height:100px;
-    
  }
 
  .gallery-thumbnails{
@@ -114,17 +122,190 @@ text-transform:capitalize;
      height:100%;
      width:100%;
  }
+ #kyc-price{
+     font-size:24px;
+     letter-spacing:2px;
+     font-weight: 900;
+     color: #ee2e24;
+     margin-bottom:0px;
+ }
+ #tax{
+     color:#6D787D;
+     line-height:4px;
+ }
+ .booking-details-cards-left{
+     padding:0px 80px !important;
+ }
+ .booking-details-kyc{
+     background:#e9edf0;
+     padding:20px;
+ }
+ .booking-details-kyc-division{
+     margin-top:10%;
+ }
+ .booking-details-kyc-division-1{
+     margin-top:2%;
+ }
+ .total-price{
+     margin-top:10%;
+     display:flex;
+ }
+ .total-price p{
+     margin:0;
+ }
+ .total-price p:first-child{
+     font-size:16px;
+     font-weight:600;
+ }
+.total-price-left{
+    margin-right:50%;
+}
 
+#booking-button{
+    margin-top:10%;
+    padding:8px;
+    background:#138739;
+    color:white;
+    font-size:16px;
+    font-weight:700;
+    border:2px solid #138739;
+    width:100%;
+}
+
+.booking-details-description-container{
+    margin-top:2%;
+}
+
+#booking-hostel-name{
+    font-size:24px;
+    font-weight:700;
+    text-transform: capitalize;
+    margin-bottom:0px;
+
+}
+#booking-hostel-address{
+    font-size:16px;
+    margin:0px;
+    color: #6D787D;
+    line-height:16px !important;
+
+}
+.description-of-hostel{
+    padding:3% 0% !important;
+}
+
+#booking-hostel-description{
+    font-weight:700;
+    font-size:24px;
+}
+
+.description-of-hostel p:nth-child(2){
+    font-size:16px;
+    color:#6D787D;
+}
+
+#booking-hostel-amenities{
+    font-weight:700;
+    font-size:24px;
+}
+.complementry{
+    padding:20px 80px !important;
+}
+#complementry{
+    margin-top:10%;
+    font-size:24px;
+    font-weight:700;
+}
+
+.complementry-cards{
+    border:2px solid #eeeeee; 
+    padding:16px;
+    margin-top:2%;
+}
+.snacks-cards{
+    display:flex;
+}
+.snacks-image{
+    height:100px;
+    width:150px;
+    position:relative;
+    margin-right:5%;
+    border:2px solid #eeeeee;
+    box-sizing: border-box;
+}
+
+.snacks-image img{
+    position:absolute;
+    height:90%;
+    width:90%;
+    top:50%;
+    left:50%;
+    transform: translate(-50% , -50%);
+}
+
+.snacks-schedule p:first-child{
+    font-size:16px;
+    font-weight:800;
+    margin-bottom:0px;
+    text-transform: capitalize;
+}
+
+.snacks-schedule p:nth-child(2){
+    text-transform: capitalize;
+    color:#6D787D;
+}
+
+.snacks-schedule p:nth-child(3){
+    color:#6D787D;
+    text-transform: capitalize;
+    padding:6px 16px 6px 16px;
+    background:#eeeeee;
+}
+
+.hider{
+    z-index:-1;
+}
+
+ #label{
+  
+     font-size:14px;
+     font-weight:600;
+ }
+
+ .adder{
+     height:100px !important;
+     width:100px !important;
+     background:red;
+ }
+
+ @media(max-width:1300px){
+    .booking-details-description-container{
+        margin-top:4%;
+    }
+ }
+
+ @media(max-width:1250px){
+    .booking-details-cards-left {
+        padding: 0px 40px !important;
+    }
+    .complementry {
+        padding: 20px 40px !important;
+    }
+ }
 @media(max-width:1024px){
-   .booking-details-cards{
-       z-index:-1;
-   }
+
 }
 
 @media(max-width:992px){
   #price{
       line-height:32px;
   }
+  .booking-details-cards-left {
+    padding: 40px 20px !important;
+    }
+    .complementry {
+        padding: 20px 20px !important;
+    }
  }
 
  
@@ -144,6 +325,18 @@ text-transform:capitalize;
 }
 .booking-details-lower-section{
     display:block;
+}
+.booking-details-main-container {
+    padding: 20px 10px 20px 10px!important;
+}
+.booking-details-kyc {
+    padding: 10px;
+}
+.booking-details-description-container {
+    padding:40px 20px !important;
+}
+.complementry{
+    padding:0px !important;
 }
    }
    

@@ -16,6 +16,7 @@
     <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
 
     <!-- Scripts -->
+    <script src="{{ asset('js/custom.js') }}" defer></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
@@ -213,6 +214,9 @@ nav ul {
   white-space: normal;
 }
 
+.hider{
+  z-index:-1;
+}
 @media (max-width: 1200px) {
   .non-responsive{
   width:100%;
@@ -331,16 +335,6 @@ nav ul {
             </ul>
             </div>
         </div>
-        <script>
-            init();
-            function init(){
-            let navbarButton = document.querySelector("#navbar-button");
-            let responsiveNav = document.querySelector('.responsive-nav');
-            navbarButton.addEventListener('click', e => {
-                responsiveNav.classList.toggle('responsive-nav-active')
-            });
-            }
-        </script>
         {{-- <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
