@@ -87,7 +87,7 @@
                 <div class="form row">
                 <div class="col-6 booking-details-kyc-division">
                     <label id= "label"  class="mr-sm-2" for="duration">Duration of Stay</label>
-                    <select class="custom-select mr-sm-2" onclick="calculator()" id="duration">
+                    <select class="custom-select mr-sm-2" onchange="calculator()" id="duration">
                       <option selected value ="1">1 months</option>
                       <option value="2">2 Months</option>
                       <option value="3">3 Months</option>
@@ -102,19 +102,37 @@
                   </div>
                   <div class="col-6 booking-details-kyc-division-1">
                     <label id= "label"  class="mr-sm-2" for="room-type">Room Type</label>
-                    <select class="custom-select mr-sm-2" onclick="calculator()" id="room-type">
+                    <select class="custom-select mr-sm-2" id="room-type">
                       <option selected value="1">Shared</option>
                       <option value="2">Single</option>
                     </select>
                 </div>
                 <div class="col-6 booking-details-kyc-division-1">
                     <label id= "label"  class="mr-sm-2" for="room-facility">Room Facilities</label>
-                    <select class="custom-select mr-sm-2" onclick="calculator()" id="room-facility">
+                    <select class="custom-select mr-sm-2" id="room-facility">
                       <option selected value="1" >With Shared Bathroom</option>
                       <option value="2">With Attached Bathroom</option>
                     </select>
                 </div>
             </div>
+            <div class ="total-price1">
+              <div class="total-price1-left">
+                  <p>Addition Charges</p>
+                  <p>(25% extra on single Room)</p>
+              </div>
+              <div class="total-price1-right">
+                  <p id = "total-price1">0</p>
+              </div>
+          </div>
+          <div class ="total-price2">
+            <div class="total-price2-left">
+                <p>Additional Charges</p>
+                <p>(25% extra on Attached Bathroom)</p>
+            </div>
+            <div class="total-price2-right">
+                <p id = "total-price2">0</p>
+            </div>
+        </div>
             <div class ="total-price">
                 <div class="total-price-left">
                     <p>Total Price</p>
@@ -135,7 +153,7 @@
   <p id = "booking-hostel-address">Thamel, Kathmandu</p>
   <div class = "description-of-hostel">
   <p id = "booking-hostel-description">Description</p>
-  <p>THis is the nicest place to stay!! let us serve you for the greater good.
+  <p id = "booking-hostel-description-sub">THis is the nicest place to stay!! let us serve you for the greater good.
   the majority of our customer are students.THis is the nicest place to stay!! let us serve you for the greater good.
   the majority of our customer are students.THis is the nicest place to stay!! let us serve you for the greater good.
   the majority of our customer are students.THis is the nicest place to stay!! let us serve you for the greater good.

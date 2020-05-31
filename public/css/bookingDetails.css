@@ -146,7 +146,65 @@ text-transform:capitalize;
  .booking-details-kyc-division-1{
      margin-top:2%;
  }
+
+ .total-price2{
+    margin-top:5%;
+    display:flex;
+    display:none;
+}
+.total-price2 p{
+    margin:0;
+}
+.total-price2 p:first-child{
+    font-size:14px;
+    font-weight:600;
+}
+.total-price2 p:nth-child(2){
+    font-size:12px;
+}
+.total-price2-left{
+    width:50%;
+}
+.total-price2-right{
+    width:50%;
+}
+.total-price2-right p{
+    float:right;
+    margin-right:5%;
+}
+
+ 
+ 
+
+ .total-price1{
+    margin-top:5%;
+    display:flex;
+    display:none;
+}
+.total-price1 p{
+    margin:0;
+}
+.total-price1 p:first-child{
+    font-size:14px;
+    font-weight:600;
+}
+.total-price1 p:nth-child(2){
+    font-size:12px;
+}
+.total-price1-left{
+    width:50%;
+}
+.total-price1-right{
+    width:50%;
+}
+.total-price1-right p{
+    float:right;
+    margin-right:5%;
+}
+
  .total-price{
+     border-top:2px solid #6D787D;
+     padding-top:16px;
      margin-top:10%;
      display:flex;
  }
@@ -158,7 +216,14 @@ text-transform:capitalize;
      font-weight:600;
  }
 .total-price-left{
-    margin-right:50%;
+    width:50%;
+}
+.total-price-right{
+    width:50%;
+}
+.total-price-right p{
+    float:right;
+    margin-right:5%;
 }
 
 #booking-button{
@@ -260,6 +325,12 @@ text-transform:capitalize;
     text-transform: capitalize;
     padding:6px 16px 6px 16px;
     background:#eeeeee;
+}
+
+.more-ellipses{
+    color: #ee2e24;
+    font-size:16px;
+    font-weight:600;
 }
 
 .hider{
