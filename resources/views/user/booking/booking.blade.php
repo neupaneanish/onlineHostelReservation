@@ -2,17 +2,19 @@
 @section('content')
 
 <div class="container">
-<div class="booking-container">
+    @if(!empty($books))
+    @foreach( $books as $book)
+    <div class="booking-container">
     <div class="row">
         <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 booking-cards">
             <div class="booking-image-container">
-            <img src="{{asset('images/6.jpg')}}" alt="" srcset="">
+            <img src="{{asset('/uploads/'.$book->image)}}" alt="" srcset="">
             </div>
         </div>
         <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-8 col-xl-8 booking-cards">
             <div class="booking-text-container">
-                <p>Price Boys Hostel</p>
-                <p>Near Bhagwati Marga, Kathmandu</p>
+                <p>{{$book->name}}</p>
+                <p>{{$book->municipality}}-{{$book->ward}},{{$book->city}}</p>
                 <button class = "verified-container"> <img id = "verified" style = "width:15px;height:15px;" src="{{asset('images/tick.svg')}}" alt="" srcset=""> MyHostel Verified</button>
                 <div class="feature-container">
                 <div class="feature-wrapper">
@@ -60,19 +62,46 @@
                 </div>
                 
             </div>
+            <p class="mt-3">Room No. :@if($book->room_no==0)
+            Single Bed With Attached Bathroom
+                @elseif($book->room_no==1)
+                Single Bed With non-attached Bathroom
+                @elseif($book->room_no==2)
+                shared Bed With Attached Bathroom
+                @else
+                shared Bed With non-attached Bathroom
+                @endif
+            </p>
+            <p class="mt-3">Room No. :{{$book->room_no}}</p>
+            <p class="mt-3">Arrival Date:{{$book->arrival_date}}</p>
+            <p class="mt-3">Booked On:{{$book->created_at}}</p>
+            @if($book->status=='1')
+            <button style="cursor:not-allowed" class="btn btn-danger">cancelled</button>
+            @endif
                 <div class="booking-lower-section">
                 <div class = "booking-lower-section-left">
-                <p id = "price">NRP6900</p>
-                <p id = "per-room">per room per month</p> 
+                <p id = "price">PRICE(NRP):{{$book->price}}</p>
+                <!-- <p id = "per-room">per room per month</p>  -->
                 </div>
                  <div class="booking-buttons">
                     <a href="#"><button class = "view-details">View Details</button></a> 
                 </div> 
+                <?php $today = date('Y-m-d') ?>
+                @if($book->arrival_date > $today)
+                <div class="booking-buttons">
+                    <a href="#"><button class = "btn view-details">Edit</button></a> 
+                </div> 
+                <div class="booking-buttons">
+                    <a href="#"><button class = "btn btn-danger ">Cancel</button></a> 
+                </div> 
+                @endif
             </div> 
             </div>
     </div>
 </div>
 </div>
+    @endforeach
+    @endif
 </div>
 
 @endsection

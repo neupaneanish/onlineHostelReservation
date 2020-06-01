@@ -7,13 +7,14 @@ use Illuminate\Http\Request;
 use App\model\Hostel;
 use App\model\Room;
 use App\model\Hostelimage;
+use App\model\Booking;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 class HostelController extends Controller
 {
     public function index()
     {
-        $hostels = Hostel::all();
+        $hostels = Hostel::select('city')->distinct()->get();
         $boys = Hostel::where('type',0)->get();
         foreach($boys as $boy){
             $id = explode('::',$boy->id);
@@ -231,6 +232,42 @@ class HostelController extends Controller
         $this->validate($request,[
             'date'=>'date_format:Y-m-d|after_or_equal:today'
         ]);
-        return Auth::user()->id;
+        $room = Room::where('hostel_id',$id)->where('room_no',$request->room_no)->first();
+        $roomId = explode("::",$room->id);
+        $room_id = implode('',$roomId);
+        $priceR = explode('::',$room->price); 
+        $price = implode('',$priceR);
+        if($request->duration=='days'){
+            $period = $request->period/30; 
+        }elseif($request->duration=='year'){
+            $period = $request->period*12; 
+        }else{
+            $period = $request->period;
+        }
+        $totalPeriod = $request->period.$request->duration;
+        // return $price*$period;
+        // return Auth::user()->id;
+        Booking::create([
+            'user_id'=>Auth::user()->id,
+            'hostel_id'=> $id,
+            'room_id'=>$room_id,
+            'status'=>0,
+            'price'=>$price*$period,
+            'arrival_date'=>$request->date,
+            'duration'=>$totalPeriod,
+        ]);
+        Room::where('id',$room_id)->update(['status'=>1]);
+        return redirect('/hostel/details/'.$id)->with('status','Hostel Room Booked');
+    }
+    public function bookingDetails($id){
+        // $books = Booking::where('user_id',$id)->get();
+ $books =      DB::table('bookings')
+        ->join('hostels','bookings.hostel_id','hostels.id')
+        ->join('rooms','bookings.room_id','rooms.id')
+        ->select('bookings.id','bookings.user_id','bookings.hostel_id','bookings.price','bookings.arrival_date','bookings.duration','hostels.name','rooms.room_no','rooms.room_type','hostels.city','hostels.ward','hostels.municipality','hostels.image','bookings.created_at','bookings.status')
+        ->where('bookings.user_id',$id)
+        ->get();
+        // return $books;
+        return view('user.booking.booking',['books'=>$books]);
     }
 }
