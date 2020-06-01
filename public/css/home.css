@@ -199,4 +199,12 @@ height:100%;
 	}
 }
 
+@media(max-width:768px){
+	.image{
+		height:400px;
+	}
+	.search-tab{
+		margin-top:-40%;
+	}
+}
 

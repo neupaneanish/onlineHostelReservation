@@ -104,26 +104,15 @@
 </div>
 <div class="container-fluid footer">
 <div class="row footer-container">
-    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 footer-margin">
+    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 footer-margin">
         <div class="footer-image-container">
         <img src="{{asset('images/logo.png')}}" alt="" srcset="">
         </div>
     </div>
 
-    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 footer-margin">
-        <div class="footer-link-container">
-            <p>Quick Navigation</p>
-            <a href="#"><li>Home</li></a>
-            <a href="#"><li>Hostels</li></a>
-            <a href="#"><li>My Bookings</li></a>
-            <a href="#"><li>Aboutus</li></a>
-        </div>
-        
-    </div>
-
-    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 footer-margin">
+    <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 col-xl-8 footer-margin">
         <div class="footer-social-container">
-            <p>Socil Platforms</p>
+            <p id = "social">Socil Platforms</p>
             <div class="footer-flex">
                 <a href="#"><img src="{{asset('images/facebook.svg')}}" alt="" srcset="">Facebook</a>
             </div>

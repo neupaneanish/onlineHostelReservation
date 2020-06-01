@@ -8,6 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>Hostel.com</title>
+    <link rel="stylesheet" href="{{asset('css/aboutus.css')}}">
     <link rel="stylesheet" href="{{asset('css/bookingDetails.css')}}">
     <link rel="stylesheet" href="{{asset('css/booking.css')}}">
     <link rel="stylesheet" href="{{asset('css/hostels.css')}}">
@@ -145,7 +146,7 @@ nav ul {
 
 .responsive-nav {
   position: absolute;
-  top: -100%;
+  top: -150%;
   padding:32px 0px;
   width:100%;
   background-color: white;

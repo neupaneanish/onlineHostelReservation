@@ -53,15 +53,12 @@
 
                         <div class="form-group row mb-0 custom-form-group">
                             <div class="col-md-12 offset-md-12">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-primary col-12">
                                     {{ __('Login') }}
                                 </button>
-
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                @endif
+                                <div class="login-flex">
+                                <p>Dont have any account?</p><a href="#">Register</a>
+                            </div>
                             </div>
                         </div>
                     </form>

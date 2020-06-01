@@ -142,6 +142,7 @@ text-transform:capitalize;
  }
  .booking-details-kyc-division{
      margin-top:10%;
+     margin-left:4px !important;
  }
  .booking-details-kyc-division-1{
      margin-top:2%;
@@ -331,6 +332,22 @@ text-transform:capitalize;
     color: #ee2e24;
     font-size:16px;
     font-weight:600;
+}
+
+.duration-flex{
+    width:100%;
+}
+.duration-flex1{
+    width:100%;
+    display:flex;
+    margin-top:-16px
+}
+
+.duration-flex #period{
+    width:50%;
+}
+.duration-flex #duration{
+    width:50%;
 }
 
 .hider{
