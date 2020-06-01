@@ -13,18 +13,22 @@
     </div>
 
     <div class="col-sm-12 col-md-8 col-lg-9 left-section-container">
+    @if(!empty($rooms))
+                    @foreach($rooms as $room)
         <div class="add-hostel">
-        <h2 class = "user-details-heading">Hostel Room Details</h2>
+        <h2 class = "user-details-heading uppercase">HOSTEL ROOM DETAILS </h2>
         <div class="row">
+
             <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
                 <div class="user-details-image-container">
-                <img src="{{asset('images/6.jpg')}}" alt="" srcset="">
+                <img src="{{asset('/uploads/'.$room->image)}}" alt="" srcset="">
                 </div>
+                <h2 class = "user-details-heading uppercase">{{$room->name}} </h2>
             </div>
+            
             <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
                 <div class = "user-details-info-container">
-                    @if(!empty($rooms))
-                    @foreach($rooms as $room)
+                    
                 <div class="info-container">
                         <p>Hostel Name:</p>
                         <p> {{$room->name}}</p>
@@ -58,7 +62,7 @@
                 @if(!empty($rooms))
                     @foreach($rooms as $room)
                     <div class="row mt-5">
-                <a class = "btn btn-primary ml-2 mr-2 mb-1" href = "/admin/hostel/edit/{{$room->roomId}}">Edit</a>
+                <a class = "btn btn-primary ml-2 mr-2 mb-1" href = "/admin/hostel/room/{{$room->roomId}}/edit">Edit</a>
                 <a class = "btn btn-primary ml-2 mr-2 mb-1" href = "/admin/hostel/room/{{$room->hostel}}">Add Room</a>
                 <a class = "btn btn-primary ml-2 mr-2 mb-1" href = "/admin/hostel/room/view/{{$room->hostel}}">View Room</a>
                 <form action="/admin/hostel/room/delete/{{$room->hostel}}" method="post">

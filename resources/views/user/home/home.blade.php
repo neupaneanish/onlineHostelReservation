@@ -7,23 +7,30 @@
 </div>
 <div class="container search-tab">
 <h3>Check Availability</h3>
+<form action="/hostel/search" method="post">
+@csrf
 <div class="row search-tab-row">
 <div class="col-12 .col-xs-12 .col-sm-12 .col-md-6 col-lg-4 col-xl-4 search-place">
     <p>Search Your Place</p>
-    <select id="search-place" class="form-control">
-        <option selected>Search By Location</option>
-        <option>Pokhara</option>
-        <option>Kathmandu</option>
+    <select id="search-place" name="city" class="form-control">
+        <option value="">Search By Location</option>
+        @if(!empty($hostels))
+        @foreach($hostels as $hostel)
+        <option value="{{$hostel->city}}">{{$hostel->city}}</option>
+        @endforeach
+        @endif    
   </select>
 </div>
 
 <div class="col-12 .col-xs-12 .col-sm-12 .col-md-6 col-lg-4 col-xl-4 search-place">
 
-    <p>Room Types</p>
- <select id="inputState" class="form-control">
-        <option selected>Choose...</option>
-        <option>With Attached Bathroom</option>
-        <option>Without Attached Bathroom</option>
+    <p>Hostel Types</p>
+ <select id="inputState" name="type" class="form-control">
+        <option value ="">Choose...</option>
+        <option value="0">Boys Hostel</option>
+        <option value="1">Girls Hostel</option>
+        <option value="2">Boys and Girls Hostel</option>
+        
   </select>
 </div>
 
@@ -35,6 +42,7 @@
 
 
 </div>
+</form>
 </div>
 <div class="container-fluid hostel-swiper">
     <p>Boys Hostels</p>
@@ -45,7 +53,7 @@
       @if(!empty($boys))
       @foreach($boys as $boy)
       <div class="swiper-slide hostel-swiper-slide">
-          <a href = "#"><img src="{{asset('/uploads/'.$boy['image'])}}" alt="" srcset=""></a>
+          <a href = "/hostel/detail/{{$boy['id']}}"><img src="{{asset('/uploads/'.$boy['image'])}}" alt="" srcset=""></a>
           <div class="hostel-swiper-text-section">
             <p>{{$boy['name']}}</p>
             <p> {{$boy['municipality']}}-{{$boy['ward']}},{{$boy['city']}} </p>

@@ -18,6 +18,9 @@ class CreateBookingsTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->integer('hostel_id')->unsigned();
             $table->integer('room_id')->unsigned();
+            $table->string('price')->unsigned();
+            $table->string('arival_date');
+            $table->string('duration');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('hostel_id')->references('id')->on('hostels')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('room_id')->references('id')->on('rooms')->onDelete('cascade')->onUpdate('cascade');

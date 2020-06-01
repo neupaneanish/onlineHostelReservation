@@ -19,7 +19,12 @@ Auth::routes();
 Route::group(['prefix'=>'/hostel'],function() {
 // Route::get('/', 'HomeController@index')->name('home');
 Route::get('/','Hostel\HostelController@hostel');
-Route::get('/booking','Hostel\HostleController@Booking');
+Route::get('/booking','Hostel\HostelController@Booking');
+Route::post('/search','Hostel\HostelController@search');
+Route::get('/detail/{id}','Hostel\HostelController@details');
+Route::get('/test/{id}/{idd}','Hostel\HostelController@book');
+Route::post('booking/{id}','Hostel\HostelController@roomBook');
+Route::post('room/price/{id}/{idd}','Hostel\HostelController@roomPrice');
 });
 Route::get('/admin/login','Auth\AdminLoginController@showLoginForm')->name('admin.login');
 Route::POST('/admin/login','Auth\AdminLoginController@login');
@@ -53,8 +58,15 @@ Route::post('/hostel/room/{id}','Admin\HostelRoomController@roomAdd');
 Route::get('/hostel/room/view/{id}','Admin\HostelRoomController@roomShow');
 Route::get('/room/view/detail/{id}','Admin\HostelRoomController@details');
 Route::get('/room/delete/{id}','Admin\HostelRoomController@deleteRoom');
+Route::get('/hostel/room/{id}/edit','Admin\HostelRoomController@roomEditForm');
+Route::PATCH('/hostel/room/{id}/edit','Admin\HostelRoomController@roomEdit');
 
 
 });
+ROute::get('/view',function (){
+return view('admin.rooms.roomDetailView');
+});
+
+Route::get('/send', 'HomeController@sendNotification');
 
 

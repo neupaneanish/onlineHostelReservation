@@ -48,7 +48,7 @@ class HostelRoomController extends Controller
         if($r){
        $room =  DB::table('rooms')
         ->join('hostels','rooms.hostel_id','hostels.id')
-        ->select('hostels.id as hostel','hostels.name','rooms.id as roomId','rooms.room_no','rooms.room_type','rooms.price')
+        ->select('hostels.id as hostel','hostels.name','rooms.id as roomId','rooms.room_no','rooms.room_type','rooms.price','hostels.image')
         ->where('rooms.id',$id)
         ->get();
         return view('admin.rooms.roomDetails',['rooms'=>$room]);
@@ -57,5 +57,22 @@ class HostelRoomController extends Controller
     public function deleteRoom($id){
         Room::findorFail($id)->delete();
         return redirect('/admin/room/view/detail/'.$id)->with('status','Room Deleted');
+    }
+    public function roomEditForm($id){
+        $room=Room::findorFail($id);
+        $hostelid= explode('::',$room->hostel_id);
+        $hostel = Hostel::where('id',$hostelid)->first();
+        return view('admin.rooms.edit',['room'=>$room,'hostel'=>$hostel]);
+    }
+    public function roomEdit(Request $request,$id){
+       $room = Room::findorFail($id);
+
+       $room->room_no = $request->room_no;
+       $room->room_type = $request->room_type;
+       $room->price = $request->price;
+
+       $room->save();
+       return redirect('admin/room/view/detail/'.$id)->with('status','Room Updated');
+
     }
 }

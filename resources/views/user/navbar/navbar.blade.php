@@ -279,14 +279,13 @@ nav ul {
             {{-- <h2>@</h2> --}}
             @guest
             <li class="nav-item user-account">
-            <img height="20px" width="25px" src="{{asset('images/account.svg')}}" alt="" srcset="">
             <a  class="nav-link" href="/login">
+            <img height="20px" width="25px" src="{{asset('images/account.svg')}}" alt="" srcset="">
                   Login <span class="caret"></span>
               </a>
               </li>
             @else
             <li class="nav-item dropdown user-account">
-           
                 <img height="20px" width="25px" src="{{asset('images/account.svg')}}" alt="" srcset="">
            
               <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

@@ -65,21 +65,7 @@ class AdminController extends Controller
         // return $hostel;
         return view('admin.hostel.editHostel',['hostels'=>$hostels]);
     }
-    public function search(Request $request){
-        // $this->validate($request,[]);
-        $city = $request->type;
-        $city = $request->city;
-        if(!empty($city) && !empty($type)){
-            $hostels = Hostel::where('type',$request->type)->where('city',$request->city)->get();
-        }elseif(!empty($city) && empty($type)){
-            $hostels = Hostel::where('city',$request->city)->get();
-        }elseif(empty($city) && !empty($type)){
-            $hostels = Hostel::where('city',$request->city)->get();
-        }else{
-            $hostels = Hostel::all();
-        }
-        return view('',['hostels'=>$hostels]);
-    } 
+   
     public function update(Request $request,$id){
         $this->validate($request, [
             'image' => 'nullable|image|mimes:jpeg,jpg,png,svg|max:2048'
