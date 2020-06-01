@@ -57,7 +57,7 @@
                                     {{ __('Login') }}
                                 </button>
                                 <div class="login-flex">
-                                <p>Dont have any account?</p><a href="#">Register</a>
+                                <p>Dont have any account?</p><a href="/register">Register</a>
                             </div>
                             </div>
                         </div>

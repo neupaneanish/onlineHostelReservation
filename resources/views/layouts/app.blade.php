@@ -62,6 +62,13 @@
             font-size:16px;
             font-weight:600;
         }
+        .login-flex{
+            display:flex;
+            margin-top:16px;
+        }
+        .login-flex p{
+            margin-right:8px;
+        }
     </style>
 </head>
 <body>
