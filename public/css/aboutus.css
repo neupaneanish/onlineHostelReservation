@@ -1,0 +1,245 @@
+.aboutus{
+    margin-top:10%;
+}
+#about-h1{
+    margin-top:16px;
+    margin-bottom:16px;
+    font-weight:700;
+    font-size:28px;
+    color:#222222;
+}
+.aboutus-wrapper{
+    width:90%;
+    margin:auto;
+    padding:20px 80px 20px 80px !important;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+.aboutus-contact-card{
+    height:450px;
+    width:100%;
+}
+
+.aboutus-test{
+    width:60%;
+    height:100%;
+    margin:auto;
+}
+
+.aboutus-image-container{
+    height:25%;
+    width:35%;
+    position:relative;
+}
+
+#corporate{
+    font-size:24px;
+    font-weight:700;
+    margin-bottom:16px;
+}
+
+.aboutus-image-container img{
+    height:100%;
+    width:100%;
+    position:absolute;
+}
+
+
+
+.aboutus-contact-card p:first-child{
+    padding-top:12px;
+    font-size:20px;
+    font-weight:700;
+    margin-bottom:0px;
+}
+
+.aboutus-contact-card p{
+    font-size:16px;
+    font-weight:600;
+}
+
+.aboutus-contact-card a{
+    text-decoration: none;
+    font-size:16px;
+    font-weight:700;
+    color:#222222;
+    margin-bottom:16px; 
+}
+
+.aboutus-contact-card a:hover{
+    text-decoration:none;
+    color:#00adef;
+}
+.align-content{
+    display:flex; 
+}
+.align-content img{
+    height:20px;
+    width:25px;
+    margin-right:12px;
+}
+.about-text-section{
+    font-weight:500;
+    font-size:16px;
+}
+#aboutus-features{
+    font-size: 24px;
+    font-weight:700;
+}
+#aboutus-li{
+    font-size:16px;
+    font-weight:500;
+}
+#aboutus-amenities{
+    margin-top:32px;
+    font-size:24px;
+    font-weight:700;
+}
+
+#map{
+    margin-top:10%;
+    height:600px !important;
+    width:100% !important;
+}
+
+#map iframe{
+    height:80% !important;
+    width:100% !important;
+}
+
+#map p{
+    font-size:24px;
+    font-weight:700;
+    text-align: center;
+}
+
+.footer{
+    margin-top:5%;
+    padding:0px 120px 0px 120px !important;
+    background:#f4f5f6;
+}
+.footer-container{
+    padding:5% !important;
+}
+
+.footer-image-container{
+    position:relative;
+    height:400px;
+    width:100%;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+
+.footer-image-container img{
+    position:absolute;
+    height:40%;
+    width:60%;
+    left:50%;
+    top:10%;
+    transform:translate(-50%);
+}
+
+.footer-link-container{
+    padding:20px 20px 20px 40px;
+    height:400px;
+    width:100%;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.footer-link-container p{
+    font-size:24px;
+    font-weight:700;
+    margin-bottom:16px;
+}
+
+.footer-link-container a{
+    list-style:none;
+    text-decoration:none;
+    font-size:16px;
+    font-weight:700;
+    color:#222222;
+    padding-bottom:16px;
+}
+
+.footer-link-container a:hover{
+    text-decoration:none;
+    color:#00adef;
+}
+.footer-social-container{
+padding:20px 20px 20px 40px;
+height:400px;
+width:100%;
+box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+} 
+
+.footer-social-container p{
+    font-size:24px;
+    font-weight:700;
+}
+.footer-flex{
+    margin-bottom:16px;
+}
+.footer-flex img{
+    height:25px;
+    width:30px;
+    margin-right:16px;
+}
+.footer-flex a{
+    font-size:16px;
+    font-weight:700;
+    color: #222222;
+}
+
+.footer-flex a:hover{
+    color:#00adef;
+    text-decoration: none;
+}
+
+@media(max-width:1300px){
+    .footer{
+        padding:0px 80px 0px 80px !important;
+    }
+}
+
+@media (max-width:993px){
+    .aboutus-responsive-flex{
+        display:flex;
+        flex-direction: column-reverse;
+    }
+    .footer-margin{
+        margin-bottom:5% !important;
+    }
+}
+
+@media(max-width:768px){
+    .aboutus{
+        margin-top:30%;
+    }
+    .aboutus-wrapper{
+    padding:20px 10px 20px 10px !important;
+}
+.aboutus-test {
+    width: 60%;
+    height: 100%;
+    margin-left:2%;
+}
+#corporate{
+    margin-bottom:0px;
+}
+.footer{
+    padding:0px 10px 0px 10px !important;
+}
+
+.footer-image-container{
+    height:300px;
+}
+.footer-link-container{
+    height:100%;
+}
+.footer-social-container{
+    height:100%;
+}
+.footer-image-container img{
+    height:80%;
+    width:80%;
+}
+}

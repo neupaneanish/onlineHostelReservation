@@ -18,4 +18,15 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+    public function index()
+    {
+        return view('user.home.home');
+    }
+    //
+    public function aboutus(){
+        return view('user.aboutus.aboutus');
+    }
+    public function bookingDetails(){
+        return view('user.booking.bookingDetails');
+    }
 }

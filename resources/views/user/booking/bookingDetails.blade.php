@@ -3,46 +3,30 @@
 
 <div class="container-fluid booking-details-main-container">
 <div class="booking-details-container">
-    <p id = "booking-details-container-heading">Prince Boys Hostel</p>
+    <p id = "booking-details-container-heading">{{$hostel['name']}}</p>
     <div class="row">
         <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 booking-details-cards">
             <div class="swiper-container gallery-top1">
                 <div class="swiper-wrapper">
+                  @if(!empty($images))
+                  @foreach($images as $img)
                   <div class="swiper-slide booking-details-image-container">
-                    <img src="{{asset('images/6.jpg')}}" alt="" srcset="">
+                    <img src="{{asset('/uploads/'.$img->image)}}" alt="" srcset="">
                   </div>
-                  <div class="swiper-slide booking-details-image-container">
-                       <img src="{{asset('images/bedroom1.jpg')}}" alt="" srcset="">
-                  </div>
-                  <div class="swiper-slide booking-details-image-container">
-                       <img src="{{asset('images/6.jpg')}}" alt="" srcset="">
-                  </div>
-                  <div class="swiper-slide booking-details-image-container">
-                       <img src="{{asset('images/bedroom1.jpg')}}" alt="" srcset="">
-                  </div>
-                  <div class="swiper-slide booking-details-image-container">
-                       <img src="{{asset('images/6.jpg')}}" alt="" srcset="">
-                  </div>
+                  @endforeach
+
                 </div>
               
               </div>
               <div class="swiper-container gallery-thumbs1">
                 <div class="swiper-wrapper">
+                @foreach($images as $img)
                 <div class="swiper-slide gallery-thumbnails">
-                     <img src="{{asset('images/6.jpg')}}" alt="" srcset="">
+                     <img src="{{asset('/uploads/'.$img->image)}}" alt="" srcset="">
                 </div>
-                  <div class="swiper-slide gallery-thumbnails">
-                       <img src="{{asset('images/bedroom1.jpg')}}" alt="" srcset="">
-                  </div>
-                  <div class="swiper-slide gallery-thumbnails">
-                       <img src="{{asset('images/6.jpg')}}" alt="" srcset="">
-                  </div>
-                  <div class="swiper-slide gallery-thumbnails">
-                       <img src="{{asset('images/bedroom1.jpg')}}" alt="" srcset="">
-                  </div>
-                  <div class="swiper-slide gallery-thumbnails">
-                       <img src="{{asset('images/6.jpg')}}" alt="" srcset="">
-                  </div>
+                @endforeach
+                @endif
+
                 </div>
                   <!-- Add Arrows -->
                   <div class="swiper-button-next swiper-button-white"></div>
@@ -81,85 +65,77 @@
             </div> --}}
         </div>
         <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 booking-details-cards-left">
+          <form action="/hostel/booking/{{$hostel['id']}}" method="post">
+          @csrf
             <div class="booking-details-kyc">
-                <p id = "kyc-price">NPR6900</p>
-                <p  id = "tax">inclusive of all taxes</p> 
+                <!-- <p id = "kyc-price">NPR6900</p>
+                <p  id = "tax">inclusive of all taxes</p>  -->
                 <div class="form row">
-                <div class="col-6 booking-details-kyc-division">
-                    <label id= "label"  class="mr-sm-2" for="duration">Duration of Stay</label>
-                    <select class="custom-select mr-sm-2" onchange="calculator()" id="duration">
-                      <option selected value ="1">1 months</option>
-                      <option value="2">2 Months</option>
-                      <option value="3">3 Months</option>
-                      <option value="4">4 Months</option>
-                      <option value="5">5 Months</option>
-                      <option value="6">6 Months</option>
-                    </select>
+                <div class="col-6 row booking-details-kyc-division">
+              <div class="col-3">
+              <label id= "label"  class="mr-sm-2" for="duration">Duration of Stay</label>
+              <input type="text" name="period" id="period" value="1" onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57" /></td>
+              <!-- <input type="text" id="period" value="1"> -->
+
+              </div>
+              <div class="col-3">
+               
+                    <select class="custom-select mr-sm-2 " name="duration" id="duration" required >
+                      <option  value ="days"> Day </option>
+                      <option selected value ="month">Month</option>
+                      <option value="year">Year</option>
+
+                    </select></div>
+                
                 </div>
                 <div class="form-group col-6 booking-details-kyc-division">
+                <input type="hidden" name="today" value= "{{date('Y-m-d')}}">
                     <label id= "label" for="arrivalDate">Arrival Date</label>
-                    <input type="date" class="form-control" id="arrivalDate">
+                    <input type="date" name="date" class="form-control" id="arrivalDate" required>
+                    @error('date')
+                    <string style="color:red">{{$message}}</string>
+                    @enderror
                   </div>
                   <div class="col-6 booking-details-kyc-division-1">
                     <label id= "label"  class="mr-sm-2" for="room-type">Room Type</label>
-                    <select class="custom-select mr-sm-2" id="room-type">
-                      <option selected value="1">Shared</option>
-                      <option value="2">Single</option>
+                    <select class="custom-select mr-sm-2 test dynamic" name="room_type" data-dependent="room" id="room_type" required>
+                      <option value="">Choose Room type</option>
+                      <option value="0">Single with attach Bathroom</option>
+                      <option value="1">Single with non-attach Bathroom</option>
+                      <option value="2">Shared with attach Bathroom</option>
+                      <option value="3">Shared with non-attach Bathroom</option>
+                      
                     </select>
                 </div>
                 <div class="col-6 booking-details-kyc-division-1">
-                    <label id= "label"  class="mr-sm-2" for="room-facility">Room Facilities</label>
-                    <select class="custom-select mr-sm-2" id="room-facility">
-                      <option selected value="1" >With Shared Bathroom</option>
-                      <option value="2">With Attached Bathroom</option>
+                    <label id= "label"  class="mr-sm-2" for="room-facility">Available Room</label>
+                    <select class="custom-select mr-sm-2" name="room_no" id="room_no" required>
+                      <option value="" >select</option>                  
                     </select>
                 </div>
             </div>
-            <div class ="total-price1">
-              <div class="total-price1-left">
-                  <p>Addition Charges</p>
-                  <p>(25% extra on single Room)</p>
-              </div>
-              <div class="total-price1-right">
-                  <p id = "total-price1">0</p>
-              </div>
-          </div>
-          <div class ="total-price2">
-            <div class="total-price2-left">
-                <p>Additional Charges</p>
-                <p>(25% extra on Attached Bathroom)</p>
-            </div>
-            <div class="total-price2-right">
-                <p id = "total-price2">0</p>
-            </div>
-        </div>
             <div class ="total-price">
                 <div class="total-price-left">
-                    <p>Total Price</p>
+                    <p>Total Price(Rs.)</p>
                     <p>(incl. of all taxes)</p>
                 </div>
                 <div class="total-price-right">
-                    <p id = "total-price">6900</p>
+                    <p id ="total-price" name="totalPrice"></p>
                 </div>
             </div>
-            <a href="#"><button id = "booking-button">Book Now</button></a>
+            <button id = "booking-button">Book Now</button>
             </div>
+            </form>
 
 </div>
 </div>
 <div class="row booking-details-description-container">
 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
-  <p id = "booking-hostel-name">Price Boys Hostels</p>
-  <p id = "booking-hostel-address">Thamel, Kathmandu</p>
+  <p id = "booking-hostel-name">{{$hostel['name']}}</p>
+  <p id = "booking-hostel-address">{{$hostel['municipality']}}-{{$hostel['ward']}},{{$hostel['city']}}</p>
   <div class = "description-of-hostel">
   <p id = "booking-hostel-description">Description</p>
-  <p id = "booking-hostel-description-sub">THis is the nicest place to stay!! let us serve you for the greater good.
-  the majority of our customer are students.THis is the nicest place to stay!! let us serve you for the greater good.
-  the majority of our customer are students.THis is the nicest place to stay!! let us serve you for the greater good.
-  the majority of our customer are students.THis is the nicest place to stay!! let us serve you for the greater good.
-  the majority of our customer are students.THis is the nicest place to stay!! let us serve you for the greater good.
-  the majority of our customer are students.THis is the nicest place to stay!! let us serve you for the greater good.
-  the majority of our customer are students.
+  <p>{{$hostel['description']}}
   </p>
   </div>
   <p id = "booking-hostel-amenities">Amenites</p>
@@ -251,6 +227,149 @@
 </div>
 </div>
 </div>
+
+
+
+
 </div>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<?php $id = $hostel['id'] ?>
+<script>
+  
+  var hostel = '<?php echo $id; ?>';
+  
+jQuery(document).ready(function(){
+  $.ajaxSetup({
+                    headers: {
+                       
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+                jQuery('select[name="room_type"]').on('change',function(){
+                  
+                  var type = jQuery(this).val();
+                  
+                  if(type){
+                    jQuery.ajax({
+                      url:"/hostel/test/"+hostel+"/"+type,
+                      type:"get",
+                      dataType : "json",
+                     success:function(data)
+                     {
+                      // console.log(data);
+                      jQuery('select[name="room_no"]').empty();
+                      jQuery('#total-price').empty();
+                      jQuery.each(data, function(key,value){
+                        $('select[name="room_no"]').append('<option value="">select Room</option>');
+                           $('select[name="room_no"]').append('<option value="'+ value +'">'+ value +'</option>');
+                           
+                           $('#total-price').append('0');
+                           
+                     });
+                     }
+                    });
+                  }
+                  else{
+                    {
+                  $('select[name="room_no"]').empty();
+               }
+                  }
+                });
+                jQuery('select[name="room_no"]').on('change',function(){
+                  var roomno = jQuery(this).val();
+                  var period = jQuery('#period').val();
+                  var duration = jQuery('#duration').val();
+                  if(duration=='days'){
+                    period = period/30;
+                    
+                  }
+                  if(duration=='year'){
+                    period = period*12;
+                  }
+                  if(duration=='month'){
+                    period
+                  }
+                  if(roomno){
+                    jQuery.ajax({
+                      url:"/hostel/room/price/"+hostel+"/"+roomno,
+                      type:"post",
+                      dataType : "json",
+                     success:function(data)
+                     {
+                      $('#total-price').empty();
+                      jQuery.each(data, function(key,value){
+                           $('#total-price').append(period*value);
+                            });
+                          }
+                     });
+                  }
+                });
+                // if(!empty())
+                jQuery('select[name="duration"]').on('change',function(){
+                  var duration = jQuery(this).val();
+                  var period = jQuery('#period').val();
+                  var roomno = jQuery('#room_no').val();
+                  var type = jQuery('#room_type').val();
+                  if(duration=='days'){
+                    period = period/30;
+                    
+                  }
+                  if(duration=='year'){
+                    period = period*12;
+                  }
+                  if(duration=='month'){
+                    period
+                  }
+                  if(duration && period && roomno &&type){
+                    jQuery.ajax({
+                      url:"/hostel/room/price/"+hostel+"/"+roomno,
+                      type:"post",
+                      dataType : "json",
+                     success:function(data)
+                     {
+                      $('#total-price').empty();
+                      jQuery.each(data, function(key,value){
+                           $('#total-price').append(period*value);
+                            });
+                          }
+                     });
+                  }
+                });
+                jQuery('#period').on('keyup',function(){
+                var period = jQuery(this).val();
+                  var duration = jQuery('#duration').val();
+                  var roomno = jQuery('#room_no').val();
+                  var type = jQuery('#room_type').val();
+                  if(duration=='days'){
+                    period = period/30;
+                    
+                  }
+                  if(duration=='year'){
+                    period = period*12;
+                  }
+                  if(duration=='month'){
+                    period
+                  }
+                  if(duration && period && roomno &&type){
+                    jQuery.ajax({
+                      url:"/hostel/room/price/"+hostel+"/"+roomno,
+                      type:"post",
+                      dataType : "json",
+                     success:function(data)
+                     {
+                    $('#total-price').empty();
+                    jQuery.each(data, function(key,value){
+                    $('#total-price').append(period*value);
+                  });
+                     }
+                });
+              }
+              });
+                 
+});
+
+</script>
+
 </div>
 @endsection
