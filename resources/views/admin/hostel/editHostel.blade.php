@@ -15,6 +15,9 @@
     </div>
     <div class="col-sm-12 col-md-8 col-lg-9 left-section-container">
         <div class="add-hostel">
+          <div class = "error-display">
+            <p>Error occured!!</p>
+          </div>
           <h3>Add Hostel</h3>
             <form method="POST" action="/admin/hostel/edit/{{$hostels->id}}" class="needs-validation" novalidate enctype="multipart/form-data">
             @method('PATCH')

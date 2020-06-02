@@ -14,6 +14,9 @@
 
     <div class="col-sm-6 col-md-8 col-lg-9 left-section-container">
       <div class="add-hostel">
+        <div class = "error-display">
+          <p>Error occured!!</p>
+        </div>
         <h3>Manage Images</h3>
         <div class="list-hostel">
             <table class="table table-hover">

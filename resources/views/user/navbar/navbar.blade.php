@@ -36,6 +36,9 @@
     background:#f4f5f6;
     position:absolute;
 }
+.active a{
+  color:#3490dc !important;
+}
 .navigation-bar{
     position:absolute;
     left:50%;
@@ -313,17 +316,17 @@ nav ul {
                 <span></span>
                 </button>
                 <ul class = "non-responsive">
-                    <li><a href="/">home</a></li>
-                    <li><a href="/hostel">hostels</a></li>
+                    <li class = "{{ (request()->is('/')) ? 'active' : ''}} {{ (request()->is('search*')) ? 'active' : ''}}"><a href="/">home</a></li>
+                    <li class = "{{ (request()->is('hostel*')) ? 'active' : ''}}"><a href="/hostel">hostels</a></li>
                     <li class="seperator"></li>
                     <div class="frontend-logo-container">
                     <img src="{{asset('images/logo.png')}}" alt="" srcset="">
                     </div>
                     @guest
                     @else
-                    <li><a href="/hostel/booking/details/{{ Auth::user()->id}}">my bookings</a></li>
+                    <li class = "{{ (request()->is('booking*')) ? 'active' : ''}}"><a href="/hostel/booking/details/{{ Auth::user()->id}}">my bookings</a></li>
                     @endguest
-                    <li><a href="/aboutus">about us</a></li>
+                    <li class = "{{ (request()->is('aboutus*')) ? 'active' : ''}}"><a href="/aboutus">about us</a></li>
                 </ul>
             </nav>
             <div class="responsive-container">
@@ -331,10 +334,10 @@ nav ul {
                 <img src="{{asset('images/logo.png')}}" alt="" srcset="">
               </div>
             <ul class="responsive-nav">
-                <li><a href="#">home</a></li>
-                <li><a href="#">hostels</a></li>
-                <li><a href="#">my bookings</a></li>
-                <li><a href="#">about us</a></li>
+                <li class = "{{ (request()->is('/')) ? 'active' : ''}} {{ (request()->is('search*')) ? 'active' : ''}}"><a href="/">home</a></li>
+                <li class = "{{ (request()->is('hostel*')) ? 'active' : ''}}"><a href="/hostel">hostels</a></li>
+                <li class = "{{ (request()->is('booking*')) ? 'active' : ''}}"><a href="/hostel/booking/details/{{ Auth::user()->id}}">my bookings</a></li>
+                <li class = "{{ (request()->is('aboutus*')) ? 'active' : ''}}"><a href="/aboutus">about us</a></li>
             </ul>
             </div>
         </div>

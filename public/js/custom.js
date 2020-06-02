@@ -2,9 +2,11 @@
 let navbarButton = document.querySelector("#navbar-button");
 let responsiveNav = document.querySelector('.responsive-nav');
 let hider = document.querySelector('.booking-details-cards');
+let hiding = document.querySelector('.aboutus-contact-card');
 navbarButton.addEventListener('click', e => {
     responsiveNav.classList.toggle('responsive-nav-active')
     hider.classList.toggle('hider')
+    hiding.classList.toggle('hide')
 });
 
 

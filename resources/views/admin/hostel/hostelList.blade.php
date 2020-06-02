@@ -21,6 +21,9 @@
 
 @endif
       <div class="add-hostel">
+        <div class = "error-display">
+          <p>Error occured!!</p>
+        </div>
         <h3>Hostel List</h3>
         <div class="list-hostel">
             <table class="table table-hover">

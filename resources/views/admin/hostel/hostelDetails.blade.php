@@ -14,6 +14,9 @@
 
     <div class="col-sm-12 col-md-8 col-lg-9 left-section-container">
         <div class="add-hostel">
+            <div class = "error-display">
+                <p>Error occured!!</p>
+              </div>
         <h2 class = "user-details-heading">Hostel Details</h2>
         <div class="row">
             <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
