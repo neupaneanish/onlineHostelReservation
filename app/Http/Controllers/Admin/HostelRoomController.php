@@ -25,7 +25,14 @@ class HostelRoomController extends Controller
         ]);
             $room = Room::where('hostel_id',$id)->where('room_no',$request->room_no)->get();
             if(count($room)==1){
-                return "already taken";
+                return redirect('/admin/hostel/room/'.$id)->with('status','Room Number is already taken.');
+            }
+            $rooms = Room::where('hostel_id',$id)->get();
+            $hostel = Hostel::findorFail($id);
+            $totalRoom = explode('::',$hostel->totalRoom);
+            $total = implode('',$totalRoom);
+            if(count($rooms)>=$total){
+                return redirect('/admin/hostel/room/'.$id)->with('status','Room Limit has been full.');
             }
         Room::create([
             'hostel_id'=>$id,
@@ -34,7 +41,7 @@ class HostelRoomController extends Controller
             'price'=>$request->price,
             'status'=>0,
         ]);
-        return redirect('/admin/hostel/room/view/'.$id)->with('status','Room added successfully');
+        return redirect('/admin/hostel/room/'.$id)->with('message','Room added ');
 
     }
     public function roomShow($id){

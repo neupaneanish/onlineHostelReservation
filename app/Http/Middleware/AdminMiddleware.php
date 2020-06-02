@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Middleware;
-
+use Illuminate\support\Facades\Auth;
 use Closure;
 
 class AdminMiddleware
@@ -15,8 +15,9 @@ class AdminMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if (! $request->expectsJson()) {
-            return route('admin.login');
+        if (Auth::check() && Auth::user()->type=='normal') {
+            return redirect('/admin');
         }
+        return $next($request);
     }
 }

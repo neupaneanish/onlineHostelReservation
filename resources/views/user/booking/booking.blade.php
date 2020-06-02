@@ -87,13 +87,16 @@
                     <a href="#"><button class = "view-details">View Details</button></a> 
                 </div> 
                 <?php $today = date('Y-m-d') ?>
-                @if($book->arrival_date > $today)
+                @if(($book->arrival_date > $today) && ($book->status==0))
                 <div class="booking-buttons">
-                    <a href="#"><button class = "btn view-details">Edit</button></a> 
+                    <a href="/hostel/booking/edit/{{$book->id}}"><button class = "btn view-details">Edit</button></a> 
                 </div> 
+                <form action="/hostel/booking/cancel/{{$book->id}}" method="post">
+                @csrf
                 <div class="booking-buttons">
-                    <a href="#"><button class = "btn btn-danger ">Cancel</button></a> 
+                    <button class = "btn btn-danger" type="submit">Cancel</button> 
                 </div> 
+                </form>
                 @endif
             </div> 
             </div>

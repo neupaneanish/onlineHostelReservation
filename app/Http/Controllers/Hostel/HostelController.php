@@ -244,20 +244,18 @@ class HostelController extends Controller
         }else{
             $period = $request->period;
         }
-        $totalPeriod = $request->period.$request->duration;
-        // return $price*$period;
-        // return Auth::user()->id;
+        $totalPeriod = $request->period." ".$request->duration;
         Booking::create([
             'user_id'=>Auth::user()->id,
             'hostel_id'=> $id,
             'room_id'=>$room_id,
-            'status'=>0,
+            'status'=>'0',
             'price'=>$price*$period,
             'arrival_date'=>$request->date,
             'duration'=>$totalPeriod,
         ]);
         Room::where('id',$room_id)->update(['status'=>1]);
-        return redirect('/hostel/details/'.$id)->with('status','Hostel Room Booked');
+        return redirect('/hostel/detail/'.$id)->with('status','Hostel Room Booked');
     }
     public function bookingDetails($id){
         // $books = Booking::where('user_id',$id)->get();
@@ -269,5 +267,87 @@ class HostelController extends Controller
         ->get();
         // return $books;
         return view('user.booking.booking',['books'=>$books]);
+    }
+    public function editBooking($id){
+        // return "hello";
+        $booking = Booking::findorFail($id);
+        $hostel_id = explode('::',$booking->hostel_id);
+        $du = explode('::',$booking->duration);
+        $dura = implode('',$du);
+        $tio = explode(' ',$dura);
+        $duration = $tio[1];
+        $period = $tio[0];
+        $hostel = Hostel::where('id',$hostel_id)->first();
+        
+        $room_id = explode('::',$booking->room_id);
+        $room_no = Room::where('id',$room_id)->first();
+        $images = Hostelimage::where('hostel_id',$hostel_id)->get();
+        $list = array(
+            'id'=>$hostel->id,
+            'name'=>$hostel->name,
+            'city'=>$hostel->city,
+            'municipality'=>$hostel->municipality,
+            'ward'=>$hostel->ward,
+            'type'=>$room_no->room_type,
+            'price'=>$booking->price,
+            'room_no'=>$room_no->room_no,
+            'description'=>$hostel->description,
+            'arrival_date'=>$booking->arrival_date,
+            'duration'=>$duration,
+            'period'=>$period,
+            'booking_id'=>$booking->id
+
+        ); 
+// return $list;        
+        return view('user.booking.bookingEdit',['hostel'=>$list,'images'=>$images]);
+        // return view('user.booking.bookingEdit');
+    }
+    public function editBook($id,Request $request){
+        $this->validate($request,[
+            'date'=>'date_format:Y-m-d|after_or_equal:today'
+        ]);
+        $booking = Booking::findorFail($id);
+       
+        $roomId = explode("::",$booking->room_id);
+        $room = Room::where('id',$roomId)->first();
+        $room_id = implode('',$roomId);
+        $priceR = explode('::',$room->price); 
+        $price = implode('',$priceR);
+        if($request->duration=='days'){
+            $period = $request->period/30; 
+        }elseif($request->duration=='year'){
+            $period = $request->period*12; 
+        }else{
+            $period = $request->period;
+        }
+        $totalPeriod = $request->period." ".$request->duration;
+
+        $booking->user_id = Auth::user()->id;
+        $booking->hostel_id = $request->hostel_id;
+        $booking->room_id = $room_id;
+        $booking->price = $price*$period;
+        $booking->duration = $totalPeriod;
+        $booking->arrival_date = $request->date;
+        $booking->save();
+
+
+        Room::where('hostel_id',$request->hostel_id)->where('room_no',$request->room_no)->update(['status'=>1]);
+        Room::where('id',$room_id)->update(['status'=>0]);
+// return $room_id; 
+        return redirect('/hostel/detail/'.$request->hostel_id)->with('status','Hostel Room Booked');
+    }
+    public function aboutUs(){
+        return view('user.aboutus.aboutus');
+    }
+    public function cancelled($id){
+        // return $id;
+        $booking = Booking::findorFail($id);
+        // return $booking;
+        $room_id= explode('::',$booking->room_id);
+        $user_id = explode('::',$booking->user_id);
+        $user = implode('',$user_id);
+        Booking::where('id',$id)->update(['status'=>1]);
+        Room::where('id',$room_id)->update(['status'=>0]);
+        return redirect('hostel/booking/details/'.$user)->with('status','Booking Cancelled');
     }
 }

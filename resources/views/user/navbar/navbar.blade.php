@@ -313,14 +313,17 @@ nav ul {
                 <span></span>
                 </button>
                 <ul class = "non-responsive">
-                    <li><a href="#">home</a></li>
-                    <li><a href="#">hostels</a></li>
+                    <li><a href="/">home</a></li>
+                    <li><a href="/hostel">hostels</a></li>
                     <li class="seperator"></li>
                     <div class="frontend-logo-container">
                     <img src="{{asset('images/logo.png')}}" alt="" srcset="">
                     </div>
-                    <li><a href="#">my bookings</a></li>
-                    <li><a href="#">about us</a></li>
+                    @guest
+                    @else
+                    <li><a href="/hostel/booking/details/{{ Auth::user()->id}}">my bookings</a></li>
+                    @endguest
+                    <li><a href="/aboutus">about us</a></li>
                 </ul>
             </nav>
             <div class="responsive-container">

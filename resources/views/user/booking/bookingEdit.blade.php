@@ -65,8 +65,9 @@
             </div> --}}
         </div>
         <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 booking-details-cards-left">
-          <form action="/hostel/booking/{{$hostel['id']}}" method="post">
+          <form action="/hostel/booking/edit/{{$hostel['booking_id']}}" method="post">
           @csrf
+          @method('PATCH')
             <div class="booking-details-kyc">
                 <!-- <p id = "kyc-price">NPR6900</p>
                 <p  id = "tax">inclusive of all taxes</p>  -->
@@ -78,18 +79,28 @@
               <!-- <input type="text" id="period" value="1"> -->
               </div>
               <div class="duration-flex1">
-                <input type="text" class="form-control" name="period" id="period" value="1" onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57" /></td>
+                <input type="text" class="form-control" name="period" id="period" value="{{$hostel['period']}}" onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57" /></td>
                     <select class="custom-select mr-sm-2 " name="duration" id="duration" required >
-                      <option  value ="days"> Day </option>
+                      @if($hostel['duration']=='day')
+                      <option selected value ="days"> Day </option>
+                      <option value ="month">Month</option>
+                      <option value="year">Year</option>
+                      @elseif($hostel['duration']=='month')
+                      <option value ="days"> Day </option>
                       <option selected value ="month">Month</option>
                       <option value="year">Year</option>
+                      @else
+                      <option value ="days"> Day </option>
+                      <option value ="month">Month</option>
+                      <option selected value="year">Year</option>
+                      @endif
                     </select>
                   </div>
                 </div>
                 <div class="form-group col-6 booking-details-kyc-division">
                 <input type="hidden" name="today" value= "{{date('Y-m-d')}}">
                     <label id= "label" for="arrivalDate">Arrival Date</label>
-                    <input type="date" name="date" class="form-control" id="arrivalDate" required>
+                    <input type="date" name="date" value="{{$hostel['arrival_date']}}" class="form-control" id="arrivalDate" required>
                     @error('date')
                     <strong style="color:red">{{$message}}</strong>
                     @enderror
@@ -97,18 +108,20 @@
                   <div class="col-6 booking-details-kyc-division-1">
                     <label id= "label"  class="mr-sm-2" for="room-type">Room Type</label>
                     <select class="custom-select mr-sm-2 test dynamic" name="room_type" data-dependent="room" id="room_type" required>
-                      <option value="">Choose Room type</option>
-                      <option value="0">Single with attach Bathroom</option>
-                      <option value="1">Single with non-attach Bathroom</option>
-                      <option value="2">Shared with attach Bathroom</option>
-                      <option value="3">Shared with non-attach Bathroom</option>
+                      <!-- <option value="">Choose Room type</option> -->
+                      <option @if($hostel['type']==0) selected @endif value="0">Single with attach Bathroom</option>
+                      <option @if($hostel['type']==1) selected @endif value="1">Single with non-attach Bathroom</option>
+                      <option @if($hostel['type']==2) selected @endif value="2">Shared with attach Bathroom</option>
+                      <option @if($hostel['type']==3) selected @endif value="3">Shared with non-attach Bathroom</option>
                       
                     </select>
                 </div>
+                <input type="hidden" value="{{$hostel['id']}}" name="hostel_id">
+                <input type="hidden" value="{{$hostel['room_no']}}" name="room_no">
                 <div class="col-6 booking-details-kyc-division-1">
                     <label id= "label"  class="mr-sm-2" for="room-facility">Available Room</label>
                     <select class="custom-select mr-sm-2" name="room_no" id="room_no" required>
-                      <option value="" >select</option>                  
+                      <option value="{{$hostel['room_no']}}" >{{$hostel['room_no']}}</option>                  
                     </select>
                 </div>
             </div>
@@ -118,7 +131,7 @@
                     <p>(incl. of all taxes)</p>
                 </div>
                 <div class="total-price-right">
-                    <p id ="total-price" name="totalPrice"></p>
+                    <p id ="total-price" name="totalPrice">{{$hostel['price']}}</p>
                 </div>
             </div>
             <button id = "booking-button">Book Now</button>

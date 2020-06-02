@@ -118,19 +118,19 @@
      <div class="swiper-container hostel-swiper-container1"></a>
         <div class="swiper-wrapper">
           @if(!empty($girls))
-          @foreach($girls as $boy)
+          @foreach($girls as $girl)
           <div class="swiper-slide hostel-swiper-slide">
-          <a href = "#"><img src="{{asset('/uploads/'.$boy['image'])}}" alt="" srcset=""></a>
+          <a href = "/hostel/detail/{{$girl['id']}}"><img src="{{asset('/uploads/'.$girl['image'])}}" alt="" srcset=""></a>
           <div class="hostel-swiper-text-section">
-            <p class = "hostel-name">{{$boy['name']}}</p>
-            <p class = "hostel-address"> {{$boy['municipality']}}-{{$boy['ward']}},{{$boy['city']}} </p>
+            <p class = "hostel-name">{{$girl['name']}}</p>
+            <p class = "hostel-address"> {{$girl['municipality']}}-{{$girl['ward']}},{{$girl['city']}} </p>
             <button class = "verified-container"> <img id = "verified" style = "width:15px;height:15px;" src="{{asset('images/tick.svg')}}" alt="" srcset=""> MyHostel Verified</button>
-            <p>NRP:{{$boy['price']}}</p>
-            <p>@if($boy['room']==0)
+            <p>NRP:{{$girl['price']}}</p>
+            <p>@if($girl['room']==0)
             Single Bed With Attached Bathroom
-              @elseif($boy['room']==1)
+              @elseif($girl['room']==1)
               Single Bed With non-attached Bathroom
-              @elseif($boy['room']==2)
+              @elseif($girl['room']==2)
               shared Bed With Attached Bathroom
               @else
               shared Bed With non-attached Bathroom

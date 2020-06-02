@@ -6,8 +6,8 @@
     <div class="quick-navigation">
             <h3>Quick Navigation</h3>
             <p>Admin Management</p>
-            <a href="#"><li>Create Admins</li></a>
-            <a href="#"><li class = "active">List Admins</li></a>
+            <a href="/admin/register"><li>Create Admins</li></a>
+            <a href="/admin/show"><li class = "active">List Admins</li></a>
         </div>
     </div>
 
@@ -28,41 +28,30 @@
                   <th scope="col">S/N</th>
                     <th scope="col">Admin Name</th>
                     <th scope="col">Admin Email</th>
-                    <th scope="col">Address</th>
-                    <!-- <th scope="col">Phone</th>
-                    <th scope="col">Contact</th>
-                    <th scope="col">Hostel Type</th> -->
+                    <!-- <th scope="col">Address</th> -->
                     <th scope="col">Action</th>
                   </tr>
                 </thead>
                 <tbody>
                   
-                @if(!empty($hostels))
-                    @foreach($hostels as $hostel)
+                @if(!empty($admins))
+                    @foreach($admins as $admin)
+                    
                     <tr>
                     <th scope="row">{{$loop->iteration}}</th>
-                    <td>{{ $hostel->name }}</td>
-                    <td> {{$hostel->email}} </td>
-                    <td> {{$hostel->municipality}}-{{$hostel->ward}},&nbsp;{{$hostel->city}} </td>
-                    <!-- <td> {{$hostel->phone}} </td>
-                    <td> {{$hostel->contact}} </td>
-                    <td> @if($hostel->type==0)
-                          Boys Hostel
-                          @elseif($hostel->type==1)
-                          Girls Hostel
-                          @else
-                          Boys and Girls Hostel
-                          @endif
-                    </td> -->
+                    <td>{{ $admin->name }}</td>
+                    <td> {{$admin->email}} </td>
+                    <!-- <td> {{$admin->municipality}}-{{$admin->ward}},&nbsp;{{$admin->city}} </td> -->
                     <td>
                       <div class="row">
-                      <a class = "btn btn-primary mb-1 btn-sm" href="/admin/hostel/detail/{{$hostel->id}}">Details</a>
-                      <a class = "btn btn-primary ml-2 mr-2 mb-1 btn-sm" href = "/admin/hostel/edit/{{$hostel->id}}">Edit</a>
-                      <form action="/admin/hostel/delete/{{$hostel->id}}" method="post">
+                      <a class = "btn btn-primary mb-1 mr-1 btn-sm" href="/admin/password/{{$admin->id}}">Change Password</a>
+                      @if($admin->type=='normal')
+                      <form action="/admin/delete/{{$admin->id}}" method="post">
                       @method('DELETE')
                       @csrf
                       <button type="submit" class ="btn btn-danger btn-sm">Delete</button>
                      </form>
+                     @endif
                      </div>
                     </td>
                   </tr>

@@ -4,10 +4,11 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 // use App\Providers\RouteServiceProvider;
-use App\Admin;
+use App\model\Admin;
 // use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
 class AdminRegisterController extends Controller
@@ -17,7 +18,7 @@ class AdminRegisterController extends Controller
     }
     public function showRegisterForm()
     {
-      return view('auth.adminRegister');
+      return view('admin.mgmtAdmin.createAdmin');
     }
     public function register(Request $request){
         $this->validate($request,[
@@ -29,9 +30,12 @@ class AdminRegisterController extends Controller
         Admin::create([
             'name' => $request['name'],
             'email' => $request['email'],
+            'type'=>'normal',
             'password' => Hash::make($request['password']),
         ]);
         return redirect('/admin');
+       
+        
     }
     //
 }

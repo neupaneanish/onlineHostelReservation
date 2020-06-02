@@ -14,7 +14,13 @@
 
     </div>
     <div class="col-sm-12 col-md-8 col-lg-9 left-section-container">
+      
         <div class="add-hostel">
+        <div style="background:#aab5bf">
+        @if(session('message'))
+         <h3> {{session('message')}} </h3>
+        @endif
+      </div>  
           <h3>Add Hostel Room of {{$hostel->name}}</h3>
             <form method="POST" action="/admin/hostel/room/{{$hostel->id}}" class="needs-validation mt-5" novalidate>
             @csrf    
@@ -23,11 +29,12 @@
                     <div class="col-md-6">
                     <input type="text" name ="room_no" value="{{old('room_no')}}" class="form-control" required>
                     </div>
-                    @error('room_no')
-                                   
-                                        <strong style="color:red">{{ $message }}</strong>
-                                 
+                    @error('room_no')         
+                          <strong style="color:red">{{ $message }}</strong>
                         @enderror
+                        @if(session('status'))
+                        <strong style="color:red">{{ session('status') }}</strong>
+                        @endif
                   </div>
                   <div class="form-group row">
                     <label class="col-md-3 col-form-label text-right" for="room_type">Room Type. :</label>
