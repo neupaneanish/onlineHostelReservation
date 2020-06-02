@@ -2,7 +2,7 @@
 @section('content')
 <div class="container-fluid">
 <div class="row">
-    <div class="col-sm-6 c0l-md-4 col-lg-3 quick-navigation-parent">
+    <div class="col-sm-6 col-md-4 col-lg-3 quick-navigation-parent">
         <div class="quick-navigation">
             <h3>Quick Navigation</h3>
             <p>Hostel Management</p>

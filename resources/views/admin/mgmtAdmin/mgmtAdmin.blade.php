@@ -2,13 +2,12 @@
 @section('content')
 <div class="container-fluid">
 <div class="row">
-    <div class="col-sm-12 col-md-4 col-lg-3 quick-navigation-parent">
+    <div class="col-sm-12 c0l-md-4 col-lg-3 quick-navigation-parent">
     <div class="quick-navigation">
             <h3>Quick Navigation</h3>
-            <p>Hostel Management</p>
-            <a href="/admin/hostel/create"><li>Add Hostel</li></a>
-            <a href="/admin/hostel"><li class = "active">Hostels List</li></a>
-            <a href="/admin/hostel/manageImage"><li>Manage Images</li></a>
+            <p>Admin Management</p>
+            <a href="#"><li>Create Admins</li></a>
+            <a href="#"><li class = "active">List Admins</li></a>
         </div>
     </div>
 
@@ -17,18 +16,18 @@
 
 <div class="list-hostel">
   <h3>{{session('status')}}</h3>
-</div>
+
 
 @endif
       <div class="add-hostel">
-        <h3>Hostel List</h3>
+        <h3>Admin List</h3>
         <div class="list-hostel">
             <table class="table table-hover">
                 <thead>
                   <tr>
                   <th scope="col">S/N</th>
-                    <th scope="col">Hostel Name</th>
-                    <th scope="col">Hostel Email</th>
+                    <th scope="col">Admin Name</th>
+                    <th scope="col">Admin Email</th>
                     <th scope="col">Address</th>
                     <!-- <th scope="col">Phone</th>
                     <th scope="col">Contact</th>
@@ -77,6 +76,7 @@
         </div>
       </div>
     </div>
+</div>
 </div>
 </div>
 

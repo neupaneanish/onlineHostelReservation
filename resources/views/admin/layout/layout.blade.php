@@ -217,6 +217,10 @@
         .quick-navigation{
             height:100%;
         }
+        .add-hostel{
+            overflow-x:auto;
+        }
+
 
         }
 
@@ -319,9 +323,17 @@
         padding-top:4px;
     }
 
-
     /* admin userdetails css ends  */
 
+    /* admin web footer css starts  */
+
+      .admin-footer-section .admin-social{
+          font-size:16px;
+          font-weight:600;
+      }
+
+
+    /* admin web footer css ends  */
     </style>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -367,6 +379,14 @@
 
                         <li class="nav-item">
                             <a class="nav-link" href="/admin/user">{{ __('User Management') }}</a>
+                        </li>  
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">{{ __('Web Management') }}</a>
+                        </li>  
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">{{ __('Admin Management') }}</a>
                         </li>  
 
                     </ul>
