@@ -336,7 +336,10 @@ nav ul {
             <ul class="responsive-nav">
                 <li class = "{{ (request()->is('/')) ? 'active' : ''}} {{ (request()->is('search*')) ? 'active' : ''}}"><a href="/">home</a></li>
                 <li class = "{{ (request()->is('hostel*')) ? 'active' : ''}}"><a href="/hostel">hostels</a></li>
+                @guest
+                @else
                 <li class = "{{ (request()->is('booking*')) ? 'active' : ''}}"><a href="/hostel/booking/details/{{ Auth::user()->id}}">my bookings</a></li>
+                @endguest
                 <li class = "{{ (request()->is('aboutus*')) ? 'active' : ''}}"><a href="/aboutus">about us</a></li>
             </ul>
             </div>
