@@ -12,16 +12,15 @@
     </div>
 
     <div class="col-sm-12 col-md-8 col-lg-9 left-section-container">
-    @if(session('status'))
 
-<div class="list-hostel">
-  <h3>{{session('status')}}</h3>
-
-
-@endif
       <div class="add-hostel">
         <h3>Admin List</h3>
         <div class="list-hostel">
+        @if(session('status'))
+      <div class = "error-display">
+            <p>{{session('status')}}</p>
+          </div>
+          @endif
             <table class="table table-hover">
                 <thead>
                   <tr>

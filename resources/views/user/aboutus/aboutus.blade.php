@@ -93,9 +93,16 @@
         </div>
     </div>
 </div>
+<?php 
+
+use Illuminate\Support\Facades\DB;
+
+$data = DB::table('links')->first();
+$web = DB::table('webs')->first();
+?>
 <div id="map">
     <p>Site Map of Our HeadOffice</p>
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.2644547849773!2d85.32375631490152!3d27.709119982791076!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjfCsDQyJzMyLjgiTiA4NcKwMTknMzMuNCJF!5e0!3m2!1sen!2snp!4v1590933955012!5m2!1sen!2snp"
+    <iframe src="{{$web->iframe}}"
      frameborder="0" style="border:0;"
      allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
 </div>
@@ -109,12 +116,7 @@
         <img src="{{asset('images/logo.png')}}" alt="" srcset="">
         </div>
     </div>
-<?php 
 
-use Illuminate\Support\Facades\DB;
-
-$data = DB::table('links')->first();
-?>
 
     <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 col-xl-8 footer-margin">
         <div class="footer-social-container">

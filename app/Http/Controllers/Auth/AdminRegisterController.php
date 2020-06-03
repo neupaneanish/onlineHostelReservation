@@ -27,13 +27,14 @@ class AdminRegisterController extends Controller
             'password'=>'required|string|min:8|confirmed',
 
         ]);
+        // return "Ok";
         Admin::create([
             'name' => $request['name'],
             'email' => $request['email'],
-            'type'=>'normal',
+            'type' => 'normal',
             'password' => Hash::make($request['password']),
         ]);
-        return redirect('/admin');
+        return redirect('/admin/register')->with('status','New Admin Created');
        
         
     }

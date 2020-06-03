@@ -6,13 +6,18 @@
     <div class="quick-navigation">
             <h3>Quick Navigation</h3>
             <p>Admin Management</p>
-            <a href="/admin/register"><li class = "active">Create Admins</li></a>
+            <a href="/admin/register"><li class = "active">Create Admin</li></a>
             <a href="/admin/show"><li>List Admins</li></a>
         </div>
     </div>
 
     <div class="col-sm-12 col-md-8 col-lg-9 left-section-container">      
     <div class="add-hostel">
+    @if(session('status'))
+      <div class = "error-display">
+            <p>{{session('status')}}</p>
+          </div>
+          @endif
     <h3>Create Sub-Admin</h3>
     <form method="POST" action="/admin/register">
       @csrf

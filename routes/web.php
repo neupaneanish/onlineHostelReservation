@@ -76,6 +76,10 @@ Route::get('/room/delete/{id}','Admin\HostelRoomController@deleteRoom');
 Route::get('/hostel/room/{id}/edit','Admin\HostelRoomController@roomEditForm');
 Route::PATCH('/hostel/room/{id}/edit','Admin\HostelRoomController@roomEdit');
 
+Route::get('/password/{id}','Admin\AdminManagementController@password');
+Route::PATCH('/password/{id}','Admin\AdminManagementController@reset');
+Route::DELETE('/delete/{id}','Admin\AdminManagementController@delete');
+
 
 });
 ROute::get('/view',function (){

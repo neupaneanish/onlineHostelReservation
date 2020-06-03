@@ -31,6 +31,7 @@ class WebController extends Controller
                 'tel_no'=>$request->tel_no,
                 'mobile'=>$request->mobile,
                 'email'=>$request->email,
+                'iframe'=>$request->iframe,
             ]);
             return redirect('/admin/web/about')->with('status','Web Details created.');
         }
@@ -40,6 +41,7 @@ class WebController extends Controller
             $web->tel_no = $request->tel_no;
             $web->mobile = $request->mobile;
             $web->email = $request->email;
+            $web->iframe = $request->iframe;
             $web->save();
             return redirect('/admin/web/about')->with('status','Web Details updated.');
         }

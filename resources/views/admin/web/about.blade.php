@@ -35,10 +35,10 @@
                 <label class = "admin-social" for="mail">Mailing Address</label>
                 <input type="email" name="email" @if(!empty($web)) value="{{$web->email}}" @endif class="form-control" required>
               </div> 
-              <!-- <div class="col-md-6 mb-3">
-                <label class = "admin-social" for="iframe">Map Iframe</label>
+              <div class="col-md-6 mb-3">
+                <label class = "admin-social" name="iframe" for="iframe">Map Iframe</label>
                 <input type="text" name="iframe" class="form-control">
-              </div> -->
+              </div>
               <!-- <div class="col-md-2 mb-3"> -->
                 <button type="submit" style="margin-left:1.5%" class="col-md-2 mt-3 btn btn-primary">Save</button>
               <!-- </div> -->
