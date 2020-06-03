@@ -271,9 +271,10 @@ jQuery(document).ready(function(){
                       // console.log(data);
                       jQuery('select[name="room_no"]').empty();
                       jQuery('#total-price').empty();
+                      $('select[name="room_no"]').append('<option value="">select Room</option>');
                       jQuery.each(data, function(key,value){
-                        $('select[name="room_no"]').append('<option value="">select Room</option>');
-                           $('select[name="room_no"]').append('<option value="'+ value +'">'+ value +'</option>');
+                        
+                           $('select[name="room_no"]').append('<option value="'+ key +'">'+ key +'</option>');
                            
                            $('#total-price').append('0');
                            
