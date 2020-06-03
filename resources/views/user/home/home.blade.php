@@ -53,7 +53,9 @@
       @if(!empty($boys))
       @foreach($boys as $boy)
       <div class="swiper-slide hostel-swiper-slide">
-          <a href = "/hostel/detail/{{$boy['id']}}"><img src="{{asset('/uploads/'.$boy['image'])}}" alt="" srcset=""></a>
+        <div class="home-image-container">
+          <a href = "/hostel/detail/{{$boy['id']}}"><img src="{{asset('/uploads/'.$boy['image'])}}" alt="Respective Hostel Image" srcset=""></a>
+        </div>
           <div class="hostel-swiper-text-section">
             <p class = "hostel-name">{{$boy['name']}}</p>
             <p class = "hostel-address"> {{$boy['municipality']}}-{{$boy['ward']}},{{$boy['city']}} </p>
@@ -125,7 +127,9 @@
           @if(!empty($girls))
           @foreach($girls as $girl)
           <div class="swiper-slide hostel-swiper-slide">
-          <a href = "/hostel/detail/{{$girl['id']}}"><img src="{{asset('/uploads/'.$girl['image'])}}" alt="" srcset=""></a>
+          <div class="home-image-container">
+          <a href = "/hostel/detail/{{$girl['id']}}"><img src="{{asset('/uploads/'.$girl['image'])}}" alt="Respective Hostel Image" srcset=""></a>
+          </div>
           <div class="hostel-swiper-text-section">
             <p class = "hostel-name">{{$girl['name']}}</p>
             <p class = "hostel-address"> {{$girl['municipality']}}-{{$girl['ward']}},{{$girl['city']}} </p>

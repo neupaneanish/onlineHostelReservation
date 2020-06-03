@@ -317,14 +317,14 @@ nav ul {
                 </button>
                 <ul class = "non-responsive">
                     <li class = "{{ (request()->is('/')) ? 'active' : ''}} {{ (request()->is('search*')) ? 'active' : ''}}"><a href="/">home</a></li>
-                    <li class = "{{ (request()->is('hostel*')) ? 'active' : ''}}"><a href="/hostel">hostels</a></li>
+                    <li class = "{{ (request()->is('hostel')) ? 'active' : ''}}"><a href="/hostel">hostels</a></li>
                     <li class="seperator"></li>
                     <div class="frontend-logo-container">
                     <img src="{{asset('images/logo.png')}}" alt="" srcset="">
                     </div>
                     @guest
                     @else
-                    <li class = "{{ (request()->is('booking*')) ? 'active' : ''}}"><a href="/hostel/booking/details/{{ Auth::user()->id}}">my bookings</a></li>
+                    <li class = "{{ (request()->is('hostel/booking*')) ? 'active' : ''}}"><a href="/hostel/booking/details/{{ Auth::user()->id}}">my bookings</a></li>
                     @endguest
                     <li class = "{{ (request()->is('aboutus*')) ? 'active' : ''}}"><a href="/aboutus">about us</a></li>
                 </ul>
