@@ -17,7 +17,7 @@
         <div class="row">
             <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
                 <div class="user-details-image-container">
-                <img src="{{asset('images/6.jpg')}}" alt="" srcset="">
+                <img src="{{asset('images/adminUser.svg')}}" alt="" srcset="">
                 </div>
             </div>
             <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">

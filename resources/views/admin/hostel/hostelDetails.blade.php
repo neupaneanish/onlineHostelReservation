@@ -68,10 +68,10 @@
                         <p>Total no of Student :</p>
                         <p>200</p>
                     </div>
-                    <div class="info-container">
+                    {{-- <div class="info-container">
                         <p>Description      :</p>
                         <p>{{$hostel->description}}</p>
-                    </div>
+                    </div> --}}
                     <div class="info-container">
                         <p>Account Created      :</p>
                         <p>{{$hostel->created_at}}</p>

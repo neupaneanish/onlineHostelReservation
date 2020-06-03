@@ -96,7 +96,7 @@ navbarButton.addEventListener('click', () => {
 
     //string reducer
 
-    let reducer = 22;
+    let reducer = 18;
     let addressReducer = 35;
     let hostelName = document.getElementsByClassName('hostel-name');
     let hostelAddress = document.getElementsByClassName('hostel-address');
