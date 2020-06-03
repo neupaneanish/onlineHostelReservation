@@ -50,7 +50,7 @@
 </form>
 </div>
 <div class="container-fluid hostel-lists">
-    <p id = "hostel-lists-heading text-uppercase">Available @if(!empty($city))Hostels Available From {{$city}} @else AVAILABLE HOSTELS @endif </p>
+    <p id = "hostel-lists-heading text-uppercase"> @if(!empty($city))HOSTELS  From {{$city}} @else  HOSTELS @endif </p>
 
   <div class="row hostel-lists-container">
 @if(!empty($hostels))
@@ -77,6 +77,8 @@
          </div>
       </div>
       @endforeach
+      @else
+     <p style="text-align: center;"> No Data Available</p> 
       @endif
   </div>
 @endsection

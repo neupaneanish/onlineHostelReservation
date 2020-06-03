@@ -13,16 +13,14 @@
     </div>
 
     <div class="col-sm-6 col-md-8 col-lg-9 left-section-container">
-    @if(session('Status'))
-
-<div class="list-hostel">
-  <h3>{{session('Status')}}</h3>
-</div>
-
-@endif
       <div class="add-hostel">
         <h3>--{{$name->name}}</h3>
         <div class="list-hostel">
+        @if(session('status'))
+        <div  class = "error-display">
+          <p>{{session('status')}}</p>
+        </div>
+        @endif
         <div class="row">
             @if(!empty($images))
             @foreach($images as $image)

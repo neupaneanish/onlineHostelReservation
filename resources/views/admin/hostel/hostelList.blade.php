@@ -13,18 +13,21 @@
     </div>
 
     <div class="col-sm-12 col-md-8 col-lg-9 left-section-container">
-    @if(session('status'))
+    
 
 <div class="list-hostel">
-  <h3>{{session('status')}}</h3>
+  <h3></h3>
 </div>
 
-@endif
+
       <div class="add-hostel">
+      @if(session('status'))
         <div class = "error-display">
-          <p>Error occured!!</p>
+          <p>{{session('status')}}</p>
         </div>
+        @endif
         <h3>Hostel List</h3>
+        
         <div class="list-hostel">
             <table class="table table-hover">
                 <thead>

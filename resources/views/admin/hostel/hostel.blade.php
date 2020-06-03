@@ -70,7 +70,7 @@
                     <option value="">Select Type</option>
                     <option value="0">Boys Hostel</option>
                     <option value="1">Girls Hostel</option>
-                    <option value="2">Boys And Girls Hostel</option>
+                    <!-- <option value="2">Boys And Girls Hostel</option> -->
                     </select>
                     <div class="invalid-feedback">
                       please insert Room Type

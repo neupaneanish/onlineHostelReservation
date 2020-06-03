@@ -16,11 +16,11 @@
     <div class="col-sm-12 col-md-8 col-lg-9 left-section-container">
       
         <div class="add-hostel">
-        <div style="background:#aab5bf">
-        @if(session('message'))
-         <h3> {{session('message')}} </h3>
-        @endif
-      </div>  
+       @if(session('message'))
+            <div class = "error-display" style="background:green">
+                <p>{{session('message')}}</p>
+              </div>
+              @endif
           <h3>Add Hostel Room of {{$hostel->name}}</h3>
             <form method="POST" action="/admin/hostel/room/{{$hostel->id}}" class="needs-validation mt-5" novalidate>
             @csrf    

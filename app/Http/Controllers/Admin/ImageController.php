@@ -28,7 +28,7 @@ class ImageController extends Controller
             'image' =>'required',
             'image.*' => 'mimes:jpeg,png,jpg,svg|max:2048'
     ]);
-
+    $hostel = Hostel::where('id',$request->id)->first();
     $images = array();
     if($request->hasfile('image')) {
         foreach($request->file('image') as $file) {
@@ -42,8 +42,8 @@ class ImageController extends Controller
                     ]);
             }
             
-        
-        return redirect('admin/hostel/viewImage');
+            // return redirect('admin.images.editImage',['hostel'=>$hostel]);
+        return redirect('admin/hostel/images/'.$request->id)->with('status','Image Added.');
     }
 }
 public function displayImage($id){

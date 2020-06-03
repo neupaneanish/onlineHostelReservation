@@ -29,7 +29,7 @@
         <option value ="">Choose...</option>
         <option value="0">Boys Hostel</option>
         <option value="1">Girls Hostel</option>
-        <option value="2">Boys and Girls Hostel</option>
+        <!-- <option value="2">Boys and Girls Hostel</option> -->
         
   </select>
 </div>
@@ -59,7 +59,9 @@
             <p class = "hostel-address"> {{$boy['municipality']}}-{{$boy['ward']}},{{$boy['city']}} </p>
             <button class = "verified-container"> <img id = "verified" style = "width:15px;height:15px;" src="{{asset('images/tick.svg')}}" alt="" srcset=""> MyHostel Verified</button>
             <p>NRP:{{$boy['price']}}</p>
-            <p>@if($boy['room']==0)
+            <p>
+            @if($boy['room']!=null)   
+            @if($boy['room']==0)
             Single Bed With Attached Bathroom
               @elseif($boy['room']==1)
               Single Bed With non-attached Bathroom
@@ -68,13 +70,16 @@
               @else
               shared Bed With non-attached Bathroom
               @endif
-             per month</p>
+             per month
+            @endif</p>
             <a href="#"><button class = "book-now">Book Now</button></a>
         </div>
       </div>
       @endforeach
+      @else
+      <p> No Data Available</p>
       @endif
-    
+
     </div>
     <!-- Add Arrows -->
     <div class="swiper-button-next swiper-button"></div>
@@ -126,7 +131,9 @@
             <p class = "hostel-address"> {{$girl['municipality']}}-{{$girl['ward']}},{{$girl['city']}} </p>
             <button class = "verified-container"> <img id = "verified" style = "width:15px;height:15px;" src="{{asset('images/tick.svg')}}" alt="" srcset=""> MyHostel Verified</button>
             <p>NRP:{{$girl['price']}}</p>
-            <p>@if($girl['room']==0)
+            <p>
+            @if($girl['room']!=null)       
+            @if($girl['room']==0)
             Single Bed With Attached Bathroom
               @elseif($girl['room']==1)
               Single Bed With non-attached Bathroom
@@ -136,10 +143,13 @@
               shared Bed With non-attached Bathroom
               @endif
              per month</p>
+             @endif
             <a href="#"><button class = "book-now">Book Now</button></a>
         </div>
           </div>
           @endforeach
+          @else
+     <p> No Data Available</p>
           @endif
 
         </div>
@@ -177,32 +187,6 @@
         });
     </script>
 </div>
-<div class="container-fluid footer">
-  <div class="row footer-container">
-      <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 footer-margin">
-          <div class="footer-image-container">
-          <img src="{{asset('images/logo.png')}}" alt="" srcset="">
-          </div>
-      </div>
-  
-      <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 col-xl-8 footer-margin">
-          <div class="footer-social-container">
-              <p id = "social">Socil Platforms</p>
-              <div class="footer-flex">
-                  <a href="#"><img src="{{asset('images/facebook.svg')}}" alt="" srcset="">Facebook</a>
-              </div>
-              <div class="footer-flex">
-                  <a href="#"><img src="{{asset('images/insta.svg')}}" alt="" srcset="">Instagram</a>
-              </div>
-              <div class="footer-flex">
-                  <a href="#"><img src="{{asset('images/youtube.svg')}}" alt="" srcset="">YouTube</a>
-              </div>
-              <div class="footer-flex">
-                  <a href="#"><img src="{{asset('images/watsapp.svg')}}" alt="" srcset="">Watsapp</a>
-              </div>
-          </div>
-      </div>
-  </div>
-  </div>
+@include('user.aboutus.footer')
 
 @endsection

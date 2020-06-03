@@ -43,11 +43,16 @@
                             <label for="gender" class="col-md-4 col-form-label text-md-right">{{ __('Gender') }}</label>
 
                             <div class="col-md-6">
-                                <select class="custom-select mr-sm-2 " name="duration" id="duration" required >
+                                <select class="custom-select mr-sm-2 " name="gender" id="gender" required >
                                   <option selected value ="Male"> Male </option>
                                   <option value ="Female">Female</option>
                                   <option value="Other">Others</option>
                                 </select> 
+                                @error('gender')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                         </div>
 
@@ -55,7 +60,25 @@
                             <label for="address" class="col-md-4 col-form-label text-md-right">{{ __('Address') }}</label>
 
                             <div class="col-md-6">
-                                <input id="address" type="text" class="form-control">
+                                <input id="address" name="address" type="text" value="{{ old('address') }}" class="form-control">
+                                @error('address')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="mobile" class="col-md-4 col-form-label text-md-right">{{ __('Mobile') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="address" name="mobile" type="number" value="{{ old('mobile') }}" class="form-control">
+                                @error('mobile')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                         </div>
 
@@ -63,14 +86,24 @@
                             <label for="dob" class="col-md-4 col-form-label text-md-right">{{ __('Date of Birth(DOB)') }}</label>
 
                             <div class="col-md-6">
-                                <input id="dob" type="text" class="form-control">
+                                <input id="dob" type="date" name="dob" placeholder="yyyy-mm-dd" value="{{ old('dob') }}" class="form-control">
+                                @error('dob')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="age" class="col-md-4 col-form-label text-md-right">{{ __('Age') }}</label>
 
                             <div class="col-md-6">
-                                <input id="age" type="text" class="form-control">
+                                <input id="age" type="number" name="age" value="{{ old('age') }}" class="form-control">
+                                @error('age')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                         </div>
 

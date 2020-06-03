@@ -14,6 +14,11 @@
 
     <div class="col-sm-6 col-md-8 col-lg-9 left-section-container">
       <div class="add-hostel">
+      @if(session('message'))
+            <div class = "error-display" style="background:green">
+                <p>{{session('message')}}</p>
+              </div>
+              @endif
         <h3>Hostel Name:  {{$hostel->name}}</h3>
         <div class="list-hostel">
         <div class="row">

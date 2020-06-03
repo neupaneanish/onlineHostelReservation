@@ -7,7 +7,7 @@
         }
         .error-display{
             width:100%;
-            background:#e3373c;
+            background:green;
             text-align: center;
             line-height: 32px;
         }
@@ -394,7 +394,7 @@
                         </li>  
 
                         <li class="nav-item {{ (request()->is('admin/web*')) ? 'nav-active' : ''}}" >
-                            <a class="nav-link" href="#">{{ __('Web Management') }}</a>
+                            <a class="nav-link" href="/admin/web/about">{{ __('Web Management') }}</a>
                         </li>  
                         @if(Auth::user()->type=='super')
                         <li class="nav-item {{ (request()->is('admin/show*')) ? 'nav-active' : ''}}">   

@@ -15,13 +15,15 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', 'Hostel\HostelController@index')->name('home');
+// Route::get('/register','Auth\RegisterController@register');
+// Route::post('/create','Auth\RegisterController@create');
 Auth::routes();
 route::get('/aboutus','Hostel\HostelCOntroller@aboutUs');
 Route::group(['prefix'=>'/hostel'],function() {
 // Route::get('/', 'HomeController@index')->name('home');
 Route::get('/','Hostel\HostelController@hostel');
 Route::get('/booking','Hostel\HostelController@Booking');
-Route::post('/search','Hostel\HostelController@search');
+Route::post('/search','Hostel\SearchController@search');
 Route::get('/detail/{id}','Hostel\HostelController@details');
 Route::get('/test/{id}/{idd}','Hostel\HostelController@book');
 Route::post('/booking/{id}','Hostel\HostelController@roomBook')->middleware('auth');
@@ -31,6 +33,7 @@ Route::PATCH('/booking/edit/{id}','Hostel\HostelController@editBook')->middlewar
 Route::post('/booking/cancel/{id}','Hostel\HostelController@cancelled')->middleware('auth');
 
 Route::post('/room/price/{id}/{idd}','Hostel\HostelController@roomPrice');
+// Route::get('/footer','Hostel\SearchController@search');
 });
 Route::get('/admin/login','Auth\AdminLoginController@showLoginForm')->name('admin.login');
 Route::POST('/admin/login','Auth\AdminLoginController@login');
@@ -55,6 +58,10 @@ Route::DELETE('/hostel/delete/{id}','Admin\AdminController@delete');//Hostel Del
 Route::DELETE('/image/delete/{id}','Admin\ImageController@delete');//hostle Image Delete
 Route::get('/hostel/detail/{id}','Admin\AdminController@detail');//hostel detail page show
 // Route::get('/hostel/display/{id}','Admin\ImageController@displayImage'); 
+Route::get('/web/about','Admin\WebController@web');
+Route::post('/web/about','Admin\WebController@update');
+Route::get('/web/footer','Admin\WebController@footer');
+Route::post('/web/footer','Admin\WebController@footerUpdate');
 
 Route::get('/user','Admin\HostelUserController@index');
 // Route::get('/user/{id}','Admin\HostelUserController@userView');

@@ -15,6 +15,7 @@ class HostelController extends Controller
     public function index()
     {
         $hostels = Hostel::select('city')->distinct()->get();
+        
         $boys = Hostel::where('type',0)->get();
         foreach($boys as $boy){
             $id = explode('::',$boy->id);
@@ -40,7 +41,9 @@ class HostelController extends Controller
             ); 
             
         }
-
+        if(empty($list)){
+            $list=[];
+        }
         $girls = Hostel::where('type',1)->get();
         foreach($girls as $boy){
             $id = explode('::',$boy->id);
@@ -66,10 +69,46 @@ class HostelController extends Controller
             ); 
             
         }
+        if(empty($girlList)){
+            $girlList=[];
+        }
+    //    return $list;
         return view('user.home.home',['boys'=>$list,'girls'=>$girlList,'hostels'=>$hostels]);
+   
+        
     }
     public function hostel(){
-        return view('user.hostels.hostels');
+        $all = Hostel::select('city')->distinct()->get();
+        
+        $hostels = Hostel::all();
+        foreach($hostels as $boy){
+            $id = explode('::',$boy->id);
+            $rooms = Room::where('hostel_id',$id)->first();
+            if(!empty($rooms)){
+            $price_room = explode('::',$rooms->price);
+            $price = implode('',$price_room);
+            $room_type = explode('::',$rooms->room_type);
+            $room = implode('',$room_type);
+            }else{
+                $price = null;
+                $room = null;
+            }
+            $list[] = array(
+                'id'=>$boy->id,
+                'name'=>$boy->name,
+                'city'=>$boy->city,
+                'municipality'=>$boy->municipality,
+                'ward'=>$boy->ward,
+                'price'=>$price,
+                'room'=>$room,
+                'image'=>$boy->image,
+            );
+        }
+            if(empty($list)){
+                $list = [];
+            }
+            // return view('user.hostels.search',['hostels'=>$list,'all'=>$all,'city'=>$city]);
+        return view('user.hostels.hostels',['hostels'=>$list,'all'=>$all]);
     }
     public function booking(){
         return view('user.booking.booking');
@@ -102,123 +141,7 @@ class HostelController extends Controller
 // return $list;        
         return view('user.booking.bookingDetails',['hostel'=>$list,'images'=>$images]);
     }
-    public function search(Request $request){
-        $this->validate($request,[
-            'city'=>'nullable|string',
-            'type'=>'nullable|integer'
-        ]);
-        $city = $request->type;
-        $city = $request->city;
-        $all = Hostel::all();  
-        if(!empty($city) && !empty($type)){
-            $hostels = Hostel::where('type',$request->type)->where('city',$request->city)->get();
-            foreach($hostels as $boy){
-                $id = explode('::',$boy->id);
-                $rooms = Room::where('hostel_id',$id)->first();
-                if(!empty($rooms)){
-                $price_room = explode('::',$rooms->price);
-                $price = implode('',$price_room);
-                $room_type = explode('::',$rooms->room_type);
-                $room = implode('',$room_type);
-                }else{
-                    $price = null;
-                    $room = null;
-                }
-                $list[] = array(
-                    'id'=>$boy->id,
-                    'name'=>$boy->name,
-                    'city'=>$boy->city,
-                    'municipality'=>$boy->municipality,
-                    'ward'=>$boy->ward,
-                    'price'=>$price,
-                    'room'=>$room,
-                    'image'=>$boy->image,
-                ); 
-                
-            }
-        }elseif(!empty($city) && empty($type)){
-            $hostels = Hostel::where('city',$request->city)->get();
-            foreach($hostels as $boy){
-                $id = explode('::',$boy->id);
-                $rooms = Room::where('hostel_id',$id)->first();
-                if(!empty($rooms)){
-                $price_room = explode('::',$rooms->price);
-                $price = implode('',$price_room);
-                $room_type = explode('::',$rooms->room_type);
-                $room = implode('',$room_type);
-                }else{
-                    $price = null;
-                    $room = null;
-                }
-                $list[] = array(
-                    'id'=>$boy->id,
-                    'name'=>$boy->name,
-                    'city'=>$boy->city,
-                    'municipality'=>$boy->municipality,
-                    'ward'=>$boy->ward,
-                    'price'=>$price,
-                    'room'=>$room,
-                    'image'=>$boy->image,
-                ); 
-                
-            }
-        }elseif(empty($city) && !empty($type)){
-            $hostels = Hostel::where('city',$request->city)->get();
-            foreach($hostels as $boy){
-                $id = explode('::',$boy->id);
-                $rooms = Room::where('hostel_id',$id)->first();
-                if(!empty($rooms)){
-                $price_room = explode('::',$rooms->price);
-                $price = implode('',$price_room);
-                $room_type = explode('::',$rooms->room_type);
-                $room = implode('',$room_type);
-                }else{
-                    $price = null;
-                    $room = null;
-                }
-                $list[] = array(
-                    'id'=>$boy->id,
-                    'name'=>$boy->name,
-                    'city'=>$boy->city,
-                    'municipality'=>$boy->municipality,
-                    'ward'=>$boy->ward,
-                    'price'=>$price,
-                    'room'=>$room,
-                    'image'=>$boy->image,
-                ); 
-                
-            }
-        }else{
-            $hostels = Hostel::all();
-            foreach($hostels as $boy){
-                $id = explode('::',$boy->id);
-                $rooms = Room::where('hostel_id',$id)->first();
-                if(!empty($rooms)){
-                $price_room = explode('::',$rooms->price);
-                $price = implode('',$price_room);
-                $room_type = explode('::',$rooms->room_type);
-                $room = implode('',$room_type);
-                }else{
-                    $price = null;
-                    $room = null;
-                }
-                $list[] = array(
-                    'id'=>$boy->id,
-                    'name'=>$boy->name,
-                    'city'=>$boy->city,
-                    'municipality'=>$boy->municipality,
-                    'ward'=>$boy->ward,
-                    'price'=>$price,
-                    'room'=>$room,
-                    'image'=>$boy->image,
-                ); 
-                
-            }
-        }
-        // return $list;
-        return view('user.hostels.search',['hostels'=>$list,'all'=>$all,'city'=>$city]);
-    } 
-
+   
     public function book($id,$idd){
         $rooms = DB::table('rooms')->where('hostel_id',$id)->where('room_type',$idd)->where('status',0)->pluck('price','room_no')->all();
     //    $rooms = Room::where('hostel_id',$id)->where('room_type',$idd)->where('status',0)->get('room_no','price');

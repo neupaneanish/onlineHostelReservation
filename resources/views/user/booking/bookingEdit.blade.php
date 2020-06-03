@@ -249,6 +249,7 @@
 <script>
   
   var hostel = '<?php echo $id; ?>';
+  alert(hostel)
   
 jQuery(document).ready(function(){
   $.ajaxSetup({
