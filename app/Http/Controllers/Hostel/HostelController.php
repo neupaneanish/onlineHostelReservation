@@ -220,7 +220,8 @@ class HostelController extends Controller
     } 
 
     public function book($id,$idd){
-       $rooms = Room::where('hostel_id',$id)->where('room_type',$idd)->where('status',0)->pluck('room_no','price');
+        $rooms = DB::table('rooms')->where('hostel_id',$id)->where('room_type',$idd)->where('status',0)->pluck('price','room_no')->all();
+    //    $rooms = Room::where('hostel_id',$id)->where('room_type',$idd)->where('status',0)->get('room_no','price');
        return json_encode($rooms);
 
     }
