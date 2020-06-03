@@ -26,6 +26,7 @@ Route::get('/booking','Hostel\HostelController@Booking');
 Route::post('/search','Hostel\SearchController@search');
 Route::get('/detail/{id}','Hostel\HostelController@details');
 Route::get('/test/{id}/{idd}','Hostel\HostelController@book');
+Route::get('/booking/details','Hostel\HostelController@gotoLogin');
 Route::post('/booking/{id}','Hostel\HostelController@roomBook')->middleware('auth');
 Route::get('/booking/details/{id}','Hostel\HostelController@bookingDetails')->middleware('auth');
 Route::get('/booking/edit/{id}','Hostel\HostelController@editBooking')->middleware('auth');

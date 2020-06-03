@@ -72,8 +72,8 @@
                 shared Bed With non-attached Bathroom
               @endif
                 per month</p>
-                <a href="#"><button class = "view-details">View Details</button></a>
-                <a href="#"><button class = "book-now">Book Now</button></a>
+                <a href="/hostel/detail/{{$hostel['id']}}"><button class = "view-details">View Details</button></a>
+                <a href="/hostel/detail/{{$hostel['id']}}"><button class = "book-now">Book Now</button></a>
          </div>
       </div>
       @endforeach

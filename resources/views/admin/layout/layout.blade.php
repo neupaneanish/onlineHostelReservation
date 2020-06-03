@@ -306,12 +306,12 @@
     .user-details-image-container{
         height:350px;
         width:100%;
-        postion:relative;
+        position:relative;
     }
     .user-details-image-container img{
         height:100%;
         width:100%;
-        postion:absolute;
+        position:absolute;
     }
 
     .info-container {

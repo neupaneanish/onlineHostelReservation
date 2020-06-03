@@ -74,7 +74,7 @@
               @endif
              per month
             @endif</p>
-            <a href="#"><button class = "book-now">Book Now</button></a>
+            <a href="/hostel/detail/{{$boy['id']}}"><button class = "book-now">Book Now</button></a>
         </div>
       </div>
       @endforeach
@@ -146,9 +146,9 @@
               @else
               shared Bed With non-attached Bathroom
               @endif
-             per month</p>
-             @endif
-            <a href="#"><button class = "book-now">Book Now</button></a>
+             per month
+             @endif</p>
+            <a href="/hostel/detail/{{$boy['id']}}"><button class = "book-now">Book Now</button></a>
         </div>
           </div>
           @endforeach

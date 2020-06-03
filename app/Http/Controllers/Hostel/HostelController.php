@@ -274,4 +274,7 @@ class HostelController extends Controller
         Room::where('id',$room_id)->update(['status'=>0]);
         return redirect('hostel/booking/details/'.$user)->with('status','Booking Cancelled');
     }
+    public function gotoLogin(){
+        return view('user.booking.noBooking');
+    }
 }
