@@ -30,12 +30,11 @@ class AdminController extends Controller
     //    return request()->image;
     if(empty(request()->image)){
         $name = null;
-    }
+    }else{
     $file = request()->image;
     $name = time().'.'.request()->image->getClientOriginalExtension();
-    // return $name;
     $file->move(public_path().'/uploads/', $name);
-
+}
         Hostel::create([
             'name' => $request->name,
             'email' => $request->email,
