@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\model\User;
 use App\model\Hostel;
+use App\model\Booking;
+use Illuminate\Support\Facades\DB;
 
 class HostelUserController extends Controller
 {
@@ -27,6 +29,16 @@ class HostelUserController extends Controller
     public function userDelete($id){
         User::findorFail($id)->delete();
         return redirect('/admin/user')->with('status','User Deleted.');
+    }
+    public function booking(){
+      $bookings = DB::table('bookings')
+      ->join('hostels','bookings.hostel_id','hostels.id')
+      ->join('rooms','bookings.room_id','rooms.id')
+      ->join('users','bookings.user_id','users.id')
+      ->select('bookings.id','bookings.user_id','users.mobile','bookings.hostel_id','bookings.price','bookings.arrival_date','bookings.duration','hostels.name','rooms.room_no','rooms.room_type','hostels.city','hostels.ward','hostels.municipality','hostels.image','bookings.created_at','bookings.status','users.email','users.name as fullname')
+      ->get();
+    //   return $bookings;
+      return view('admin.adminBooking.listBooking',['bookings'=>$bookings]);
     }
 
 }
