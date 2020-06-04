@@ -21,7 +21,9 @@
                 <p>{{session('message')}}</p>
               </div>
               @endif
+              <a href="/admin/hostel/room/view/{{$hostel->id}}" style="position:absolute;right:5%" class="btn btn-primary right">View Room</a>
           <h3>Add Hostel Room of {{$hostel->name}}</h3>
+          
             <form method="POST" action="/admin/hostel/room/{{$hostel->id}}" class="needs-validation mt-5" novalidate>
             @csrf    
             <div class="form-group row">

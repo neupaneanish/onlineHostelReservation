@@ -41,16 +41,16 @@
                   </div>
                 </div>
                 <div class="form-row">
-                  <div class="col-md-6 mb-3">
+                  <div class="col-md-3 mb-3">
                     <label for="validationCustom03">City</label>
                     <input type="text" name="city" value="{{old('city')}}" class="form-control" id="validationCustom03" placeholder="City" required>
                     <div class="invalid-feedback">
                       Please provide a valid city.
                     </div>
                   </div>
-                  <div class="col-md-3 mb-3">
-                    <label for="validationCustom04">Municipality:</label>
-                    <input type="text" class="form-control" name="municipality" value="{{old('municipality')}}" id="validationCustom04" placeholder="Municipality" required>
+                  <div class="col-md-6 mb-3">
+                    <label for="validationCustom04">Municipality/Sub-Metropolitian/Metropolitian:</label>
+                    <input type="text" class="form-control" name="municipality" value="{{old('municipality')}}" id="validationCustom04" required>
                     <div class="invalid-feedback">
                       Please provide a valid Municipality.
                     </div>
