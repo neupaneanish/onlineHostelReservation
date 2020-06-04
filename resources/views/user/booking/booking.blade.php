@@ -76,25 +76,22 @@
             <p class="mt-3">Arrival Date:{{$book->arrival_date}}</p>
             <p class="mt-3">Booked On:{{$book->created_at}}</p>
             @if($book->status=='1')
-            <button style="cursor:not-allowed" class="btn btn-danger">cancelled</button>
+            <button style="cursor:not-allowed; background:#ee2e24; border:2px solid #ee2e24;" class="view-details">cancelled</button>
             @endif
                 <div class="booking-lower-section">
                 <div class = "booking-lower-section-left">
                 <p id = "price">PRICE(NRP):{{$book->price}}</p>
                 <!-- <p id = "per-room">per room per month</p>  -->
                 </div>
-                 <div class="booking-buttons">
-                    <a href="#"><button class = "view-details">View Details</button></a> 
-                </div> 
                 <?php $today = date('Y-m-d') ?>
                 @if(($book->arrival_date > $today) && ($book->status==0))
                 <div class="booking-buttons">
-                    <a href="/hostel/booking/edit/{{$book->id}}"><button class = "btn view-details">Edit</button></a> 
+                    <a href="/hostel/booking/edit/{{$book->id}}"><button class = "view-details">Edit Booking</button></a> 
                 </div> 
                 <form action="/hostel/booking/cancel/{{$book->id}}" method="post">
                 @csrf
                 <div class="booking-buttons">
-                    <button class = "btn btn-danger" type="submit">Cancel</button> 
+                    <button style = "background:#ee2e24; border:2px solid #ee2e24;" class = "view-details" type="submit">Cancel Booking</button> 
                 </div> 
                 </form>
                 @endif

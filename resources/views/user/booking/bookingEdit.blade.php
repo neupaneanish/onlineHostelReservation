@@ -203,7 +203,7 @@
 <div class="complementry-cards">
   <div class="snacks-cards">
     <div class="snacks-image">
-    <img src="{{asset('images/6.jpg')}}" alt="" srcset="">
+    <img src="{{asset('images/breakfast.jpg')}}" alt="" srcset="">
     </div>
     <div class="snacks-schedule">
       <p>Snacks & Breakfast</p>
@@ -215,7 +215,7 @@
 <div class="complementry-cards">
   <div class="snacks-cards">
     <div class="snacks-image">
-    <img src="{{asset('images/6.jpg')}}" alt="" srcset="">
+    <img src="{{asset('images/dinner.jpg')}}" alt="" srcset="">
     </div>
     <div class="snacks-schedule">
       <p>lunch & Dinner</p>
@@ -227,7 +227,7 @@
 <div class="complementry-cards">
   <div class="snacks-cards">
     <div class="snacks-image">
-    <img src="{{asset('images/6.jpg')}}" alt="" srcset="">
+    <img src="{{asset('images/coffee.jpg')}}" alt="" srcset="">
     </div>
     <div class="snacks-schedule">
       <p>Teas & Coffee</p>
@@ -249,7 +249,6 @@
 <script>
   
   var hostel = '<?php echo $id; ?>';
-  alert(hostel)
   
 jQuery(document).ready(function(){
   $.ajaxSetup({

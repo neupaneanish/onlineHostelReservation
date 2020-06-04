@@ -56,10 +56,12 @@
 @if(!empty($hostels))
 @foreach($hostels as $hostel)
       <div class="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 hostel-lists-division">
-          <a href = "#"><img src="{{asset('/uploads/'.$hostel['image'])}}" alt="" srcset=""></a>
+        <div class="home-image-container">
+          <a href = "#"><img src="{{asset('/uploads/'.$hostel['image'])}}" alt="Respective Hostel Image" srcset=""></a>
+        </div>
           <div class="hostel-lists-text-section">
-            <p>{{$hostel['name']}}</p>
-            <p>{{$hostel['municipality']}}-{{$hostel['ward']}},{{$hostel['city']}}</p>
+            <p class = "hostel-name">{{$hostel['name']}}</p>
+            <p class = "hostel-address">{{$hostel['municipality']}}-{{$hostel['ward']}},{{$hostel['city']}}</p>
             <button class = "verified-container"> <img id = "verified" style = "width:15px;height:15px;" src="{{asset('images/tick.svg')}}" alt="" srcset=""> MyHostel Verified</button>
             <p>NRP:{{$hostel['price']}}</p>
             <p>@if($hostel['room']==0)

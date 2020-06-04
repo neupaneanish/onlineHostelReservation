@@ -436,6 +436,17 @@
           text-transform: capitalize;
       }
 
+      @media (max-width:768px){
+          .admin-booking-container{
+              flex-direction: column;
+          }
+          
+          .admin-booking-image-container{
+              width:100%;
+              margin-bottom:32px;
+          }
+      }
+
 
      /*booking view css ends */
     </style>
