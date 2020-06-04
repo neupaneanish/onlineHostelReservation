@@ -8,6 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>Hostel.com</title>
+    <link rel="stylesheet" href="{{asset('css/noBooking.css')}}">
     <link rel="stylesheet" href="{{asset('css/aboutus.css')}}">
     <link rel="stylesheet" href="{{asset('css/bookingDetails.css')}}">
     <link rel="stylesheet" href="{{asset('css/booking.css')}}">
@@ -292,8 +293,7 @@ nav ul {
             <li class="nav-item dropdown user-account">
                 <img height="20px" width="25px" src="{{asset('images/account.svg')}}" alt="" srcset="">
            
-              <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                  {{ Auth::user()->name }} <span class="caret"></span>
+              <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>{{ Auth::user()->name }} <span class="caret"></span>
               </a>
 
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">

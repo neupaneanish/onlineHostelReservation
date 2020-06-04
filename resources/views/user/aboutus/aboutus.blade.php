@@ -102,9 +102,9 @@ $web = DB::table('webs')->first();
 ?>
 <div id="map">
     <p>Site Map of Our HeadOffice</p>
-    <iframe src="{{$web->iframe}}"
+    <iframe id ="iframe" src=""
      frameborder="0" style="border:0;"
-     allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+     allowfullscreen="" aria-hidden="false" tabindex="0">{{$web->iframe}}</iframe>
 </div>
 
 </div>
@@ -138,5 +138,18 @@ $web = DB::table('webs')->first();
     </div>
 </div>
 </div>
+
+<script>
+    //Extracting iframe link
+    let link = document.getElementById('iframe');
+    linkSplit();
+    function linkSplit(){
+    let linkStore = link.innerHTML;
+    if(linkStore){
+    let linked = linkStore.split('&quot;');
+    link.src = linked[1];
+    }
+}
+</script>
 
 @endsection

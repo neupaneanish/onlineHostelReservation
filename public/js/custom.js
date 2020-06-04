@@ -120,3 +120,12 @@ navbarButton.addEventListener('click', () => {
 
     }
 
+    // login name reducer 
+
+    let loginName = document.getElementById('navbarDropdown');
+    nameSplit();
+    function nameSplit(){
+    let loginNameStore = loginName.innerHTML;
+    let firstName = loginNameStore.split(" ");
+    loginName.innerHTML = firstName[0]; 
+}
