@@ -9,46 +9,63 @@
   <h3></h3>
   <p id = "booking-list">List of Bookings</p>
 </div>
-      <div class="add-hostel">
+@if(!empty($bookings))
+@foreach($bookings as $booking)
+      <div class="add-hostel mb-5">
         <div class="list-hostel">
               <div class="admin-booking-container">
                     <div class="admin-booking-image-container">
-                    <img src="{{asset('images/6.jpg')}}" alt="" srcset="">
+                    <img src="{{asset('/uploads/'.$booking->image)}}" alt="" srcset="">
                     </div>
                     <div class="admin-booking-text-section">
                     <div class="booking-information">
                         <p>Username:</p>
-                        <p>nitesh@gmail.com</p>
+                        <p>{{$booking->email}}</p>
                     </div>
                     <div class="booking-information">
                         <p>fullname:</p>
-                        <p>nitesh thapa</p>
+                        <p>{{$booking->fullname}}</p>
                     </div>
                     <div class="booking-information">
                         <p>Booked Hostel:</p>
-                        <p>hamro boys hostel</p>
+                        <p>{{$booking->name}}</p>
                     </div>
                     <div class="booking-information">
                         <p>Room-Type:</p>
-                        <p>Single Bed with attached bathrooms</p>
+                        <p>
+                        @if($booking->room_type==0)
+                        Single Bed with attached bathrooms
+                        @elseif($booking->room_type==1)
+                        Single Bed With non-attached Bathroom
+                        @elseif($booking->room_type==2)
+                        shared Bed With Attached Bathroom
+                        @else
+                        shared Bed With non-attached Bathroom
+                        @endif
+                       </p>
                     </div>
                     <div class="booking-information">
                         <p>Room No:</p>
-                        <p>CH 103</p>
+                        <p>{{$booking->room_no}}</p>
                     </div>
                     <div class="booking-information">
                         <p>Booked Date</p>
-                        <p>2020-06-04</p>
+                        <p>{{$booking->created_at}}</p>
                     </div>
                     <div class="booking-information">
                         <p>Phone No:</p>
-                        <p>9811111111</p>
+                        <p>{{$booking->mobile}}</p>
                     </div>
                 </div>
               </div>
             
         </div>
     </div>
+    @endforeach
+    @else
+<!-- message here -->
+    @endif
+
 </div>
 </div>
 

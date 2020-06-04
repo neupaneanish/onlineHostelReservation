@@ -43,6 +43,9 @@ class NotificationPortal extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
+        // ->line('The introduction to the notification.')
+        // ->action('Notification Action', url('/'))
+        // ->line('Thank you for using our application!');
         ->greeting($this->details['greeting'])
         ->line($this->details['body'])
         ->action($this->details['actionText'], $this->details['actionURL'])
@@ -55,7 +58,7 @@ class NotificationPortal extends Notification
      * @param  mixed  $notifiable
      * @return array
      */
-    public function toDatabase($notifiable)
+    public function toArray($notifiable)
     {
         return [
             'order_id' => $this->details['order_id']

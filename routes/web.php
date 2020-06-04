@@ -62,7 +62,9 @@ Route::get('/hostel/detail/{id}','Admin\AdminController@detail');//hostel detail
 Route::get('/web/about','Admin\WebController@web');
 Route::post('/web/about','Admin\WebController@update');
 Route::get('/web/footer','Admin\WebController@footer');
-Route::post('/web/footer','Admin\WebController@footerUpdate');
+Route::get('/booking/details','Admin\HostelUserController@booking');
+
+Route::get('/web/footer','Admin\WebController@footer');
 
 Route::get('/user','Admin\HostelUserController@index');
 // Route::get('/user/{id}','Admin\HostelUserController@userView');
@@ -86,6 +88,6 @@ ROute::get('/view',function (){
 return view('admin.rooms.roomDetailView');
 });
 
-Route::get('/send', 'HomeController@sendNotification');
+Route::get('/send', 'NotificationController@sendNotification');
 
 
