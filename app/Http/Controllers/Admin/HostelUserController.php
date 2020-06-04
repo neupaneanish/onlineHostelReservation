@@ -16,6 +16,7 @@ class HostelUserController extends Controller
     }
     public function index(){
         $users = User::all();
+        // return $users;
         return view('admin.user.userView',['users'=>$users]);
     }
     public function userList ($id){

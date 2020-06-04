@@ -46,6 +46,8 @@ Route::get('/logout','Auth\AdminLoginController@logout');//logout
 Route::get('/register','Auth\AdminRegisterController@showRegisterForm')->middleware('super');//show register form
 Route::get('/show','Admin\AdminManagementController@admin')->middleware('super');
 Route::post('/register','Auth\AdminRegisterController@register');//register admin
+Route::get('/superAdmin/register','Admin\SuperAdminController@register')->middleware('superAdmin');//register admin
+Route::post('/superAdmin/register','Admin\SuperAdminController@create')->middleware('superAdmin');//register admin
 Route::get('/hostel/create','Admin\AdminController@hostelAdd'); //hostel's create form
 Route::POST('/hostel/create','Admin\AdminController@create');//add Hostel 
 Route::get('/hostel','Admin\AdminController@list');//list of Hostel

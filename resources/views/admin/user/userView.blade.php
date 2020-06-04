@@ -13,7 +13,7 @@
 
     <div class="col-sm-12 col-md-8 col-lg-9 left-section-container">
       <div class="add-hostel">
-        <h3>Hostel List</h3>
+        <h3>USERS LIST</h3>
         <div class="list-hostel">
             <table class="table table-hover">
                 <thead>
@@ -31,7 +31,7 @@
                   <tr>
                     <th scope="row">{{$loop->iteration}}</th>
                     <td>{{$user->name}}</td>
-                    <td>{{$user->Address}}</td>
+                    <td>{{$user->address}}</td>
                     <td>
                       <div class="row">
                         <a class = "btn btn-primary" href ="/admin/user/view/{{$user->id}}">View Details</a>
