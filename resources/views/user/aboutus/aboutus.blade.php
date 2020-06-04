@@ -68,7 +68,7 @@
                 
             </div>
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 aboutus-contact-card">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 aboutus-contact-card hello">
         <div class="aboutus-test">
         <p id = "corporate">Corporate Office</p>
         <div class="aboutus-image-container">
@@ -121,7 +121,6 @@ $web = DB::table('webs')->first();
     <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 col-xl-8 footer-margin">
         <div class="footer-social-container">
             <p id = "social">Socil Platforms</p>
-            4
             <div class="footer-flex">
                 <a href="{{$data->facebook}}" ><img src="{{asset('images/facebook.svg')}}" alt="" srcset="">Facebook</a>
             </div>

@@ -18,6 +18,7 @@
     <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
 
     <!-- Scripts -->
+    <script src="{{ asset('js/navbar.js') }}" defer></script>
     <script src="{{ asset('js/custom.js') }}" defer></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
 
@@ -336,11 +337,11 @@ nav ul {
               </div>
             <ul class="responsive-nav">
                 <li class = "{{ (request()->is('/')) ? 'active' : ''}} {{ (request()->is('search*')) ? 'active' : ''}}"><a href="/">home</a></li>
-                <li class = "{{ (request()->is('hostel*')) ? 'active' : ''}}"><a href="/hostel">hostels</a></li>
+                <li class = "{{ (request()->is('hostel')) ? 'active' : ''}}"><a href="/hostel">hostels</a></li>
                 @guest
-                <li class = "{{ (request()->is('booking*')) ? 'active' : ''}}"><a href="/hostel/booking/details">my bookings</a></li>
+                <li class = "{{ (request()->is('hostel/booking*')) ? 'active' : ''}}"><a href="/hostel/booking/details">my bookings</a></li>
                 @else
-                <li class = "{{ (request()->is('booking*')) ? 'active' : ''}}"><a href="/hostel/booking/details/{{ Auth::user()->id}}">my bookings</a></li>
+                <li class = "{{ (request()->is('hostel/booking*')) ? 'active' : ''}}"><a href="/hostel/booking/details/{{ Auth::user()->id}}">my bookings</a></li>
                 @endguest
                 <li class = "{{ (request()->is('aboutus*')) ? 'active' : ''}}"><a href="/aboutus">about us</a></li>
             </ul>

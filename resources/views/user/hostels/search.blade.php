@@ -10,7 +10,7 @@
                 margin-top: -300px !important;
         }
 </style>
-<div class="container search-tab">
+<div class="container search-tab hello">
 <h3>Check Availability</h3>
 <form action="/hostel/search" method="post">
 @csrf
@@ -56,8 +56,10 @@
 @if(!empty($hostels))
 @foreach($hostels as $hostel)
       <div class="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 hostel-lists-division">
-          <a href = "#"><img src="{{asset('/uploads/'.$hostel['image'])}}" alt="" srcset=""></a>
-          <div class="hostel-lists-text-section">
+        <div class="home-image-container">  
+        <a href = "#"><img src="{{asset('/uploads/'.$hostel['image'])}}" alt="" srcset=""></a>
+        </div> 
+        <div class="hostel-lists-text-section">
             <p>{{$hostel['name']}}</p>
             <p>{{$hostel['municipality']}}-{{$hostel['ward']}},{{$hostel['city']}}</p>
             <button class = "verified-container"> <img id = "verified" style = "width:15px;height:15px;" src="{{asset('images/tick.svg')}}" alt="" srcset=""> MyHostel Verified</button>
@@ -81,12 +83,4 @@
      <p style="text-align: center;"> No Data Available</p> 
       @endif
   </div>
-  <script>
-    let navbarButton = document.querySelector("#navbar-button");
-let search = document.querySelector(".search-tab");
-navbarButton.addEventListener('click', () => {
-    responsiveNav.classList.toggle('responsive-nav-active')
-    search.classList.toggle('hider'); 
-});
-  </script>
 @endsection

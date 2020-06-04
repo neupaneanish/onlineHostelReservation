@@ -1,12 +1,4 @@
 
-let navbarButton = document.querySelector("#navbar-button");
-let responsiveNav = document.querySelector('.responsive-nav');
-let hider = document.querySelector('.booking-details-cards');
-let search = document.querySelector(".search-tab");
-navbarButton.addEventListener('click', () => {
-    responsiveNav.classList.toggle('responsive-nav-active')
-    hider.classList.toggle('hider'); 
-});
 
 
 

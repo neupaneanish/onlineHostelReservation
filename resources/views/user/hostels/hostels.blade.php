@@ -10,7 +10,7 @@
                 margin-top: -300px !important;
         }
 </style>
-<div class="container search-tab">
+<div class="container search-tab hello">
 <h3>Check Availability</h3>
 <form action="/hostel/search" method="post">
 @csrf

@@ -5,7 +5,7 @@
 <div class="booking-details-container">
     <p id = "booking-details-container-heading">{{$hostel['name']}}</p>
     <div class="row">
-        <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 booking-details-cards">
+        <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 booking-details-cards hello">
             <div class="swiper-container gallery-top1">
                 <div class="swiper-wrapper">
                   @if(!empty($images))

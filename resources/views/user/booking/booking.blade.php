@@ -6,7 +6,7 @@
     @foreach( $books as $book)
     <div class="booking-container">
     <div class="row">
-        <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 booking-cards">
+        <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 booking-cards hello">
             <div class="booking-image-container">
             <img src="{{asset('/uploads/'.$book->image)}}" alt="" srcset="">
             </div>
