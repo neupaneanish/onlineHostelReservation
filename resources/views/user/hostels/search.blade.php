@@ -81,4 +81,12 @@
      <p style="text-align: center;"> No Data Available</p> 
       @endif
   </div>
+  <script>
+    let navbarButton = document.querySelector("#navbar-button");
+let search = document.querySelector(".search-tab");
+navbarButton.addEventListener('click', () => {
+    responsiveNav.classList.toggle('responsive-nav-active')
+    search.classList.toggle('hider'); 
+});
+  </script>
 @endsection

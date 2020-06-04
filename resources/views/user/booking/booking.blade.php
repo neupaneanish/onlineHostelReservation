@@ -84,7 +84,7 @@
                 <!-- <p id = "per-room">per room per month</p>  -->
                 </div>
                 <?php $today = date('Y-m-d') ?>
-                @if(($book->arrival_date > $today) && ($book->status==0))
+                @if(($book->arrival_date >= $today) && ($book->status==0))
                 <div class="booking-buttons">
                     <a href="/hostel/booking/edit/{{$book->id}}"><button class = "view-details">Edit Booking</button></a> 
                 </div> 

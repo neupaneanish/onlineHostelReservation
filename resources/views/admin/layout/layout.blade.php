@@ -504,8 +504,8 @@
                             <a class="nav-link" href="/admin/show">{{ __('Admin Management') }}</a>
                         </li>  
                         @endif
-                        <li class="nav-item {{ (request()->is('admin/web*')) ? 'nav-active' : ''}}" >
-                            <a class="nav-link" href="/admin/web/about">{{ __('Booking Management') }}</a>
+                        <li class="nav-item {{ (request()->is('admin/booking*')) ? 'nav-active' : ''}}" >
+                            <a class="nav-link" href="/admin/booking/details">{{ __('Booking Management') }}</a>
                         </li>  
                     </ul>
 
