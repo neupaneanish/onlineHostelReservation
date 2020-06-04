@@ -54,7 +54,7 @@
       @foreach($boys as $boy)
       <div class="swiper-slide hostel-swiper-slide">
         <div class="home-image-container">
-          <a href = "/hostel/detail/{{$boy['id']}}"><img src="{{asset('/uploads/'.$boy['image'])}}" alt="Respective Hostel Image" srcset=""></a>
+          <a href = "/hostel/detail/{{$boy['id']}}"><img src="{{asset('/uploads/'.$boy['image'])}}" alt="" srcset=""></a>
         </div>
           <div class="hostel-swiper-text-section">
             <p class = "hostel-name">{{$boy['name']}}</p>
