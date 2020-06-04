@@ -57,7 +57,8 @@ class AdminController extends Controller
             'image'=>$name,
             'type' => 0
         ]);
-        return redirect('/admin');
+        // return view('admin.rooms.')
+        return redirect('/admin/hostel/room/'.$hostelid);
     }
     public function editForm($id){
         $hostels = Hostel::findorFail($id);
