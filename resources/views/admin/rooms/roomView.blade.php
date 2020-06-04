@@ -16,6 +16,12 @@
     <div class="col-sm-12 col-md-8 col-lg-9 left-section-container">
         <div class="add-hostel">
           <h3>Hostel Rooms</h3>
+          <div class="indexes">
+              <div class = "index-boxes"></div>
+              <p id = "booked"> Booked</p>
+              <div class = "index-boxes1"></div>
+              <p id = "available"> Available</p>
+          </div>
           <!-- <a href="" class="btn btn-primary">Edit Room</a> -->
           <div class="form-group row">
                   @if(!empty($rooms))

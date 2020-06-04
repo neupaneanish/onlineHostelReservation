@@ -346,6 +346,98 @@
 
 
     /* admin web footer css ends  */
+
+    /*room view css starts */
+
+      .indexes{
+          position: relative;
+          float:right;
+          display:flex;
+          margin-top:-52px;
+          align-items: center;
+      }
+      #index{
+          font-size:16px;
+          font-weight:700;
+          margin-right:16px;
+          text-transform: uppercase;
+      }
+      .indexes p{
+          margin-bottom:0px;
+      }
+    
+      #booked{
+          text-transform: uppercase;
+          margin-right:32px;
+      }
+
+      #available{
+          text-transform: uppercase;
+      }
+
+      .index-boxes{
+          height:20px;
+          width:20px;
+          background:red;
+          margin-right:4px;
+      }
+
+      .index-boxes1{
+          height:20px;
+          width:20px;
+          background:green;
+          margin-right:4px;
+      }
+
+
+
+     /*room view css ends */
+
+     /*booking view css starts */
+     #booking-list{
+         font-size:24px;
+         font-weight:700;
+         text-transform: capitalize;
+         text-align: center;
+         background:#3490dc;
+         color:white;
+         margin-bottom:32px;
+     }
+      .admin-booking-container{
+          display:flex;
+      }
+
+      .admin-booking-image-container{
+          width:350px;
+          height:250px;
+          position: relative;
+          margin-right:16px;
+      }
+      
+      .admin-booking-image-container img{
+          position: absolute;
+          width:100%;
+          height:100%;
+      }
+
+      .booking-information{
+        display: flex;
+      }
+
+      .booking-information p:first-child{
+        font-size:16px;
+        font-weight:700;
+        margin-right:16px;
+        text-transform: capitalize;
+      }
+
+      .booking-information p:nth-child(2){
+          font-size:16px;
+          text-transform: capitalize;
+      }
+
+
+     /*booking view css ends */
     </style>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -372,11 +464,11 @@
                 <div class="logo-container">
                 <img src="{{asset('images/logo.png')}}" alt="" srcset="">
                 </div>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                 <a class="navbar-brand" href="{{ url('/admin') }}">
                     Dashboard
                 </a>
-            </li>
+            </li> --}}
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -401,7 +493,9 @@
                             <a class="nav-link" href="/admin/show">{{ __('Admin Management') }}</a>
                         </li>  
                         @endif
-
+                        <li class="nav-item {{ (request()->is('admin/web*')) ? 'nav-active' : ''}}" >
+                            <a class="nav-link" href="/admin/web/about">{{ __('Booking Management') }}</a>
+                        </li>  
                     </ul>
 
                     <!-- Right Side Of Navbar -->
