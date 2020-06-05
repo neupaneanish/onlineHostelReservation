@@ -102,9 +102,7 @@ $web = DB::table('webs')->first();
 ?>
 <div id="map">
     <p>Site Map of Our HeadOffice</p>
-    <iframe id ="iframe" src=""
-     frameborder="0" style="border:0;"
-     allowfullscreen="" aria-hidden="false" tabindex="0">{{$web->iframe}}</iframe>
+    <iframe id ="iframe" src="" style="border:0;">{{$web->iframe}}</iframe>
 </div>
 
 </div>

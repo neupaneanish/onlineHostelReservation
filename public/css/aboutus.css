@@ -197,6 +197,8 @@ flex-wrap: wrap;
 @media(max-width:768px){
     .aboutus{
         margin-top:30%;
+        padding-right:0px !important;
+        padding-left:0px !important;
     }
     .aboutus-wrapper{
     padding:20px 10px 20px 10px !important;
