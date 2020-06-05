@@ -284,7 +284,7 @@ nav ul {
             <nav class="navigation">
             {{-- <h2>@</h2> --}}
             @guest
-            <li class = "{{ (request()->is('notification*')) ? 'active' : ''}}"><a href="/notification"><img style=" position:absolute;right:12%;top:18%;height:30px;width:30px  " src="{{asset('images/bell.svg')}}" alt=""></a></li>
+            {{-- <li class = "{{ (request()->is('notification*')) ? 'active' : ''}}"><a href="/notification"><img style=" position:absolute;right:12%;top:18%;height:30px;width:30px  " src="{{asset('images/bell.svg')}}" alt=""></a></li> --}}
             <li class="nav-item user-account">
             <a  class="nav-link" href="/login">
             <img height="20px" width="25px" src="{{asset('images/account.svg')}}" alt="" srcset="">
@@ -292,14 +292,6 @@ nav ul {
               </a>
               </li>
             @else
-            <?php 
-                    $noti = DB::table('notifys')->where('user_id',Auth::user()->id)->where('is_read',0)->get();
-                    $c = count($noti);
-                    ?>
-                    @if($c!='0')
-                    <div style="width:15px;position:absolute;right:11%;top:12%;background:red; color:white;text-align:center"> <strong> {{$c}}</strong></div>
-                    @endif
-                    <li class = "{{ (request()->is('notification*')) ? 'active' : ''}}"><a href="/notification/{{Auth::user()->id}}"><img style=" position:absolute;right:12%;top:22%;height:30px;width:30px  " src="{{asset('images/bell.svg')}}" alt=""></a></li>
             <li class="nav-item dropdown user-account">
                 <img height="20px" width="25px" src="{{asset('images/account.svg')}}" alt="" srcset="">
            
@@ -335,6 +327,13 @@ nav ul {
                     @guest
                     <li class = "{{ (request()->is('hostel/booking*')) ? 'active' : ''}}"><a href="/hostel/booking/details">my bookings</a></li>
                     @else
+                    <?php 
+                    $noti = DB::table('notifys')->where('user_id',Auth::user()->id)->where('is_read',0)->get();
+                    $c = count($noti);
+                    ?>
+                    @if($c!='0')
+                    <span style="width:20px; border-radius:50%;line-height:20px;position:absolute;margin-top:-10px;margin-left:8px;background:red; color:white;text-align:center"> <strong> {{$c}}</strong></span>
+                    @endif
                     <li class = "{{ (request()->is('hostel/booking*')) ? 'active' : ''}}"><a href="/hostel/booking/details/{{ Auth::user()->id}}">my bookings</a></li>
                     @endguest
                     <li class = "{{ (request()->is('aboutus*')) ? 'active' : ''}}"><a href="/aboutus">about us</a></li>
@@ -360,6 +359,13 @@ nav ul {
                 @guest
                 <li class = "{{ (request()->is('hostel/booking*')) ? 'active' : ''}}"><a href="/hostel/booking/details">my bookings</a></li>
                 @else
+                <?php 
+                $noti = DB::table('notifys')->where('user_id',Auth::user()->id)->where('is_read',0)->get();
+                $c = count($noti);
+                ?>
+                @if($c!='0')
+                <span style="width:20px;left:65%;top:55%; border-radius:50%;line-height:20px;position:absolute;background:red; color:white;text-align:center"> <strong> {{$c}}</strong></span>
+                @endif
                 <li class = "{{ (request()->is('hostel/booking*')) ? 'active' : ''}}"><a href="/hostel/booking/details/{{ Auth::user()->id}}">my bookings</a></li>
                 @endguest
                 <li class = "{{ (request()->is('aboutus*')) ? 'active' : ''}}"><a href="/aboutus">about us</a></li>

@@ -3,6 +3,9 @@
 
 <div class="container-fluid booking-details-main-container">
 <div class="booking-details-container">
+  <div id="alertbox">
+  <p id = "alert-content">{{session('status')}}</p>
+  </div>
     <p id = "booking-details-container-heading">{{$hostel['name']}}</p>
     <div class="row">
         <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 booking-details-cards hello">
@@ -226,7 +229,12 @@
 </div>
 </div>
 
+@if(!empty(session('status')))
+<?php $message = session('status');
+echo $message;
 
+?>
+@endif
 
 
 </div>
@@ -236,6 +244,13 @@
 <script>
   
   var hostel = '<?php echo $id; ?>';
+  var message = '<?php if(!empty($message)) {echo $message; } ?>';
+  if(message){
+    document.getElementById('alertbox').style.display = "block";
+    setTimeout( () => {
+      document.getElementById('alertbox').style.display = "none";
+    },3000)
+  }
   
 jQuery(document).ready(function(){
   $.ajaxSetup({
@@ -256,6 +271,13 @@ jQuery(document).ready(function(){
                      success:function(data)
                      {
                       // console.log(data);
+                      if(data == ''){
+                        console.log(data);
+                        jQuery('select[name="room_no"]').empty();
+                        $('select[name="room_no"]').append('<option value="">No Room Available</option>');
+                        }else{
+                      
+                     
                       jQuery('select[name="room_no"]').empty();
                       jQuery('#total-price').empty();
                       $('select[name="room_no"]').append('<option value="">select Room</option>');
@@ -266,12 +288,15 @@ jQuery(document).ready(function(){
                            $('#total-price').append('0');
                            
                      });
+                    
+                     }
                      }
                     });
                   }
                   else{
                     {
                   $('select[name="room_no"]').empty();
+                  $('select[name="room_no"]').append('<option value="">No Room Available</option>');
                }
                   }
                 });

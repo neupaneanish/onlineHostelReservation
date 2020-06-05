@@ -504,9 +504,19 @@
                             <a class="nav-link" href="/admin/show">{{ __('Admin Management') }}</a>
                         </li>  
                         @endif
+                        <?php 
+                        use Illuminate\Support\Facades\DB;
+                        $booking = DB::table('bookings')->where('is_read','0')->get();
+                        $count = count($booking);
+                        
+                        ?>
+                        @if($count>0)
+                        <span style="width:20px;right:24%;top:30%; border-radius:50%;line-height:20px;position:absolute;background:red; color:white;text-align:center"> <strong> {{$count}}</strong></span>
+                        @endif 
                         <li class="nav-item {{ (request()->is('admin/booking*')) ? 'nav-active' : ''}}" >
                             <a class="nav-link" href="/admin/booking/details">{{ __('Booking Management') }}</a>
-                        </li>  
+                        </li> 
+                        
                     </ul>
 
                     <!-- Right Side Of Navbar -->

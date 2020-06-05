@@ -37,7 +37,9 @@ class HostelUserController extends Controller
       ->join('rooms','bookings.room_id','rooms.id')
       ->join('users','bookings.user_id','users.id')
       ->select('bookings.id','bookings.user_id','users.mobile','bookings.hostel_id','bookings.price','bookings.arrival_date','bookings.duration','hostels.name','rooms.room_no','rooms.room_type','hostels.city','hostels.ward','hostels.municipality','hostels.image','bookings.created_at','bookings.status','users.email','users.name as fullname')
+      ->orderBy('bookings.updated_at','DESC')
       ->get();
+      Booking::where('is_read','0')->update(['is_read'=>1]);
     //   return $bookings;
       return view('admin.adminBooking.listBooking',['bookings'=>$bookings]);
     }

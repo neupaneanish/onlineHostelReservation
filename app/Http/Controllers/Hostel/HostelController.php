@@ -178,16 +178,17 @@ class HostelController extends Controller
             'price'=>$price*$period,
             'arrival_date'=>$request->date,
             'duration'=>$totalPeriod,
+            'is_read'=>'0',
         ]);
         Room::where('id',$room_id)->update(['status'=>1]);
             Notify::create([
                 'user_id'=>Auth::user()->id,
                 'title'=>"Hostel Booking",
-                'message'=>'You booked room.',
+                'message'=>'You booked a room.',
                 'name'=>Auth::user()->name,
                 'is_read'=>'0',
             ]);
-        return redirect('/hostel/detail/'.$id)->with('status','Hostel Room Booked');
+        return redirect('/hostel/detail/'.$id)->with('status','Room Booked Successfully!!');
     }
     public function bookingDetails($id){
         // $books = Booking::where('user_id',$id)->get();
@@ -196,8 +197,10 @@ class HostelController extends Controller
         ->join('rooms','bookings.room_id','rooms.id')
         ->select('bookings.id','bookings.user_id','bookings.hostel_id','bookings.price','bookings.arrival_date','bookings.duration','hostels.name','rooms.room_no','rooms.room_type','hostels.city','hostels.ward','hostels.municipality','hostels.image','bookings.created_at','bookings.status')
         ->where('bookings.user_id',$id)
+        ->orderBy('bookings.updated_at','DESC')
         ->get();
         // return $books;
+        Notify::where(['user_id'=>$id,'is_read'=>'0'])->update(['is_read'=>'1']);   
         return view('user.booking.booking',['books'=>$books]);
     }
     public function editBooking($id){
@@ -266,7 +269,7 @@ class HostelController extends Controller
         Room::where('hostel_id',$request->hostel_id)->where('room_no',$request->room_no)->update(['status'=>1]);
         Room::where('id',$room_id)->update(['status'=>0]);
 // return $room_id; 
-        return redirect('/hostel/detail/'.$request->hostel_id)->with('status','Hostel Room Booked');
+        return redirect('/hostel/detail/'.$request->hostel_id)->with('status','Booking Edited Successfully!!');
     }
     public function aboutUs(){
         return view('user.aboutus.aboutus');
