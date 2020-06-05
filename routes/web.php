@@ -19,19 +19,22 @@ Route::get('/', 'Hostel\HostelController@index')->name('home');
 // Route::post('/create','Auth\RegisterController@create');
 Auth::routes();
 route::get('/aboutus','Hostel\HostelCOntroller@aboutUs');
+Route::get('/notification/{id}','Hostel\SearchController@notice')->middleware('auth');
+Route::get('/notification','Hostel\SearchController@noNotice')->middleware('guest');
 Route::group(['prefix'=>'/hostel'],function() {
 // Route::get('/', 'HomeController@index')->name('home');
 Route::get('/','Hostel\HostelController@hostel');
-Route::get('/booking','Hostel\HostelController@Booking');
+// Route::get('/booking','Hostel\HostelController@Booking');
 Route::post('/search','Hostel\SearchController@search');
 Route::get('/detail/{id}','Hostel\HostelController@details');
 Route::get('/test/{id}/{idd}','Hostel\HostelController@book');
-Route::get('/booking/details','Hostel\HostelController@gotoLogin');
+Route::get('/booking/details','Hostel\HostelController@gotoLogin')->middleware('guest');
 Route::post('/booking/{id}','Hostel\HostelController@roomBook')->middleware('auth');
 Route::get('/booking/details/{id}','Hostel\HostelController@bookingDetails')->middleware('auth');
 Route::get('/booking/edit/{id}','Hostel\HostelController@editBooking')->middleware('auth');
 Route::PATCH('/booking/edit/{id}','Hostel\HostelController@editBook')->middleware('auth');
 Route::post('/booking/cancel/{id}','Hostel\HostelController@cancelled')->middleware('auth');
+
 
 Route::post('/room/price/{id}/{idd}','Hostel\HostelController@roomPrice');
 // Route::get('/footer','Hostel\SearchController@search');

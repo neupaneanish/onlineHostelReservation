@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\model\User;
+use App\model\Notify;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Notifications\Notification;
 use App\Notifications\NotificationPortal;

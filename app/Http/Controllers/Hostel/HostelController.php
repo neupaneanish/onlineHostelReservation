@@ -10,6 +10,7 @@ use App\model\Hostelimage;
 use App\model\Booking;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use App\model\Notify;
 class HostelController extends Controller
 {
     public function index()
@@ -110,9 +111,9 @@ class HostelController extends Controller
             // return view('user.hostels.search',['hostels'=>$list,'all'=>$all,'city'=>$city]);
         return view('user.hostels.hostels',['hostels'=>$list,'all'=>$all]);
     }
-    public function booking(){
-        return view('user.booking.booking');
-    }
+    // public function booking(){
+    //     return view('user.booking.booking');
+    // }
     public function details($id){
         $hostel = Hostel::findorFail($id);
         $id = explode('::',$hostel->id);
@@ -179,6 +180,13 @@ class HostelController extends Controller
             'duration'=>$totalPeriod,
         ]);
         Room::where('id',$room_id)->update(['status'=>1]);
+            Notify::create([
+                'user_id'=>Auth::user()->id,
+                'title'=>"Hostel Booking",
+                'message'=>'You booked room.',
+                'name'=>Auth::user()->name,
+                'is_read'=>'0',
+            ]);
         return redirect('/hostel/detail/'.$id)->with('status','Hostel Room Booked');
     }
     public function bookingDetails($id){

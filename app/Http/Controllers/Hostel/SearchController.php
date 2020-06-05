@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\model\Hostel;
 use App\model\Room;
 use App\model\Hostelimage;
-use App\model\Booking;
+use App\model\notify;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -132,5 +132,13 @@ class SearchController extends Controller
         }
         return view('user.hostels.search',['hostels'=>$list,'all'=>$all,'city'=>$city]);
     } 
+    public function notice($id){
+        $notice = Notify::where('user_id',$id)->get();
+        Notify::where(['user_id'=>$id,'is_read'=>'0'])->update(['is_read'=>'1']);    
+        return view('user.notification.notification',['notice'=>$notice]);
+    }
+    public function noNotice(){
+        return view('user.notification.noNotification');
+    }
 
 }
